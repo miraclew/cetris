@@ -1,0 +1,503 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00C592DB194D9B0600976C6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C592DA194D9B0600976C6D /* Foundation.framework */; };
+		00C592DD194D9B0600976C6D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C592DC194D9B0600976C6D /* CoreGraphics.framework */; };
+		00C592DF194D9B0600976C6D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C592DE194D9B0600976C6D /* UIKit.framework */; };
+		00C592E1194D9B0600976C6D /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C592E0194D9B0600976C6D /* SpriteKit.framework */; };
+		00C592E7194D9B0600976C6D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00C592E5194D9B0600976C6D /* InfoPlist.strings */; };
+		00C592E9194D9B0600976C6D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C592E8194D9B0600976C6D /* main.m */; };
+		00C592ED194D9B0600976C6D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C592EC194D9B0600976C6D /* AppDelegate.m */; };
+		00C592F0194D9B0600976C6D /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00C592EE194D9B0600976C6D /* Main_iPhone.storyboard */; };
+		00C592F3194D9B0600976C6D /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00C592F1194D9B0600976C6D /* Main_iPad.storyboard */; };
+		00C592F6194D9B0600976C6D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C592F5194D9B0600976C6D /* ViewController.m */; };
+		00C592F9194D9B0600976C6D /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C592F8194D9B0600976C6D /* MyScene.m */; };
+		00C592FB194D9B0600976C6D /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 00C592FA194D9B0600976C6D /* Spaceship.png */; };
+		00C592FD194D9B0600976C6D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00C592FC194D9B0600976C6D /* Images.xcassets */; };
+		00C59304194D9B0600976C6D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C59303194D9B0600976C6D /* XCTest.framework */; };
+		00C59305194D9B0600976C6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C592DA194D9B0600976C6D /* Foundation.framework */; };
+		00C59306194D9B0600976C6D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C592DE194D9B0600976C6D /* UIKit.framework */; };
+		00C5930E194D9B0600976C6D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00C5930C194D9B0600976C6D /* InfoPlist.strings */; };
+		00C59310194D9B0600976C6D /* CetrisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C5930F194D9B0600976C6D /* CetrisTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		00C59307194D9B0600976C6D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00C592CF194D9B0600976C6D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 00C592D6194D9B0600976C6D;
+			remoteInfo = Cetris;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00C592D7194D9B0600976C6D /* Cetris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cetris.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		00C592DA194D9B0600976C6D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		00C592DC194D9B0600976C6D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		00C592DE194D9B0600976C6D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		00C592E0194D9B0600976C6D /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		00C592E4194D9B0600976C6D /* Cetris-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cetris-Info.plist"; sourceTree = "<group>"; };
+		00C592E6194D9B0600976C6D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		00C592E8194D9B0600976C6D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		00C592EA194D9B0600976C6D /* Cetris-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cetris-Prefix.pch"; sourceTree = "<group>"; };
+		00C592EB194D9B0600976C6D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		00C592EC194D9B0600976C6D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		00C592EF194D9B0600976C6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		00C592F2194D9B0600976C6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		00C592F4194D9B0600976C6D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		00C592F5194D9B0600976C6D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		00C592F7194D9B0600976C6D /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
+		00C592F8194D9B0600976C6D /* MyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
+		00C592FA194D9B0600976C6D /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
+		00C592FC194D9B0600976C6D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		00C59302194D9B0600976C6D /* CetrisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CetrisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00C59303194D9B0600976C6D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		00C5930B194D9B0600976C6D /* CetrisTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CetrisTests-Info.plist"; sourceTree = "<group>"; };
+		00C5930D194D9B0600976C6D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		00C5930F194D9B0600976C6D /* CetrisTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CetrisTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		00C592D4194D9B0600976C6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00C592DD194D9B0600976C6D /* CoreGraphics.framework in Frameworks */,
+				00C592DF194D9B0600976C6D /* UIKit.framework in Frameworks */,
+				00C592E1194D9B0600976C6D /* SpriteKit.framework in Frameworks */,
+				00C592DB194D9B0600976C6D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00C592FF194D9B0600976C6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00C59304194D9B0600976C6D /* XCTest.framework in Frameworks */,
+				00C59306194D9B0600976C6D /* UIKit.framework in Frameworks */,
+				00C59305194D9B0600976C6D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		00C592CE194D9B0600976C6D = {
+			isa = PBXGroup;
+			children = (
+				00C592E2194D9B0600976C6D /* Cetris */,
+				00C59309194D9B0600976C6D /* CetrisTests */,
+				00C592D9194D9B0600976C6D /* Frameworks */,
+				00C592D8194D9B0600976C6D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		00C592D8194D9B0600976C6D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				00C592D7194D9B0600976C6D /* Cetris.app */,
+				00C59302194D9B0600976C6D /* CetrisTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		00C592D9194D9B0600976C6D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				00C592DA194D9B0600976C6D /* Foundation.framework */,
+				00C592DC194D9B0600976C6D /* CoreGraphics.framework */,
+				00C592DE194D9B0600976C6D /* UIKit.framework */,
+				00C592E0194D9B0600976C6D /* SpriteKit.framework */,
+				00C59303194D9B0600976C6D /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		00C592E2194D9B0600976C6D /* Cetris */ = {
+			isa = PBXGroup;
+			children = (
+				00C592EB194D9B0600976C6D /* AppDelegate.h */,
+				00C592EC194D9B0600976C6D /* AppDelegate.m */,
+				00C592EE194D9B0600976C6D /* Main_iPhone.storyboard */,
+				00C592F1194D9B0600976C6D /* Main_iPad.storyboard */,
+				00C592F4194D9B0600976C6D /* ViewController.h */,
+				00C592F5194D9B0600976C6D /* ViewController.m */,
+				00C592F7194D9B0600976C6D /* MyScene.h */,
+				00C592F8194D9B0600976C6D /* MyScene.m */,
+				00C592FA194D9B0600976C6D /* Spaceship.png */,
+				00C592FC194D9B0600976C6D /* Images.xcassets */,
+				00C592E3194D9B0600976C6D /* Supporting Files */,
+			);
+			path = Cetris;
+			sourceTree = "<group>";
+		};
+		00C592E3194D9B0600976C6D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				00C592E4194D9B0600976C6D /* Cetris-Info.plist */,
+				00C592E5194D9B0600976C6D /* InfoPlist.strings */,
+				00C592E8194D9B0600976C6D /* main.m */,
+				00C592EA194D9B0600976C6D /* Cetris-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		00C59309194D9B0600976C6D /* CetrisTests */ = {
+			isa = PBXGroup;
+			children = (
+				00C5930F194D9B0600976C6D /* CetrisTests.m */,
+				00C5930A194D9B0600976C6D /* Supporting Files */,
+			);
+			path = CetrisTests;
+			sourceTree = "<group>";
+		};
+		00C5930A194D9B0600976C6D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				00C5930B194D9B0600976C6D /* CetrisTests-Info.plist */,
+				00C5930C194D9B0600976C6D /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		00C592D6194D9B0600976C6D /* Cetris */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00C59313194D9B0600976C6D /* Build configuration list for PBXNativeTarget "Cetris" */;
+			buildPhases = (
+				00C592D3194D9B0600976C6D /* Sources */,
+				00C592D4194D9B0600976C6D /* Frameworks */,
+				00C592D5194D9B0600976C6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cetris;
+			productName = Cetris;
+			productReference = 00C592D7194D9B0600976C6D /* Cetris.app */;
+			productType = "com.apple.product-type.application";
+		};
+		00C59301194D9B0600976C6D /* CetrisTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00C59316194D9B0600976C6D /* Build configuration list for PBXNativeTarget "CetrisTests" */;
+			buildPhases = (
+				00C592FE194D9B0600976C6D /* Sources */,
+				00C592FF194D9B0600976C6D /* Frameworks */,
+				00C59300194D9B0600976C6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00C59308194D9B0600976C6D /* PBXTargetDependency */,
+			);
+			name = CetrisTests;
+			productName = CetrisTests;
+			productReference = 00C59302194D9B0600976C6D /* CetrisTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		00C592CF194D9B0600976C6D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Wan Wei";
+				TargetAttributes = {
+					00C59301194D9B0600976C6D = {
+						TestTargetID = 00C592D6194D9B0600976C6D;
+					};
+				};
+			};
+			buildConfigurationList = 00C592D2194D9B0600976C6D /* Build configuration list for PBXProject "Cetris" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 00C592CE194D9B0600976C6D;
+			productRefGroup = 00C592D8194D9B0600976C6D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				00C592D6194D9B0600976C6D /* Cetris */,
+				00C59301194D9B0600976C6D /* CetrisTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		00C592D5194D9B0600976C6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00C592FB194D9B0600976C6D /* Spaceship.png in Resources */,
+				00C592FD194D9B0600976C6D /* Images.xcassets in Resources */,
+				00C592F3194D9B0600976C6D /* Main_iPad.storyboard in Resources */,
+				00C592F0194D9B0600976C6D /* Main_iPhone.storyboard in Resources */,
+				00C592E7194D9B0600976C6D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00C59300194D9B0600976C6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00C5930E194D9B0600976C6D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		00C592D3194D9B0600976C6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00C592F9194D9B0600976C6D /* MyScene.m in Sources */,
+				00C592F6194D9B0600976C6D /* ViewController.m in Sources */,
+				00C592ED194D9B0600976C6D /* AppDelegate.m in Sources */,
+				00C592E9194D9B0600976C6D /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00C592FE194D9B0600976C6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00C59310194D9B0600976C6D /* CetrisTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		00C59308194D9B0600976C6D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 00C592D6194D9B0600976C6D /* Cetris */;
+			targetProxy = 00C59307194D9B0600976C6D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		00C592E5194D9B0600976C6D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				00C592E6194D9B0600976C6D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		00C592EE194D9B0600976C6D /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				00C592EF194D9B0600976C6D /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		00C592F1194D9B0600976C6D /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				00C592F2194D9B0600976C6D /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		00C5930C194D9B0600976C6D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				00C5930D194D9B0600976C6D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		00C59311194D9B0600976C6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		00C59312194D9B0600976C6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		00C59314194D9B0600976C6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cetris/Cetris-Prefix.pch";
+				INFOPLIST_FILE = "Cetris/Cetris-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		00C59315194D9B0600976C6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cetris/Cetris-Prefix.pch";
+				INFOPLIST_FILE = "Cetris/Cetris-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		00C59317194D9B0600976C6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Cetris.app/Cetris";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cetris/Cetris-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CetrisTests/CetrisTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		00C59318194D9B0600976C6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Cetris.app/Cetris";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cetris/Cetris-Prefix.pch";
+				INFOPLIST_FILE = "CetrisTests/CetrisTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		00C592D2194D9B0600976C6D /* Build configuration list for PBXProject "Cetris" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00C59311194D9B0600976C6D /* Debug */,
+				00C59312194D9B0600976C6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00C59313194D9B0600976C6D /* Build configuration list for PBXNativeTarget "Cetris" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00C59314194D9B0600976C6D /* Debug */,
+				00C59315194D9B0600976C6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00C59316194D9B0600976C6D /* Build configuration list for PBXNativeTarget "CetrisTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00C59317194D9B0600976C6D /* Debug */,
+				00C59318194D9B0600976C6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 00C592CF194D9B0600976C6D /* Project object */;
+}
