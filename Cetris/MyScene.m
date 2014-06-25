@@ -12,6 +12,7 @@ static const uint32_t blockCategory = 0x1 << 2;
 
 @implementation MyScene {
     SKSpriteNode *box;
+    SKSpriteNode *boxB;
 }
 
 -(id)initWithSize:(CGSize)size {    
@@ -22,12 +23,17 @@ static const uint32_t blockCategory = 0x1 << 2;
         self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:bottomRect];
         
         box = [SKSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(30, 30)];
-        box.position = CGPointMake(CGRectGetMidX(self.frame),
-                                   CGRectGetMidY(self.frame));
+        box.position = CGPointMake(15, 100);
         [self addChild:box];
         
         // setup physics
         box.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(30, 30)];
+        
+        boxB = [SKSpriteNode spriteNodeWithColor:[UIColor greenColor] size:CGSizeMake(30, 30)];
+        boxB.position = CGPointMake(CGRectGetMidX(self.frame),
+                                   CGRectGetMidY(self.frame));
+        boxB.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(30, 30)];
+        [self addChild:boxB];
         
     }
     return self;
@@ -54,12 +60,11 @@ static const uint32_t blockCategory = 0x1 << 2;
         
         SKSpriteNode *bullet = [SKSpriteNode spriteNodeWithColor:[UIColor blackColor] size:CGSizeMake(10, 10)];
         bullet.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(10, 10)];
-        bullet.position = box.position;
+        bullet.position = CGPointMake(box.position.x + 15, box.position.y +15);
         [self addChild:bullet];
         
-        CGVector vector = CGVectorMake(1, 3);
+        CGVector vector = CGVectorMake(location.x/self.frame.size.width * 10, location.y/self.frame.size.height * 10);
         [bullet.physicsBody applyImpulse:vector];
-        
         
 //        CGVector vector = CGVectorMake(location.x - box.position.x > 0 ? 5 : -5, 20);
 //        [box.physicsBody applyImpulse:vector];
