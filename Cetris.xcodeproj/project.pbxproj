@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00686C76195CDBBC00674F1C /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 00686C74195CDBBC00674F1C /* spark.png */; };
+		00686C77195CDBBC00674F1C /* explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 00686C75195CDBBC00674F1C /* explosion.sks */; };
+		00686C79195CE0FF00674F1C /* missile.sks in Resources */ = {isa = PBXBuildFile; fileRef = 00686C78195CE0FF00674F1C /* missile.sks */; };
 		00C592DB194D9B0600976C6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C592DA194D9B0600976C6D /* Foundation.framework */; };
 		00C592DD194D9B0600976C6D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C592DC194D9B0600976C6D /* CoreGraphics.framework */; };
 		00C592DF194D9B0600976C6D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C592DE194D9B0600976C6D /* UIKit.framework */; };
@@ -38,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00686C74195CDBBC00674F1C /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		00686C75195CDBBC00674F1C /* explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = explosion.sks; sourceTree = "<group>"; };
+		00686C78195CE0FF00674F1C /* missile.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = missile.sks; sourceTree = "<group>"; };
 		00C592D7194D9B0600976C6D /* Cetris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cetris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00C592DA194D9B0600976C6D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		00C592DC194D9B0600976C6D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -123,6 +129,9 @@
 		00C592E2194D9B0600976C6D /* Cetris */ = {
 			isa = PBXGroup;
 			children = (
+				00686C78195CE0FF00674F1C /* missile.sks */,
+				00686C74195CDBBC00674F1C /* spark.png */,
+				00686C75195CDBBC00674F1C /* explosion.sks */,
 				00C592EB194D9B0600976C6D /* AppDelegate.h */,
 				00C592EC194D9B0600976C6D /* AppDelegate.m */,
 				00C592EE194D9B0600976C6D /* Main_iPhone.storyboard */,
@@ -243,9 +252,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00686C79195CE0FF00674F1C /* missile.sks in Resources */,
 				00C592FB194D9B0600976C6D /* Spaceship.png in Resources */,
+				00686C76195CDBBC00674F1C /* spark.png in Resources */,
 				00C592FD194D9B0600976C6D /* Images.xcassets in Resources */,
 				00C592F3194D9B0600976C6D /* Main_iPad.storyboard in Resources */,
+				00686C77195CDBBC00674F1C /* explosion.sks in Resources */,
 				00C592F0194D9B0600976C6D /* Main_iPhone.storyboard in Resources */,
 				00C592E7194D9B0600976C6D /* InfoPlist.strings in Resources */,
 			);
