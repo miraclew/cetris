@@ -142,13 +142,14 @@ typedef enum : NSUInteger {
     [self addChild:boxA];
     boxA.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:boxSize];
     boxA.physicsBody.categoryBitMask = boxCategory;
+    boxA.physicsBody.friction = 1.0f;
     
     boxB = [SKSpriteNode spriteNodeWithColor:[UIColor greenColor] size:boxSize];
     boxB.name = @"BoxB";
     boxB.position = CGPointMake(15 + self.size.width*3/4, self.size.height);
     boxB.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:boxSize];
     boxB.physicsBody.categoryBitMask = boxCategory;
-    boxB.userData = [NSMutableDictionary dictionary];
+    boxB.physicsBody.friction = 1.0f;
     [self addChild:boxB];
 }
 
@@ -249,6 +250,14 @@ typedef enum : NSUInteger {
     [self.view presentScene:scene transition:transition];
 }
 
+-(SKNode *)getPlayer{
+    if (turn == A) {
+        return boxA;
+    } else {
+        return boxB;
+    }
+}
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     CGPoint location = [[touches anyObject] locationInNode:self];
     SKNode *node = [self nodeAtPoint:[[touches anyObject] locationInNode:self]];
@@ -268,21 +277,87 @@ typedef enum : NSUInteger {
         return;
     }
     
-    [self fireMissile:location];
+//    [self fireMissile:location];
+}
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
+    CGPoint location = [[touches anyObject] locationInNode:self];
+    [self moveControl:location];
+
+}
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+    CGPoint location = [[touches anyObject] locationInNode:self];
+    [_draggedNode runAction:[SKAction moveTo:CGPointMake(60, 60) duration:0.5]];
+
+    if (_draggedNode != nil) {
+        [[self getPlayer] removeAllActions];
+        _draggedNode = nil;
+        
+        [_pointer setHidden:YES];
+        
+        if (_mode == LUANCH) {
+            [self fireMissile:location];
+        }
+        _mode = NONE;
+    }
+
+}
+
+-(void)moveControl:(CGPoint) location {
+    // Control dragged
+    if (_draggedNode != nil) {
+        
+        // determine control mode
+        int xOffset = location.x - _controlOrigin.x;
+        int yOffset = location.y - _controlOrigin.y;
+        
+        if (abs(xOffset) > abs(yOffset)) {
+            _mode = DIRECTION;
+        } else {
+            if (yOffset < _control.size.height/2) {
+                _mode = LUANCH;
+            }
+            
+        }
+        
+//        NSLog(@"xOffset=%d, yOffset=%d", xOffset, yOffset);
+//        NSLog(@"mode=%lu", _mode);
+        if (_mode == DIRECTION) {
+            if (abs(xOffset) < 30) {
+                _draggedNode.position = CGPointMake(location.x, _draggedNode.position.y);
+            }
+            
+            int xDelta = 100;
+            if (_draggedNode.position.x < _controlOrigin.x) {
+                xDelta = -100;
+            }
+            
+            [[self getPlayer] runAction:[SKAction moveByX:xDelta y:0 duration:50]];
+        }
+        
+        if (_mode == LUANCH) {
+            _pointer.position = location;
+            [_pointer setHidden:NO];
+        }
+        
+    }
 }
 
 -(void)fireMissile:(CGPoint) location{
     CGPoint position;
-    CGVector vector;
+    CGVector vector = CGVectorMake(-(location.x - _controlOrigin.x)/10, -(location.y - _controlOrigin.y)/10);
     if (turn == A) {
         position = CGPointMake(boxA.position.x, boxA.position.y +25);
-        vector = CGVectorMake(location.x/self.frame.size.width * 10, location.y/self.frame.size.height * 10);
+        //vector = CGVectorMake(location.x/self.frame.size.width * 10, location.y/self.frame.size.height * 10);
         turn = B;
     } else {
         position = CGPointMake(boxB.position.x, boxB.position.y +25);
-        vector = CGVectorMake(-location.x/self.frame.size.width * 10, location.y/self.frame.size.height * 10);
+        //vector = CGVectorMake(-location.x/self.frame.size.width * 10, location.y/self.frame.size.height * 10);
         turn = A;
     }
+    
+    NSLog(@"vector: %f, %f", vector.dx, vector.dy);
 
     SKSpriteNode *bullet = [SKSpriteNode spriteNodeWithColor:[SKColor grayColor] size:CGSizeMake(10, 10)];
     bullet.name = @"Bullet";

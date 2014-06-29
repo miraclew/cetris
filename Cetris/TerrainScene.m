@@ -37,8 +37,6 @@ typedef enum : NSUInteger {
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
-//        [self generateHills];
-//        [self addTerrian];
         _terrianNode = [[Terrain alloc] initWithSize:size];
         [self addChild:_terrianNode];
         _mode = NONE;
