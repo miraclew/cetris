@@ -8,6 +8,7 @@
 //
 
 #import "TestScene.h"
+#import "PhysicsHelper.h"
 
 @implementation TestScene
 
@@ -15,7 +16,8 @@
     if (self = [super initWithSize:size]) {
         SKShapeNode *node = [SKShapeNode node];
         node.position = CGPointMake(100, 100);
-        node.path = [self createMovingPath:node.position velocity:CGPointMake(20, 20) acceleration:CGPointMake(0, -10)];
+        //node.path = [self createMovingPath:node.position velocity:CGPointMake(20, 20) acceleration:CGPointMake(0, -10)];
+        node.path = [PhysicsHelper createMovingPath:node.position velocity:CGPointMake(20, 20) acceleration:CGPointMake(0, -10) steps:100 deltaTime:0.1];
         node.strokeColor = [UIColor redColor];
         [self addChild:node];
     }
@@ -23,22 +25,6 @@
     return self;
 }
 
--(CGMutablePathRef) createMovingPath:(CGPoint) position velocity:(CGPoint)velocity acceleration:(CGPoint) acceleration {
-    CGMutablePathRef pathRef = CGPathCreateMutable();
-    CGPathMoveToPoint(pathRef, NULL, position.x, position.y);
-    
-    //CGPathAddLineToPoint(pathRef, NULL, 100, 100);
-    float dt = 0.1;
-    // 10 steps, 1 second
-    for (int i=0; i<100; i++) {
-        position = skpAdd(position, skpMultiply(velocity, dt));
-        velocity = skpAdd(velocity, skpMultiply(acceleration, dt));
-        
-        CGPathAddLineToPoint(pathRef, NULL, position.x, position.y);
-    }
-
-    return pathRef;
-}
 
 
 

@@ -39,6 +39,7 @@
 		00C59310194D9B0600976C6D /* CetrisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C5930F194D9B0600976C6D /* CetrisTests.m */; };
 		00ED039C1961ADCD002B841E /* Catapult.m in Sources */ = {isa = PBXBuildFile; fileRef = 00ED039B1961ADCD002B841E /* Catapult.m */; };
 		00ED039F1961AE53002B841E /* Parabola.m in Sources */ = {isa = PBXBuildFile; fileRef = 00ED039E1961AE53002B841E /* Parabola.m */; };
+		C4C709EC19608A3300EA83EB /* PhysicsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C709EB19608A3300EA83EB /* PhysicsHelper.m */; };
 		C4E6308919606848005C0687 /* TestScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E6308819606848005C0687 /* TestScene.m */; };
 		C4E6309819606C7B005C0687 /* SKCNodeIsComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E6308C19606C7A005C0687 /* SKCNodeIsComponent.m */; };
 		C4E6309919606C7B005C0687 /* SKComponentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E6308F19606C7A005C0687 /* SKComponentManager.m */; };
@@ -102,6 +103,8 @@
 		00ED039B1961ADCD002B841E /* Catapult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Catapult.m; sourceTree = "<group>"; };
 		00ED039D1961AE53002B841E /* Parabola.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parabola.h; sourceTree = "<group>"; };
 		00ED039E1961AE53002B841E /* Parabola.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parabola.m; sourceTree = "<group>"; };
+		C4C709EA19608A3300EA83EB /* PhysicsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicsHelper.h; sourceTree = "<group>"; };
+		C4C709EB19608A3300EA83EB /* PhysicsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhysicsHelper.m; sourceTree = "<group>"; };
 		C4E6308719606848005C0687 /* TestScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestScene.h; sourceTree = "<group>"; };
 		C4E6308819606848005C0687 /* TestScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestScene.m; sourceTree = "<group>"; };
 		C4E6308B19606C7A005C0687 /* SKCNodeIsComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKCNodeIsComponent.h; sourceTree = "<group>"; };
@@ -231,6 +234,7 @@
 		00C592E2194D9B0600976C6D /* Cetris */ = {
 			isa = PBXGroup;
 			children = (
+				C4C709E9196089C400EA83EB /* Class */,
 				00AD8EC4196017880017C556 /* Scene */,
 				00AD8EC31960176E0017C556 /* Sprite */,
 				00AD8EC1196017110017C556 /* Sounds */,
@@ -275,6 +279,15 @@
 				00C5930C194D9B0600976C6D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C4C709E9196089C400EA83EB /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				C4C709EA19608A3300EA83EB /* PhysicsHelper.h */,
+				C4C709EB19608A3300EA83EB /* PhysicsHelper.m */,
+			);
+			name = Class;
 			sourceTree = "<group>";
 		};
 		C4E6308A19606C7A005C0687 /* SpriteKit-Components */ = {
@@ -409,6 +422,7 @@
 				00C592F9194D9B0600976C6D /* MyScene.m in Sources */,
 				C4E6309C19606C7B005C0687 /* SKHelper.m in Sources */,
 				C4E6309A19606C7B005C0687 /* SKComponentNode.m in Sources */,
+				C4C709EC19608A3300EA83EB /* PhysicsHelper.m in Sources */,
 				C4E6309919606C7B005C0687 /* SKComponentManager.m in Sources */,
 				00C592F6194D9B0600976C6D /* ViewController.m in Sources */,
 				00ED039F1961AE53002B841E /* Parabola.m in Sources */,
