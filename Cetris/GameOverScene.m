@@ -8,6 +8,7 @@
 
 #import "GameOverScene.h"
 #import "MyScene.h"
+#import "Terrain.h"
 
 @implementation GameOverScene
 
@@ -23,6 +24,9 @@
         startNode.text = @"开始";
         startNode.position = CGPointMake(size.width/2, size.height/2 - 80);
         [self addChild:startNode];
+
+//        Terrain *terrian = [Terrain node];
+//        [self addChild:terrian];
     }
     return self;
 }

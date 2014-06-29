@@ -16,6 +16,8 @@
 		008663F0195EBC010048D023 /* lose.wav in Resources */ = {isa = PBXBuildFile; fileRef = 008663EE195EBC010048D023 /* lose.wav */; };
 		008663F1195EBC010048D023 /* win.wav in Resources */ = {isa = PBXBuildFile; fileRef = 008663EF195EBC010048D023 /* win.wav */; };
 		008663F3195EBF020048D023 /* pushbtn.wav in Resources */ = {isa = PBXBuildFile; fileRef = 008663F2195EBF020048D023 /* pushbtn.wav */; };
+		008663F6195EC4F90048D023 /* Terrain.m in Sources */ = {isa = PBXBuildFile; fileRef = 008663F5195EC4F90048D023 /* Terrain.m */; };
+		008663FA195ED2030048D023 /* TerrainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 008663F9195ED2030048D023 /* TerrainScene.m */; };
 		00C592DB194D9B0600976C6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C592DA194D9B0600976C6D /* Foundation.framework */; };
 		00C592DD194D9B0600976C6D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C592DC194D9B0600976C6D /* CoreGraphics.framework */; };
 		00C592DF194D9B0600976C6D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C592DE194D9B0600976C6D /* UIKit.framework */; };
@@ -57,6 +59,10 @@
 		008663EE195EBC010048D023 /* lose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lose.wav; sourceTree = "<group>"; };
 		008663EF195EBC010048D023 /* win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = win.wav; sourceTree = "<group>"; };
 		008663F2195EBF020048D023 /* pushbtn.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pushbtn.wav; sourceTree = "<group>"; };
+		008663F4195EC4F90048D023 /* Terrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Terrain.h; sourceTree = "<group>"; };
+		008663F5195EC4F90048D023 /* Terrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Terrain.m; sourceTree = "<group>"; };
+		008663F8195ED2030048D023 /* TerrainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerrainScene.h; sourceTree = "<group>"; };
+		008663F9195ED2030048D023 /* TerrainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerrainScene.m; sourceTree = "<group>"; };
 		00C592D7194D9B0600976C6D /* Cetris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cetris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00C592DA194D9B0600976C6D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		00C592DC194D9B0600976C6D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -163,6 +169,10 @@
 				00C592E3194D9B0600976C6D /* Supporting Files */,
 				008663E7195EB0BF0048D023 /* GameOverScene.h */,
 				008663E8195EB0BF0048D023 /* GameOverScene.m */,
+				008663F4195EC4F90048D023 /* Terrain.h */,
+				008663F5195EC4F90048D023 /* Terrain.m */,
+				008663F8195ED2030048D023 /* TerrainScene.h */,
+				008663F9195ED2030048D023 /* TerrainScene.m */,
 			);
 			path = Cetris;
 			sourceTree = "<group>";
@@ -306,8 +316,10 @@
 				008663E9195EB0BF0048D023 /* GameOverScene.m in Sources */,
 				00C592F9194D9B0600976C6D /* MyScene.m in Sources */,
 				00C592F6194D9B0600976C6D /* ViewController.m in Sources */,
+				008663F6195EC4F90048D023 /* Terrain.m in Sources */,
 				00C592ED194D9B0600976C6D /* AppDelegate.m in Sources */,
 				00C592E9194D9B0600976C6D /* main.m in Sources */,
+				008663FA195ED2030048D023 /* TerrainScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
