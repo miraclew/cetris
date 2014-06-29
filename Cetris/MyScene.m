@@ -8,6 +8,7 @@
 #import "GameOverScene.h"
 #import "Terrain.h"
 #import "Car.h"
+#import "PhysicsHelper.h"
 
 #define NA_ENEMY_LABEL   @"enemy"
 #define NA_MISSILE_LABEL @"missile"
@@ -101,9 +102,9 @@ typedef enum : NSUInteger {
     turn = A;
     isGameOver = NO;
     winner = None;
-    fireSound = [SKAction playSoundFileNamed:@"box.wav" waitForCompletion:NO];
-    explosionSound = [SKAction playSoundFileNamed:@"nitro.wav" waitForCompletion:NO];
-    gameOverSound = [SKAction playSoundFileNamed:@"win.wav" waitForCompletion:NO];
+//    fireSound = [SKAction playSoundFileNamed:@"box.wav" waitForCompletion:NO];
+//    explosionSound = [SKAction playSoundFileNamed:@"nitro.wav" waitForCompletion:NO];
+//    gameOverSound = [SKAction playSoundFileNamed:@"win.wav" waitForCompletion:NO];
     self.backgroundColor = [SKColor grayColor];
 }
 
@@ -214,7 +215,7 @@ typedef enum : NSUInteger {
     backMenu.position = CGPointMake(self.size.width/2, self.size.height/2);
     [self addChild:backMenu];
     
-    [self runAction:gameOverSound];
+    //[self runAction:gameOverSound];
 }
 
 -(SKNode *)newMissileNode {
@@ -230,7 +231,7 @@ typedef enum : NSUInteger {
     explosion.targetNode         = self;
     explosion.numParticlesToEmit = explosionDuration * explosion.particleBirthRate;
     CFTimeInterval totalTime     = explosionDuration + explosion.particleLifetime+explosion.particleLifetimeRange/2;
-    [explosion runAction:[SKAction sequence:@[explosionSound, [SKAction waitForDuration:totalTime], [SKAction removeFromParent]]]];
+    [explosion runAction:[SKAction sequence:@[[SKAction waitForDuration:totalTime], [SKAction removeFromParent]]]];
     return explosion;
 }
 
@@ -284,16 +285,17 @@ typedef enum : NSUInteger {
         [_missileCurve removeFromParent];
     }
     
-    CGVector vector = CGVectorMake(_controlOrigin.x-location.x, _controlOrigin.y-location.y);
+    CGPoint velocity = skpMultiply(skpSubtract(_controlOrigin, location), 2);
+    if (turn == B) {
+        velocity.x = -velocity.x;
+        velocity.y = -velocity.y;
+    }
     _missileCurve = [SKShapeNode node];
-    CGMutablePathRef pathRef = CGPathCreateMutable();
-    CGPathMoveToPoint(pathRef, NULL, 0, 0);
-    CGPathAddLineToPoint(pathRef, NULL, vector.dx, vector.dy);
+    [[self getPlayer] addChild:_missileCurve];
+    _missileCurve.path = [PhysicsHelper createMovingPath:_missileCurve.position velocity:velocity acceleration:CGPointMake(0, -10) steps:100 deltaTime:0.1];
     [_missileCurve setStrokeColor:[UIColor redColor]];
-    _missileCurve.path = pathRef;
     
 //    [self addChild:_missileCurve];
-    [[self getPlayer] addChild:_missileCurve];
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -359,18 +361,17 @@ typedef enum : NSUInteger {
 
 -(void)fireMissile:(CGPoint) location{
     CGPoint position;
-    CGVector vector = CGVectorMake(-(location.x - _controlOrigin.x)/10, -(location.y - _controlOrigin.y)/10);
+    CGPoint velocity = skpMultiply(skpSubtract(_controlOrigin, location), 2*10);
     if (turn == A) {
         position = CGPointMake(boxA.position.x, boxA.position.y +25);
-        //vector = CGVectorMake(location.x/self.frame.size.width * 10, location.y/self.frame.size.height * 10);
         turn = B;
     } else {
         position = CGPointMake(boxB.position.x, boxB.position.y +25);
-        //vector = CGVectorMake(-location.x/self.frame.size.width * 10, location.y/self.frame.size.height * 10);
+        velocity.x = - velocity.x;
         turn = A;
     }
     
-    NSLog(@"vector: %f, %f", vector.dx, vector.dy);
+    //NSLog(@"velocity: %f, %f", velocity.dx, velocity.dy);
 
     SKSpriteNode *bullet = [SKSpriteNode spriteNodeWithColor:[SKColor grayColor] size:CGSizeMake(10, 10)];
     bullet.name = @"Bullet";
@@ -381,8 +382,9 @@ typedef enum : NSUInteger {
     bullet.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(10, 10)];
     bullet.physicsBody.categoryBitMask = bulletCategory;
     bullet.physicsBody.contactTestBitMask = bottomCategory | blockCategory | boxCategory;
-    [bullet runAction:fireSound];
-    [bullet.physicsBody applyImpulse:vector];
+//    [bullet runAction:fireSound];
+    //[bullet.physicsBody applyImpulse:velocity];
+    bullet.physicsBody.velocity = CGVectorMake(velocity.x, velocity.y);
 }
 
 -(void)update:(CFTimeInterval)currentTime {
