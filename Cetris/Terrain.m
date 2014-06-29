@@ -8,7 +8,7 @@
 
 #import "Terrain.h"
 
-#define kMaxHillKeyPoints 8
+#define kMaxHillKeyPoints 16
 #define kHillSegmentWidth 5
 #define kMaxHillVertices 4000
 #define kMaxBorderVertices 800
@@ -66,10 +66,10 @@
 
 - (void) generateHills {
     
-    float minDX = 160;
-    float minDY = 60;
-    int rangeDX = 80;
-    int rangeDY = 40;
+    float minDX = 60; // x 最小间隔
+    float minDY = 10;
+    int rangeDX = 40;
+    int rangeDY = 60;
     
     float x = -minDX;
     float y = _size.height/2;

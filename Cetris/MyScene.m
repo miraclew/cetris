@@ -6,6 +6,7 @@
 
 #import "MyScene.h"
 #import "GameOverScene.h"
+#import "Terrain.h"
 
 #define NA_ENEMY_LABEL   @"enemy"
 #define NA_MISSILE_LABEL @"missile"
@@ -22,6 +23,23 @@ typedef enum : NSUInteger {
     B,
 } Player;
 
+typedef enum : NSUInteger {
+    NONE,
+    DIRECTION,
+    LUANCH,
+} ControlMode;
+
+@interface MyScene() {
+    CGPoint _controlOrigin;
+    ControlMode _mode;
+    SKNode *_draggedNode;
+}
+
+@property SKSpriteNode *control;
+@property SKSpriteNode *pointer;
+
+@end
+
 @implementation MyScene {
     SKSpriteNode *boxA;
     SKSpriteNode *boxB;
@@ -35,67 +53,103 @@ typedef enum : NSUInteger {
     SKLabelNode *topCenterLabel;
     BOOL isGameOver;
     
+    // Sounds
     SKAction *fireSound;
     SKAction *explosionSound;
     SKAction *gameOverSound;
+    
+    // Terrain
+    Terrain *terrain;
 }
 
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
-        healthA = 100;
-        healthB = 100;
-        turn = A;
-        isGameOver = NO;
-        winner = None;
-        fireSound = [SKAction playSoundFileNamed:@"box.wav" waitForCompletion:NO];
-        explosionSound = [SKAction playSoundFileNamed:@"nitro.wav" waitForCompletion:NO];
-        gameOverSound = [SKAction playSoundFileNamed:@"win.wav" waitForCompletion:NO];
-        self.backgroundColor = [SKColor grayColor];
+        [self initBase];
         
-        CGRect bottomRect = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, 1);
-        self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:bottomRect];
-        self.physicsBody.categoryBitMask = bottomCategory;
-        self.name = @"Buttom";
+        terrain = [[Terrain alloc] initWithSize:size];
+        terrain.physicsBody.categoryBitMask = bottomCategory;
+        terrain.name = @"Buttom";
+        [self addChild:terrain];
         
-        boxA = [SKSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(30, 30)];
-        boxA.name = @"BoxA";
-        boxA.position = CGPointMake(15 + self.size.width/4, 15);
-        [self addChild:boxA];
-        boxA.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(30, 30)];
-        boxA.physicsBody.categoryBitMask = boxCategory;
-        boxA.userData = [NSMutableDictionary dictionary];
-        
-        boxB = [SKSpriteNode spriteNodeWithColor:[UIColor greenColor] size:CGSizeMake(30, 30)];
-        boxB.name = @"BoxB";
-        boxB.position = CGPointMake(15 + self.size.width*3/4, 15);
-        boxB.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(30, 30)];
-        boxB.physicsBody.categoryBitMask = boxCategory;
-        boxB.userData = [NSMutableDictionary dictionary];
-        [self addChild:boxB];
-        
+        [self addPlayers];
         self.physicsWorld.contactDelegate = self;
         
-        // HUD
-        hud = [SKNode node];
-        int padding = 20;
-        healthLabelA = [SKLabelNode labelNodeWithFontNamed:@"System"];
-        healthLabelA.fontColor = [SKColor whiteColor];
-        healthLabelA.fontSize = 20.0f;
-        healthLabelA.position = CGPointMake(padding + 20, self.size.height-padding);
-        [self addChild:healthLabelA];
-        healthLabelB = [SKLabelNode labelNodeWithFontNamed:@"System"];
-        healthLabelB.position = CGPointMake(self.size.width - padding - 20, self.size.height - padding);
-        healthLabelB.fontSize = 20.0f;
-        healthLabelB.fontColor = [SKColor whiteColor];
-        [self addChild:healthLabelB];
+        [self addHud];
         
-        topCenterLabel = [SKLabelNode labelNodeWithFontNamed:@"System"];
-        topCenterLabel.fontSize = 20.0f;
-        topCenterLabel.fontColor = [SKColor whiteColor];
-        topCenterLabel.position = CGPointMake(self.size.width/2, self.size.height -padding);
-        [self addChild:topCenterLabel];
+        [self addControl];
     }
     return self;
+}
+
+-(void)addControl{
+    _controlOrigin = CGPointMake(60, 60);
+    _control = [SKSpriteNode spriteNodeWithColor:[UIColor yellowColor] size:CGSizeMake(20, 20)];
+    _control.name = @"Control";
+    _control.position = _controlOrigin;
+    [self addChild:_control];
+    
+    _pointer = [SKSpriteNode spriteNodeWithColor:[UIColor purpleColor] size:CGSizeMake(10, 10)];
+    [_pointer setHidden:YES];
+    [self addChild:_pointer];
+}
+
+-(void)initBase{
+    healthA = 100;
+    healthB = 100;
+    turn = A;
+    isGameOver = NO;
+    winner = None;
+    fireSound = [SKAction playSoundFileNamed:@"box.wav" waitForCompletion:NO];
+    explosionSound = [SKAction playSoundFileNamed:@"nitro.wav" waitForCompletion:NO];
+    gameOverSound = [SKAction playSoundFileNamed:@"win.wav" waitForCompletion:NO];
+    self.backgroundColor = [SKColor grayColor];
+}
+
+-(void)addHud {
+    hud = [SKNode node];
+    int padding = 20;
+    healthLabelA = [SKLabelNode labelNodeWithFontNamed:@"System"];
+    healthLabelA.fontColor = [SKColor whiteColor];
+    healthLabelA.fontSize = 20.0f;
+    healthLabelA.position = CGPointMake(padding + 20, self.size.height-padding);
+    [self addChild:healthLabelA];
+    healthLabelB = [SKLabelNode labelNodeWithFontNamed:@"System"];
+    healthLabelB.position = CGPointMake(self.size.width - padding - 20, self.size.height - padding);
+    healthLabelB.fontSize = 20.0f;
+    healthLabelB.fontColor = [SKColor whiteColor];
+    [self addChild:healthLabelB];
+    
+    topCenterLabel = [SKLabelNode labelNodeWithFontNamed:@"System"];
+    topCenterLabel.fontSize = 20.0f;
+    topCenterLabel.fontColor = [SKColor whiteColor];
+    topCenterLabel.position = CGPointMake(self.size.width/2, self.size.height -padding);
+    [self addChild:topCenterLabel];
+    
+    SKLabelNode *backNode = [SKLabelNode labelNodeWithFontNamed:@"System"];
+    backNode.text = @"返回";
+    backNode.fontSize = 20.0f;
+    backNode.name = @"BackButton";
+    backNode.position = CGPointMake(self.size.width - 50, 20);
+    [self addChild:backNode];
+}
+
+-(void)addPlayers {
+    CGSize boxSize = CGSizeMake(20, 10);
+    
+    boxA = [SKSpriteNode spriteNodeWithColor:[UIColor redColor] size:boxSize];
+    boxA.name = @"BoxA";
+    boxA.position = CGPointMake(15 + self.size.width/4, self.size.height);
+    [self addChild:boxA];
+    boxA.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:boxSize];
+    boxA.physicsBody.categoryBitMask = boxCategory;
+    
+    boxB = [SKSpriteNode spriteNodeWithColor:[UIColor greenColor] size:boxSize];
+    boxB.name = @"BoxB";
+    boxB.position = CGPointMake(15 + self.size.width*3/4, self.size.height);
+    boxB.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:boxSize];
+    boxB.physicsBody.categoryBitMask = boxCategory;
+    boxB.userData = [NSMutableDictionary dictionary];
+    [self addChild:boxB];
 }
 
 -(void)didBeginContact:(SKPhysicsContact *)contact {
@@ -196,46 +250,51 @@ typedef enum : NSUInteger {
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    /* Called when a touch begins */
-    for (UITouch *touch in touches) {
-        CGPoint location = [touch locationInNode:self];
-
-        if (isGameOver) {
-            SKNode *node = [self nodeAtPoint:location];
-            if ([node.name isEqualToString:@"BackButton"]) {
-                SKAction *buttonClick = [SKAction playSoundFileNamed:@"pushbtn.wav" waitForCompletion:NO];
-                [self runAction:buttonClick];
-
-                [self goToMenu];
-            }
-            return;
-        }
-
-        CGPoint position;
-        CGVector vector;
-        if (turn == A) {
-            position = CGPointMake(boxA.position.x, boxA.position.y +25);
-            vector = CGVectorMake(location.x/self.frame.size.width * 10, location.y/self.frame.size.height * 10);
-            turn = B;
-        } else {
-            position = CGPointMake(boxB.position.x, boxB.position.y +25);
-            vector = CGVectorMake(-location.x/self.frame.size.width * 10, location.y/self.frame.size.height * 10);
-            turn = A;
-        }
-
-        SKSpriteNode *bullet = [SKSpriteNode spriteNodeWithColor:[SKColor grayColor] size:CGSizeMake(10, 10)];
-        bullet.name = @"Bullet";
-        bullet.position = position;
-        [bullet addChild:[self newMissileNode] ];
-        [self addChild:bullet];
-        
-        bullet.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(10, 10)];
-        bullet.physicsBody.categoryBitMask = bulletCategory;
-        bullet.physicsBody.contactTestBitMask = bottomCategory | blockCategory | boxCategory;
-        [bullet runAction:fireSound];
-        [bullet.physicsBody applyImpulse:vector];
+    CGPoint location = [[touches anyObject] locationInNode:self];
+    SKNode *node = [self nodeAtPoint:[[touches anyObject] locationInNode:self]];
+    
+    if ([node.name isEqualToString:@"Control"]) {
+        _draggedNode = node;
     }
 
+    if ([node.name isEqualToString:@"BackButton"]) {
+        SKAction *buttonClick = [SKAction playSoundFileNamed:@"pushbtn.wav" waitForCompletion:NO];
+        [self runAction:buttonClick];
+        
+        [self goToMenu];
+    }
+    
+    if (isGameOver) {
+        return;
+    }
+    
+    [self fireMissile:location];
+}
+
+-(void)fireMissile:(CGPoint) location{
+    CGPoint position;
+    CGVector vector;
+    if (turn == A) {
+        position = CGPointMake(boxA.position.x, boxA.position.y +25);
+        vector = CGVectorMake(location.x/self.frame.size.width * 10, location.y/self.frame.size.height * 10);
+        turn = B;
+    } else {
+        position = CGPointMake(boxB.position.x, boxB.position.y +25);
+        vector = CGVectorMake(-location.x/self.frame.size.width * 10, location.y/self.frame.size.height * 10);
+        turn = A;
+    }
+
+    SKSpriteNode *bullet = [SKSpriteNode spriteNodeWithColor:[SKColor grayColor] size:CGSizeMake(10, 10)];
+    bullet.name = @"Bullet";
+    bullet.position = position;
+    [bullet addChild:[self newMissileNode] ];
+    [self addChild:bullet];
+    
+    bullet.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(10, 10)];
+    bullet.physicsBody.categoryBitMask = bulletCategory;
+    bullet.physicsBody.contactTestBitMask = bottomCategory | blockCategory | boxCategory;
+    [bullet runAction:fireSound];
+    [bullet.physicsBody applyImpulse:vector];
 }
 
 -(void)update:(CFTimeInterval)currentTime {
@@ -256,6 +315,24 @@ typedef enum : NSUInteger {
             topCenterLabel.text = [NSString stringWithFormat:@"等待绿方发射"];
         }
     }
+}
+
+-(void)applyConstraints {
+    [self applyPlayerConstraints:boxA];
+    [self applyPlayerConstraints:boxB];
+}
+
+-(void)applyPlayerConstraints:(SKSpriteNode *) player {
+    if (player.position.x < 0) {
+        player.position = CGPointMake(0, player.position.y);
+    }
+    if (player.position.x > self.size.width) {
+        player.position = CGPointMake(self.size.width, player.position.y);
+    }
+}
+
+-(void)didSimulatePhysics {
+    [self applyConstraints];
 }
 
 @end
