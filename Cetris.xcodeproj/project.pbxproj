@@ -39,6 +39,12 @@
 		00C59310194D9B0600976C6D /* CetrisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C5930F194D9B0600976C6D /* CetrisTests.m */; };
 		00ED039C1961ADCD002B841E /* Catapult.m in Sources */ = {isa = PBXBuildFile; fileRef = 00ED039B1961ADCD002B841E /* Catapult.m */; };
 		00ED039F1961AE53002B841E /* Parabola.m in Sources */ = {isa = PBXBuildFile; fileRef = 00ED039E1961AE53002B841E /* Parabola.m */; };
+		C4E6308919606848005C0687 /* TestScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E6308819606848005C0687 /* TestScene.m */; };
+		C4E6309819606C7B005C0687 /* SKCNodeIsComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E6308C19606C7A005C0687 /* SKCNodeIsComponent.m */; };
+		C4E6309919606C7B005C0687 /* SKComponentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E6308F19606C7A005C0687 /* SKComponentManager.m */; };
+		C4E6309A19606C7B005C0687 /* SKComponentNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E6309119606C7A005C0687 /* SKComponentNode.m */; };
+		C4E6309B19606C7B005C0687 /* SKComponentScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E6309419606C7B005C0687 /* SKComponentScene.m */; };
+		C4E6309C19606C7B005C0687 /* SKHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E6309619606C7B005C0687 /* SKHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +102,21 @@
 		00ED039B1961ADCD002B841E /* Catapult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Catapult.m; sourceTree = "<group>"; };
 		00ED039D1961AE53002B841E /* Parabola.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parabola.h; sourceTree = "<group>"; };
 		00ED039E1961AE53002B841E /* Parabola.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parabola.m; sourceTree = "<group>"; };
+		C4E6308719606848005C0687 /* TestScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestScene.h; sourceTree = "<group>"; };
+		C4E6308819606848005C0687 /* TestScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestScene.m; sourceTree = "<group>"; };
+		C4E6308B19606C7A005C0687 /* SKCNodeIsComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKCNodeIsComponent.h; sourceTree = "<group>"; };
+		C4E6308C19606C7A005C0687 /* SKCNodeIsComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKCNodeIsComponent.m; sourceTree = "<group>"; };
+		C4E6308D19606C7A005C0687 /* SKComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKComponent.h; sourceTree = "<group>"; };
+		C4E6308E19606C7A005C0687 /* SKComponentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKComponentManager.h; sourceTree = "<group>"; };
+		C4E6308F19606C7A005C0687 /* SKComponentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKComponentManager.m; sourceTree = "<group>"; };
+		C4E6309019606C7A005C0687 /* SKComponentNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKComponentNode.h; sourceTree = "<group>"; };
+		C4E6309119606C7A005C0687 /* SKComponentNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKComponentNode.m; sourceTree = "<group>"; };
+		C4E6309219606C7A005C0687 /* SKComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKComponents.h; sourceTree = "<group>"; };
+		C4E6309319606C7B005C0687 /* SKComponentScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKComponentScene.h; sourceTree = "<group>"; };
+		C4E6309419606C7B005C0687 /* SKComponentScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKComponentScene.m; sourceTree = "<group>"; };
+		C4E6309519606C7B005C0687 /* SKHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKHelper.h; sourceTree = "<group>"; };
+		C4E6309619606C7B005C0687 /* SKHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKHelper.m; sourceTree = "<group>"; };
+		C4E6309719606C7B005C0687 /* SpriteKit-Components-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SpriteKit-Components-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +191,8 @@
 				008663E8195EB0BF0048D023 /* GameOverScene.m */,
 				008663F8195ED2030048D023 /* TerrainScene.h */,
 				008663F9195ED2030048D023 /* TerrainScene.m */,
+				C4E6308719606848005C0687 /* TestScene.h */,
+				C4E6308819606848005C0687 /* TestScene.m */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
@@ -227,6 +250,7 @@
 		00C592E3194D9B0600976C6D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C4E6308A19606C7A005C0687 /* SpriteKit-Components */,
 				00C592E4194D9B0600976C6D /* Cetris-Info.plist */,
 				00C592E5194D9B0600976C6D /* InfoPlist.strings */,
 				00C592E8194D9B0600976C6D /* main.m */,
@@ -251,6 +275,26 @@
 				00C5930C194D9B0600976C6D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C4E6308A19606C7A005C0687 /* SpriteKit-Components */ = {
+			isa = PBXGroup;
+			children = (
+				C4E6308B19606C7A005C0687 /* SKCNodeIsComponent.h */,
+				C4E6308C19606C7A005C0687 /* SKCNodeIsComponent.m */,
+				C4E6308D19606C7A005C0687 /* SKComponent.h */,
+				C4E6308E19606C7A005C0687 /* SKComponentManager.h */,
+				C4E6308F19606C7A005C0687 /* SKComponentManager.m */,
+				C4E6309019606C7A005C0687 /* SKComponentNode.h */,
+				C4E6309119606C7A005C0687 /* SKComponentNode.m */,
+				C4E6309219606C7A005C0687 /* SKComponents.h */,
+				C4E6309319606C7B005C0687 /* SKComponentScene.h */,
+				C4E6309419606C7B005C0687 /* SKComponentScene.m */,
+				C4E6309519606C7B005C0687 /* SKHelper.h */,
+				C4E6309619606C7B005C0687 /* SKHelper.m */,
+				C4E6309719606C7B005C0687 /* SpriteKit-Components-Prefix.pch */,
+			);
+			path = "SpriteKit-Components";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,10 +405,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				008663E9195EB0BF0048D023 /* GameOverScene.m in Sources */,
+				C4E6309819606C7B005C0687 /* SKCNodeIsComponent.m in Sources */,
 				00C592F9194D9B0600976C6D /* MyScene.m in Sources */,
+				C4E6309C19606C7B005C0687 /* SKHelper.m in Sources */,
+				C4E6309A19606C7B005C0687 /* SKComponentNode.m in Sources */,
+				C4E6309919606C7B005C0687 /* SKComponentManager.m in Sources */,
 				00C592F6194D9B0600976C6D /* ViewController.m in Sources */,
 				00ED039F1961AE53002B841E /* Parabola.m in Sources */,
+				C4E6308919606848005C0687 /* TestScene.m in Sources */,
 				008663F6195EC4F90048D023 /* Terrain.m in Sources */,
+				C4E6309B19606C7B005C0687 /* SKComponentScene.m in Sources */,
 				00C592ED194D9B0600976C6D /* AppDelegate.m in Sources */,
 				00C592E9194D9B0600976C6D /* main.m in Sources */,
 				00ED039C1961ADCD002B841E /* Catapult.m in Sources */,
