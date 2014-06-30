@@ -10,4 +10,13 @@
 
 @interface Car : SKSpriteNode
 
++(instancetype) carWithId:(int) carId;
+
++(instancetype) leftCarWithId:(int) carId;
++(instancetype) rightCarWithId:(int) carId;
+
+
+@property (nonatomic, assign) BOOL isLeft;
+@property (nonatomic, assign) int carId;
+
 @end

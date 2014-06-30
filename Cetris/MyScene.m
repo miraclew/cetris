@@ -7,6 +7,7 @@
 #import "MyScene.h"
 #import "GameOverScene.h"
 #import "Terrain.h"
+#import "Car.h"
 
 #define NA_ENEMY_LABEL   @"enemy"
 #define NA_MISSILE_LABEL @"missile"
@@ -134,22 +135,16 @@ typedef enum : NSUInteger {
 }
 
 -(void)addPlayers {
-    CGSize boxSize = CGSizeMake(20, 10);
-    
-    boxA = [SKSpriteNode spriteNodeWithColor:[UIColor redColor] size:boxSize];
+    boxA = [Car leftCarWithId:1];
     boxA.name = @"BoxA";
     boxA.position = CGPointMake(15 + self.size.width/4, self.size.height);
-    [self addChild:boxA];
-    boxA.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:boxSize];
     boxA.physicsBody.categoryBitMask = boxCategory;
-    boxA.physicsBody.friction = 1.0f;
+    [self addChild:boxA];
     
-    boxB = [SKSpriteNode spriteNodeWithColor:[UIColor greenColor] size:boxSize];
+    boxB = [Car rightCarWithId:2];
     boxB.name = @"BoxB";
     boxB.position = CGPointMake(15 + self.size.width*3/4, self.size.height);
-    boxB.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:boxSize];
     boxB.physicsBody.categoryBitMask = boxCategory;
-    boxB.physicsBody.friction = 1.0f;
     [self addChild:boxB];
 }
 
