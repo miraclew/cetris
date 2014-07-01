@@ -19,6 +19,7 @@
     Car *car = [Car spriteNodeWithColor:[UIColor redColor] size:size];
     car.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:size];
     car.physicsBody.friction = 1.0f;
+    car.physicsBody.usesPreciseCollisionDetection = YES;
     car.isSelected = NO;
     [car setUserInteractionEnabled:YES];
     return car;

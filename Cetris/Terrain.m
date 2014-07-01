@@ -62,6 +62,7 @@
     [self setStrokeColor:[UIColor redColor]];
     self.physicsBody = [SKPhysicsBody bodyWithEdgeChainFromPath:pathToDraw];
     self.physicsBody.friction = 1.0f;
+    self.physicsBody.usesPreciseCollisionDetection = YES;
 }
 
 - (void) generateHills {

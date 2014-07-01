@@ -88,7 +88,6 @@ typedef enum : NSUInteger {
             if (yOffset < _control.size.height/2) {
                 _mode = LUANCH;
             }
-
         }
         
         NSLog(@"xOffset=%d, yOffset=%d", xOffset, yOffset);
@@ -108,8 +107,8 @@ typedef enum : NSUInteger {
         if (_mode == LUANCH) {
             _pointer.position = location;
             [_pointer setHidden:NO];
+            
         }
-        
     }
     
 //    NSLog(@"touchesMoved");

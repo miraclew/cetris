@@ -38,6 +38,7 @@ typedef enum : NSUInteger {
 
 @property SKSpriteNode *control;
 @property SKSpriteNode *pointer;
+@property SKShapeNode *missileCurve;
 
 @end
 
@@ -278,7 +279,21 @@ typedef enum : NSUInteger {
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
     CGPoint location = [[touches anyObject] locationInNode:self];
     [self moveControl:location];
-
+    
+    if (_missileCurve != nil) {
+        [_missileCurve removeFromParent];
+    }
+    
+    CGVector vector = CGVectorMake(_controlOrigin.x-location.x, _controlOrigin.y-location.y);
+    _missileCurve = [SKShapeNode node];
+    CGMutablePathRef pathRef = CGPathCreateMutable();
+    CGPathMoveToPoint(pathRef, NULL, 0, 0);
+    CGPathAddLineToPoint(pathRef, NULL, vector.dx, vector.dy);
+    [_missileCurve setStrokeColor:[UIColor redColor]];
+    _missileCurve.path = pathRef;
+    
+//    [self addChild:_missileCurve];
+    [[self getPlayer] addChild:_missileCurve];
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -296,7 +311,10 @@ typedef enum : NSUInteger {
         }
         _mode = NONE;
     }
-
+    
+    if (_missileCurve != nil) {
+        [_missileCurve removeFromParent];
+    }
 }
 
 -(void)moveControl:(CGPoint) location {
