@@ -141,12 +141,14 @@ typedef enum : NSUInteger {
     boxA.name = @"BoxA";
     boxA.position = CGPointMake(15 + self.size.width/4, self.size.height);
     boxA.physicsBody.categoryBitMask = boxCategory;
+    boxA.physicsBody.restitution = 0.0;
     [self addChild:boxA];
     
     boxB = [Car rightCarWithId:2];
     boxB.name = @"BoxB";
     boxB.position = CGPointMake(15 + self.size.width*3/4, self.size.height);
     boxB.physicsBody.categoryBitMask = boxCategory;
+    boxB.physicsBody.restitution = 0.0;
     [self addChild:boxB];
 }
 
@@ -286,11 +288,12 @@ typedef enum : NSUInteger {
     }
     
     CGPoint velocity = skpMultiply(skpSubtract(_controlOrigin, location), 2);
-    if (turn == B) {
-        velocity.x = -velocity.x;
-        velocity.y = -velocity.y;
-    }
+//    if (turn == B) {
+//        velocity.x = -velocity.x;
+//        velocity.y = -velocity.y;
+//    }
     _missileCurve = [SKShapeNode node];
+    //_missileCurve.position = [self getPlayer].position;
     [[self getPlayer] addChild:_missileCurve];
     _missileCurve.path = [PhysicsHelper createMovingPath:_missileCurve.position velocity:velocity acceleration:CGPointMake(0, -10) steps:100 deltaTime:0.1];
     [_missileCurve setStrokeColor:[UIColor redColor]];
