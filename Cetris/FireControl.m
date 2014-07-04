@@ -15,8 +15,8 @@
 @property SKShapeNode *handle;
 @property SKShapeNode *arrow;
 @property SKShapeNode *arrowLine;
-@property (nonatomic, assign) FireBlock fireBlock;
-@property (nonatomic, assign) VectorChangeBlock vectorChangeBlock;
+@property (nonatomic, copy) FireBlock fireBlock;
+@property (nonatomic, copy) VectorChangeBlock vectorChangeBlock;
 @end
 
 @implementation FireControl

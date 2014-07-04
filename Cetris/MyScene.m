@@ -9,6 +9,7 @@
 #import "Terrain.h"
 #import "Car.h"
 #import "PhysicsHelper.h"
+#import "FireControl.h"
 
 #define NA_ENEMY_LABEL   @"enemy"
 #define NA_MISSILE_LABEL @"missile"
@@ -31,16 +32,21 @@ typedef enum : NSUInteger {
     LUANCH,
 } ControlMode;
 
+typedef enum : NSUInteger {
+    Single,
+    OffLine,
+    Online,
+} GameMode;
+
 @interface MyScene() {
     CGPoint _controlOrigin;
     ControlMode _mode;
     SKNode *_draggedNode;
 }
 
-@property SKSpriteNode *control;
-@property SKSpriteNode *pointer;
 @property SKShapeNode *missileCurve;
-
+@property FireControl *fcA;
+@property FireControl *fcB;
 @end
 
 @implementation MyScene {
@@ -86,14 +92,41 @@ typedef enum : NSUInteger {
 
 -(void)addControl{
     _controlOrigin = CGPointMake(60, 60);
-    _control = [SKSpriteNode spriteNodeWithColor:[UIColor yellowColor] size:CGSizeMake(20, 20)];
-    _control.name = @"Control";
-    _control.position = _controlOrigin;
-    [self addChild:_control];
+    _fcA = [FireControl controlWithRadius:80 FireBlock:^(id object) {
+         NSLog(@"fire block");
+        FireControl *fc = (FireControl *) object;
+        [self fireMissile:fc.controlVector];
+    } VectorChangeBlock:^(id object) {
+        
+    }];
+    _fcA.position = CGPointMake(60, 60);
+    [self addChild:_fcA];
     
-    _pointer = [SKSpriteNode spriteNodeWithColor:[UIColor purpleColor] size:CGSizeMake(10, 10)];
-    [_pointer setHidden:YES];
-    [self addChild:_pointer];
+    _fcB = [FireControl controlWithRadius:80 FireBlock:^(id object) {
+         NSLog(@"fire block");
+        [self fireMissile:_fcB.controlVector];
+    } VectorChangeBlock:^(id object) {
+        
+    }];
+    _fcB.controlVector = CGVectorMake(-0.5, 0.5);
+    _fcB.position = CGPointMake(self.size.width-60, 60);
+    [self addChild:_fcB];
+    
+}
+
+-(void) drawMissileCurve{
+    if (_missileCurve != nil) {
+        [_missileCurve removeFromParent];
+    }
+    
+    CGPoint location = [self getPlayer].position;
+    CGPoint velocity = skpMultiply(skpSubtract(_controlOrigin, location), 2);
+    _missileCurve = [SKShapeNode node];
+    [[self getPlayer] addChild:_missileCurve];
+    _missileCurve.path = [PhysicsHelper createMovingPath:_missileCurve.position velocity:velocity acceleration:CGPointMake(0, -10) steps:100 deltaTime:0.1];
+    [_missileCurve setStrokeColor:[UIColor redColor]];
+    
+    [self addChild:_missileCurve];
 }
 
 -(void)initBase{
@@ -132,7 +165,7 @@ typedef enum : NSUInteger {
     backNode.text = @"返回";
     backNode.fontSize = 20.0f;
     backNode.name = @"BackButton";
-    backNode.position = CGPointMake(self.size.width - 50, 20);
+    backNode.position = CGPointMake(self.size.width - 50, self.size.height - 20);
     [self addChild:backNode];
 }
 
@@ -282,23 +315,6 @@ typedef enum : NSUInteger {
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
     CGPoint location = [[touches anyObject] locationInNode:self];
     [self moveControl:location];
-    
-    if (_missileCurve != nil) {
-        [_missileCurve removeFromParent];
-    }
-    
-    CGPoint velocity = skpMultiply(skpSubtract(_controlOrigin, location), 2);
-//    if (turn == B) {
-//        velocity.x = -velocity.x;
-//        velocity.y = -velocity.y;
-//    }
-    _missileCurve = [SKShapeNode node];
-    //_missileCurve.position = [self getPlayer].position;
-    [[self getPlayer] addChild:_missileCurve];
-    _missileCurve.path = [PhysicsHelper createMovingPath:_missileCurve.position velocity:velocity acceleration:CGPointMake(0, -10) steps:100 deltaTime:0.1];
-    [_missileCurve setStrokeColor:[UIColor redColor]];
-    
-//    [self addChild:_missileCurve];
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -309,11 +325,6 @@ typedef enum : NSUInteger {
         [[self getPlayer] removeAllActions];
         _draggedNode = nil;
         
-        [_pointer setHidden:YES];
-        
-        if (_mode == LUANCH) {
-            [self fireMissile:location];
-        }
         _mode = NONE;
     }
     
@@ -333,9 +344,7 @@ typedef enum : NSUInteger {
         if (abs(xOffset) > abs(yOffset)) {
             _mode = DIRECTION;
         } else {
-            if (yOffset < _control.size.height/2) {
-                _mode = LUANCH;
-            }
+            
             
         }
         
@@ -355,27 +364,21 @@ typedef enum : NSUInteger {
         }
         
         if (_mode == LUANCH) {
-            _pointer.position = location;
-            [_pointer setHidden:NO];
         }
         
     }
 }
 
--(void)fireMissile:(CGPoint) location{
+-(void)fireMissile:(CGVector) velocity{
     CGPoint position;
-    CGPoint velocity = skpMultiply(skpSubtract(_controlOrigin, location), 2*10);
     if (turn == A) {
         position = CGPointMake(boxA.position.x, boxA.position.y +25);
         turn = B;
     } else {
         position = CGPointMake(boxB.position.x, boxB.position.y +25);
-        velocity.x = - velocity.x;
         turn = A;
     }
     
-    //NSLog(@"velocity: %f, %f", velocity.dx, velocity.dy);
-
     SKSpriteNode *bullet = [SKSpriteNode spriteNodeWithColor:[SKColor grayColor] size:CGSizeMake(10, 10)];
     bullet.name = @"Bullet";
     bullet.position = position;
@@ -386,8 +389,7 @@ typedef enum : NSUInteger {
     bullet.physicsBody.categoryBitMask = bulletCategory;
     bullet.physicsBody.contactTestBitMask = bottomCategory | blockCategory | boxCategory;
 //    [bullet runAction:fireSound];
-    //[bullet.physicsBody applyImpulse:velocity];
-    bullet.physicsBody.velocity = CGVectorMake(velocity.x, velocity.y);
+    bullet.physicsBody.velocity = velocity;
 }
 
 -(void)update:(CFTimeInterval)currentTime {
