@@ -9,17 +9,22 @@
 
 #import "TestScene.h"
 #import "PhysicsHelper.h"
+#import "FireControl.h"
 
 @implementation TestScene
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
-        SKShapeNode *node = [SKShapeNode node];
-        node.position = CGPointMake(100, 100);
-        //node.path = [self createMovingPath:node.position velocity:CGPointMake(20, 20) acceleration:CGPointMake(0, -10)];
-        node.path = [PhysicsHelper createMovingPath:node.position velocity:CGPointMake(20, 20) acceleration:CGPointMake(0, -10) steps:100 deltaTime:0.1];
-        node.strokeColor = [UIColor redColor];
-        [self addChild:node];
+        self.backgroundColor = [UIColor grayColor];
+        FireControl *fc = [FireControl controlWithRadius:200 FireBlock:^(id object) {
+            NSLog(@"fire block");
+        } VectorChangeBlock:^(id object) {
+            FireControl *fc = (FireControl *)object;
+            NSLog(@"vector change block: %f/%f", fc.controlVector.dx, fc.controlVector.dy);
+        }];
+        fc.position = CGPointMake(size.width/2, size.height/2);
+        [self addChild:fc];
+        [fc setControlVector:CGVectorMake(-0.5, -0.5)];
     }
     
     return self;

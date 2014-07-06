@@ -37,8 +37,7 @@
 		00C59306194D9B0600976C6D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C592DE194D9B0600976C6D /* UIKit.framework */; };
 		00C5930E194D9B0600976C6D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00C5930C194D9B0600976C6D /* InfoPlist.strings */; };
 		00C59310194D9B0600976C6D /* CetrisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C5930F194D9B0600976C6D /* CetrisTests.m */; };
-		00ED039C1961ADCD002B841E /* Catapult.m in Sources */ = {isa = PBXBuildFile; fileRef = 00ED039B1961ADCD002B841E /* Catapult.m */; };
-		00ED039F1961AE53002B841E /* Parabola.m in Sources */ = {isa = PBXBuildFile; fileRef = 00ED039E1961AE53002B841E /* Parabola.m */; };
+		00ED03A21967B79F002B841E /* FireControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 00ED03A11967B79F002B841E /* FireControl.m */; };
 		C4C709EC19608A3300EA83EB /* PhysicsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C709EB19608A3300EA83EB /* PhysicsHelper.m */; };
 		C4E6308919606848005C0687 /* TestScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E6308819606848005C0687 /* TestScene.m */; };
 		C4E6309819606C7B005C0687 /* SKCNodeIsComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E6308C19606C7A005C0687 /* SKCNodeIsComponent.m */; };
@@ -99,10 +98,8 @@
 		00C5930B194D9B0600976C6D /* CetrisTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CetrisTests-Info.plist"; sourceTree = "<group>"; };
 		00C5930D194D9B0600976C6D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		00C5930F194D9B0600976C6D /* CetrisTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CetrisTests.m; sourceTree = "<group>"; };
-		00ED039A1961ADCD002B841E /* Catapult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Catapult.h; sourceTree = "<group>"; };
-		00ED039B1961ADCD002B841E /* Catapult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Catapult.m; sourceTree = "<group>"; };
-		00ED039D1961AE53002B841E /* Parabola.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parabola.h; sourceTree = "<group>"; };
-		00ED039E1961AE53002B841E /* Parabola.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parabola.m; sourceTree = "<group>"; };
+		00ED03A01967B79F002B841E /* FireControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FireControl.h; sourceTree = "<group>"; };
+		00ED03A11967B79F002B841E /* FireControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FireControl.m; sourceTree = "<group>"; };
 		C4C709EA19608A3300EA83EB /* PhysicsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicsHelper.h; sourceTree = "<group>"; };
 		C4C709EB19608A3300EA83EB /* PhysicsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhysicsHelper.m; sourceTree = "<group>"; };
 		C4E6308719606848005C0687 /* TestScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestScene.h; sourceTree = "<group>"; };
@@ -177,10 +174,8 @@
 				008663F5195EC4F90048D023 /* Terrain.m */,
 				00AD8EC519601D9E0017C556 /* Car.h */,
 				00AD8EC619601D9E0017C556 /* Car.m */,
-				00ED039A1961ADCD002B841E /* Catapult.h */,
-				00ED039B1961ADCD002B841E /* Catapult.m */,
-				00ED039D1961AE53002B841E /* Parabola.h */,
-				00ED039E1961AE53002B841E /* Parabola.m */,
+				00ED03A01967B79F002B841E /* FireControl.h */,
+				00ED03A11967B79F002B841E /* FireControl.m */,
 			);
 			name = Sprite;
 			sourceTree = "<group>";
@@ -425,15 +420,14 @@
 				C4C709EC19608A3300EA83EB /* PhysicsHelper.m in Sources */,
 				C4E6309919606C7B005C0687 /* SKComponentManager.m in Sources */,
 				00C592F6194D9B0600976C6D /* ViewController.m in Sources */,
-				00ED039F1961AE53002B841E /* Parabola.m in Sources */,
 				C4E6308919606848005C0687 /* TestScene.m in Sources */,
 				008663F6195EC4F90048D023 /* Terrain.m in Sources */,
 				C4E6309B19606C7B005C0687 /* SKComponentScene.m in Sources */,
 				00C592ED194D9B0600976C6D /* AppDelegate.m in Sources */,
 				00C592E9194D9B0600976C6D /* main.m in Sources */,
-				00ED039C1961ADCD002B841E /* Catapult.m in Sources */,
 				00AD8EC719601D9E0017C556 /* Car.m in Sources */,
 				008663FA195ED2030048D023 /* TerrainScene.m in Sources */,
+				00ED03A21967B79F002B841E /* FireControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

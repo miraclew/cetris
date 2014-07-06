@@ -343,7 +343,7 @@ typedef enum : NSUInteger {
 //        NSLog(@"mode=%lu", _mode);
         if (_mode == DIRECTION) {
             if (abs(xOffset) < 30) {
-                _draggedNode.position = CGPointMake(location.x, _draggedNode.position.y);
+                //_draggedNode.position = CGPointMake(location.x, _draggedNode.position.y);
             }
             
             int xDelta = 100;
@@ -351,7 +351,7 @@ typedef enum : NSUInteger {
                 xDelta = -100;
             }
             
-            [[self getPlayer] runAction:[SKAction moveByX:xDelta y:0 duration:50]];
+            //[[self getPlayer] runAction:[SKAction moveByX:xDelta y:0 duration:50]];
         }
         
         if (_mode == LUANCH) {
