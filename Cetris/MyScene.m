@@ -95,7 +95,8 @@ typedef enum : NSUInteger {
     _fcA = [FireControl controlWithRadius:80 FireBlock:^(id object) {
          NSLog(@"fire block");
         FireControl *fc = (FireControl *) object;
-        [self fireMissile:fc.controlVector];
+        CGPoint position = CGPointMake(boxA.position.x, boxA.position.y +15);
+        [self fireMissile:position Velocity:fc.controlVector];
     } VectorChangeBlock:^(id object) {
         
     }];
@@ -104,7 +105,8 @@ typedef enum : NSUInteger {
     
     _fcB = [FireControl controlWithRadius:80 FireBlock:^(id object) {
          NSLog(@"fire block");
-        [self fireMissile:_fcB.controlVector];
+        CGPoint position = CGPointMake(boxB.position.x, boxB.position.y +15);
+        [self fireMissile:position Velocity:_fcB.controlVector];
     } VectorChangeBlock:^(id object) {
         
     }];
@@ -150,7 +152,7 @@ typedef enum : NSUInteger {
     healthLabelA.position = CGPointMake(padding + 20, self.size.height-padding);
     [self addChild:healthLabelA];
     healthLabelB = [SKLabelNode labelNodeWithFontNamed:@"System"];
-    healthLabelB.position = CGPointMake(self.size.width - padding - 20, self.size.height - padding);
+    healthLabelB.position = CGPointMake(self.size.width - padding - 100, self.size.height - padding);
     healthLabelB.fontSize = 20.0f;
     healthLabelB.fontColor = [SKColor whiteColor];
     [self addChild:healthLabelB];
@@ -369,15 +371,8 @@ typedef enum : NSUInteger {
     }
 }
 
--(void)fireMissile:(CGVector) velocity{
-    CGPoint position;
-    if (turn == A) {
-        position = CGPointMake(boxA.position.x, boxA.position.y +25);
-        turn = B;
-    } else {
-        position = CGPointMake(boxB.position.x, boxB.position.y +25);
-        turn = A;
-    }
+-(void)fireMissile:(CGPoint) position Velocity:(CGVector) velocity{
+    NSLog(@"velocity: %f/%f", velocity.dx, velocity.dy);
     
     SKSpriteNode *bullet = [SKSpriteNode spriteNodeWithColor:[SKColor grayColor] size:CGSizeMake(10, 10)];
     bullet.name = @"Bullet";
@@ -389,7 +384,8 @@ typedef enum : NSUInteger {
     bullet.physicsBody.categoryBitMask = bulletCategory;
     bullet.physicsBody.contactTestBitMask = bottomCategory | blockCategory | boxCategory;
 //    [bullet runAction:fireSound];
-    bullet.physicsBody.velocity = velocity;
+    CGFloat factor = 1000;
+    bullet.physicsBody.velocity = CGVectorMake(velocity.dx * factor, velocity.dy * factor);
 }
 
 -(void)update:(CFTimeInterval)currentTime {

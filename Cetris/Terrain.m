@@ -57,7 +57,7 @@
         }
         
     }
-    
+//    CGPathCloseSubpath(pathToDraw);
     self.path = pathToDraw;
     [self setStrokeColor:[UIColor redColor]];
     self.physicsBody = [SKPhysicsBody bodyWithEdgeChainFromPath:pathToDraw];

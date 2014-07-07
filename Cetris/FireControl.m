@@ -152,6 +152,8 @@
     if ([node.name isEqualToString:@"Handle"]) {
         node.position = location;
         [self drawArrow];
+        
+        _controlVector = CGVectorMake(-_handle.position.x/_radius, -_handle.position.y/_radius);
         if (_vectorChangeBlock) {
             _vectorChangeBlock(self);
         }
