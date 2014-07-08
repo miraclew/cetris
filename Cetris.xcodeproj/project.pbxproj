@@ -49,6 +49,8 @@
 		C46BAF1D196C767100320D79 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C46BAF10196C767100320D79 /* AFURLSessionManager.m */; };
 		C46BAF1E196C767100320D79 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = C46BAF14196C767100320D79 /* SRWebSocket.m */; };
 		C46BAF20196C773900320D79 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C46BAF1F196C773900320D79 /* libicucore.dylib */; };
+		C46BAF42196C79AE00320D79 /* CredentialStore.m in Sources */ = {isa = PBXBuildFile; fileRef = C46BAF22196C79AE00320D79 /* CredentialStore.m */; };
+		C46BAF4F196C79AE00320D79 /* PushClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C46BAF41196C79AE00320D79 /* PushClient.m */; };
 		C4C709EC19608A3300EA83EB /* PhysicsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C709EB19608A3300EA83EB /* PhysicsHelper.m */; };
 		C4E6308919606848005C0687 /* TestScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E6308819606848005C0687 /* TestScene.m */; };
 		C4E6309819606C7B005C0687 /* SKCNodeIsComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E6308C19606C7A005C0687 /* SKCNodeIsComponent.m */; };
@@ -134,6 +136,10 @@
 		C46BAF13196C767100320D79 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
 		C46BAF14196C767100320D79 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
 		C46BAF1F196C773900320D79 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		C46BAF21196C79AE00320D79 /* CredentialStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CredentialStore.h; sourceTree = "<group>"; };
+		C46BAF22196C79AE00320D79 /* CredentialStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialStore.m; sourceTree = "<group>"; };
+		C46BAF40196C79AE00320D79 /* PushClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushClient.h; sourceTree = "<group>"; };
+		C46BAF41196C79AE00320D79 /* PushClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushClient.m; sourceTree = "<group>"; };
 		C4C709EA19608A3300EA83EB /* PhysicsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicsHelper.h; sourceTree = "<group>"; };
 		C4C709EB19608A3300EA83EB /* PhysicsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhysicsHelper.m; sourceTree = "<group>"; };
 		C4E6308719606848005C0687 /* TestScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestScene.h; sourceTree = "<group>"; };
@@ -361,6 +367,10 @@
 		C4C709E9196089C400EA83EB /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				C46BAF21196C79AE00320D79 /* CredentialStore.h */,
+				C46BAF22196C79AE00320D79 /* CredentialStore.m */,
+				C46BAF40196C79AE00320D79 /* PushClient.h */,
+				C46BAF41196C79AE00320D79 /* PushClient.m */,
 				C4C709EA19608A3300EA83EB /* PhysicsHelper.h */,
 				C4C709EB19608A3300EA83EB /* PhysicsHelper.m */,
 			);
@@ -510,6 +520,8 @@
 				C46BAF16196C767100320D79 /* AFHTTPRequestOperationManager.m in Sources */,
 				C4E6308919606848005C0687 /* TestScene.m in Sources */,
 				008663F6195EC4F90048D023 /* Terrain.m in Sources */,
+				C46BAF4F196C79AE00320D79 /* PushClient.m in Sources */,
+				C46BAF42196C79AE00320D79 /* CredentialStore.m in Sources */,
 				C4E6309B19606C7B005C0687 /* SKComponentScene.m in Sources */,
 				00C592ED194D9B0600976C6D /* AppDelegate.m in Sources */,
 				00C592E9194D9B0600976C6D /* main.m in Sources */,
