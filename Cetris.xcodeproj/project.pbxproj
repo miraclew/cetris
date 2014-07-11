@@ -10,7 +10,6 @@
 		0066A14C1975676B0047715D /* Documentation.html in Resources */ = {isa = PBXBuildFile; fileRef = 0066A1471975676B0047715D /* Documentation.html */; };
 		0066A14D1975676B0047715D /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 0066A1491975676B0047715D /* GCDAsyncSocket.m */; };
 		0066A14E1975676B0047715D /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 0066A14B1975676B0047715D /* GCDAsyncUdpSocket.m */; };
-		0066A151197569360047715D /* PDSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0066A150197569360047715D /* PDSocketManager.m */; };
 		00686C76195CDBBC00674F1C /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 00686C74195CDBBC00674F1C /* spark.png */; };
 		00686C77195CDBBC00674F1C /* explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 00686C75195CDBBC00674F1C /* explosion.sks */; };
 		00686C79195CE0FF00674F1C /* missile.sks in Resources */ = {isa = PBXBuildFile; fileRef = 00686C78195CE0FF00674F1C /* missile.sks */; };
@@ -53,6 +52,10 @@
 		C46BAF1D196C767100320D79 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C46BAF10196C767100320D79 /* AFURLSessionManager.m */; };
 		C46BAF1E196C767100320D79 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = C46BAF14196C767100320D79 /* SRWebSocket.m */; };
 		C46BAF20196C773900320D79 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C46BAF1F196C773900320D79 /* libicucore.dylib */; };
+		C46BAF55197011C000320D79 /* person.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = C46BAF51197011C000320D79 /* person.pb.cc */; };
+		C46BAF56197011C000320D79 /* test.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = C46BAF53197011C000320D79 /* test.pb.cc */; };
+		C46BAF591970139E00320D79 /* Client.mm in Sources */ = {isa = PBXBuildFile; fileRef = C46BAF581970139E00320D79 /* Client.mm */; };
+		C46BAF5D19701B8100320D79 /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C46BAF5C19701B8100320D79 /* libprotobuf.a */; };
 		C4C709EC19608A3300EA83EB /* PhysicsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C709EB19608A3300EA83EB /* PhysicsHelper.m */; };
 		C4E6308919606848005C0687 /* TestScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E6308819606848005C0687 /* TestScene.m */; };
 		C4E6309819606C7B005C0687 /* SKCNodeIsComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E6308C19606C7A005C0687 /* SKCNodeIsComponent.m */; };
@@ -78,8 +81,6 @@
 		0066A1491975676B0047715D /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 		0066A14A1975676B0047715D /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
 		0066A14B1975676B0047715D /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
-		0066A14F197569360047715D /* PDSocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDSocketManager.h; sourceTree = "<group>"; };
-		0066A150197569360047715D /* PDSocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDSocketManager.m; sourceTree = "<group>"; };
 		00686C74195CDBBC00674F1C /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		00686C75195CDBBC00674F1C /* explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = explosion.sks; sourceTree = "<group>"; };
 		00686C78195CE0FF00674F1C /* missile.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = missile.sks; sourceTree = "<group>"; };
@@ -145,6 +146,14 @@
 		C46BAF13196C767100320D79 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
 		C46BAF14196C767100320D79 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
 		C46BAF1F196C773900320D79 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		C46BAF51197011C000320D79 /* person.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = person.pb.cc; sourceTree = "<group>"; };
+		C46BAF52197011C000320D79 /* person.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = person.pb.h; sourceTree = "<group>"; };
+		C46BAF53197011C000320D79 /* test.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test.pb.cc; sourceTree = "<group>"; };
+		C46BAF54197011C000320D79 /* test.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test.pb.h; sourceTree = "<group>"; };
+		C46BAF571970139E00320D79 /* Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Client.h; sourceTree = "<group>"; };
+		C46BAF581970139E00320D79 /* Client.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Client.mm; sourceTree = "<group>"; };
+		C46BAF5A1970157600320D79 /* libprotobuf.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libprotobuf.dylib; path = usr/lib/libprotobuf.dylib; sourceTree = SDKROOT; };
+		C46BAF5C19701B8100320D79 /* libprotobuf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libprotobuf.a; sourceTree = "<group>"; };
 		C4C709EA19608A3300EA83EB /* PhysicsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicsHelper.h; sourceTree = "<group>"; };
 		C4C709EB19608A3300EA83EB /* PhysicsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhysicsHelper.m; sourceTree = "<group>"; };
 		C4E6308719606848005C0687 /* TestScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestScene.h; sourceTree = "<group>"; };
@@ -170,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C46BAF20196C773900320D79 /* libicucore.dylib in Frameworks */,
+				C46BAF5D19701B8100320D79 /* libprotobuf.a in Frameworks */,
 				00C592DD194D9B0600976C6D /* CoreGraphics.framework in Frameworks */,
 				00C592DF194D9B0600976C6D /* UIKit.framework in Frameworks */,
 				00C592E1194D9B0600976C6D /* SpriteKit.framework in Frameworks */,
@@ -275,6 +285,7 @@
 		00C592D9194D9B0600976C6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C46BAF5A1970157600320D79 /* libprotobuf.dylib */,
 				C46BAF1F196C773900320D79 /* libicucore.dylib */,
 				00C592DA194D9B0600976C6D /* Foundation.framework */,
 				00C592DC194D9B0600976C6D /* CoreGraphics.framework */,
@@ -339,6 +350,7 @@
 		C46BAEFC196C767100320D79 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				C46BAF5C19701B8100320D79 /* libprotobuf.a */,
 				0066A1461975676B0047715D /* CocoaAsyncSocket */,
 				C46BAEFD196C767100320D79 /* AFNetworking */,
 				C46BAF11196C767100320D79 /* SocketRocket */,
@@ -382,13 +394,25 @@
 			path = SocketRocket;
 			sourceTree = "<group>";
 		};
+		C46BAF50197011C000320D79 /* pb */ = {
+			isa = PBXGroup;
+			children = (
+				C46BAF51197011C000320D79 /* person.pb.cc */,
+				C46BAF52197011C000320D79 /* person.pb.h */,
+				C46BAF53197011C000320D79 /* test.pb.cc */,
+				C46BAF54197011C000320D79 /* test.pb.h */,
+			);
+			path = pb;
+			sourceTree = "<group>";
+		};
 		C4C709E9196089C400EA83EB /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				C46BAF50197011C000320D79 /* pb */,
 				C4C709EA19608A3300EA83EB /* PhysicsHelper.h */,
 				C4C709EB19608A3300EA83EB /* PhysicsHelper.m */,
-				0066A14F197569360047715D /* PDSocketManager.h */,
-				0066A150197569360047715D /* PDSocketManager.m */,
+				C46BAF571970139E00320D79 /* Client.h */,
+				C46BAF581970139E00320D79 /* Client.mm */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -523,12 +547,14 @@
 			files = (
 				C46BAF1D196C767100320D79 /* AFURLSessionManager.m in Sources */,
 				C46BAF1A196C767100320D79 /* AFURLConnectionOperation.m in Sources */,
+				C46BAF591970139E00320D79 /* Client.mm in Sources */,
 				008663E9195EB0BF0048D023 /* GameOverScene.m in Sources */,
 				C46BAF17196C767100320D79 /* AFHTTPSessionManager.m in Sources */,
 				C46BAF18196C767100320D79 /* AFNetworkReachabilityManager.m in Sources */,
 				C4E6309819606C7B005C0687 /* SKCNodeIsComponent.m in Sources */,
 				00C592F9194D9B0600976C6D /* MyScene.m in Sources */,
 				C4E6309C19606C7B005C0687 /* SKHelper.m in Sources */,
+				C46BAF56197011C000320D79 /* test.pb.cc in Sources */,
 				C4E6309A19606C7B005C0687 /* SKComponentNode.m in Sources */,
 				C46BAF19196C767100320D79 /* AFSecurityPolicy.m in Sources */,
 				C4C709EC19608A3300EA83EB /* PhysicsHelper.m in Sources */,
@@ -539,13 +565,13 @@
 				008663F6195EC4F90048D023 /* Terrain.m in Sources */,
 				0066A14E1975676B0047715D /* GCDAsyncUdpSocket.m in Sources */,
 				0066A14D1975676B0047715D /* GCDAsyncSocket.m in Sources */,
-				0066A151197569360047715D /* PDSocketManager.m in Sources */,
 				C4E6309B19606C7B005C0687 /* SKComponentScene.m in Sources */,
 				00C592ED194D9B0600976C6D /* AppDelegate.m in Sources */,
 				00C592E9194D9B0600976C6D /* main.m in Sources */,
 				00AD8EC719601D9E0017C556 /* Car.m in Sources */,
 				008663FA195ED2030048D023 /* TerrainScene.m in Sources */,
 				C46BAF1B196C767100320D79 /* AFURLRequestSerialization.m in Sources */,
+				C46BAF55197011C000320D79 /* person.pb.cc in Sources */,
 				C46BAF15196C767100320D79 /* AFHTTPRequestOperation.m in Sources */,
 				C46BAF1C196C767100320D79 /* AFURLResponseSerialization.m in Sources */,
 				C46BAF1E196C767100320D79 /* SRWebSocket.m in Sources */,
@@ -686,10 +712,17 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cetris/Cetris-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"/usr/local/include/**",
+					"$(inherited)",
+					"/Applications/Xcode6-Beta2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+				);
 				INFOPLIST_FILE = "Cetris/Cetris-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Cetris/Lib";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -701,10 +734,17 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cetris/Cetris-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"/usr/local/include/**",
+					"$(inherited)",
+					"/Applications/Xcode6-Beta2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+				);
 				INFOPLIST_FILE = "Cetris/Cetris-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Cetris/Lib";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
