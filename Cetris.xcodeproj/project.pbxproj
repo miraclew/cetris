@@ -10,6 +10,7 @@
 		0066A14C1975676B0047715D /* Documentation.html in Resources */ = {isa = PBXBuildFile; fileRef = 0066A1471975676B0047715D /* Documentation.html */; };
 		0066A14D1975676B0047715D /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 0066A1491975676B0047715D /* GCDAsyncSocket.m */; };
 		0066A14E1975676B0047715D /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 0066A14B1975676B0047715D /* GCDAsyncUdpSocket.m */; };
+		0066A151197569360047715D /* PDSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0066A150197569360047715D /* PDSocketManager.m */; };
 		00686C76195CDBBC00674F1C /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 00686C74195CDBBC00674F1C /* spark.png */; };
 		00686C77195CDBBC00674F1C /* explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 00686C75195CDBBC00674F1C /* explosion.sks */; };
 		00686C79195CE0FF00674F1C /* missile.sks in Resources */ = {isa = PBXBuildFile; fileRef = 00686C78195CE0FF00674F1C /* missile.sks */; };
@@ -77,6 +78,8 @@
 		0066A1491975676B0047715D /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 		0066A14A1975676B0047715D /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
 		0066A14B1975676B0047715D /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		0066A14F197569360047715D /* PDSocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDSocketManager.h; sourceTree = "<group>"; };
+		0066A150197569360047715D /* PDSocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDSocketManager.m; sourceTree = "<group>"; };
 		00686C74195CDBBC00674F1C /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		00686C75195CDBBC00674F1C /* explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = explosion.sks; sourceTree = "<group>"; };
 		00686C78195CE0FF00674F1C /* missile.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = missile.sks; sourceTree = "<group>"; };
@@ -384,6 +387,8 @@
 			children = (
 				C4C709EA19608A3300EA83EB /* PhysicsHelper.h */,
 				C4C709EB19608A3300EA83EB /* PhysicsHelper.m */,
+				0066A14F197569360047715D /* PDSocketManager.h */,
+				0066A150197569360047715D /* PDSocketManager.m */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -534,6 +539,7 @@
 				008663F6195EC4F90048D023 /* Terrain.m in Sources */,
 				0066A14E1975676B0047715D /* GCDAsyncUdpSocket.m in Sources */,
 				0066A14D1975676B0047715D /* GCDAsyncSocket.m in Sources */,
+				0066A151197569360047715D /* PDSocketManager.m in Sources */,
 				C4E6309B19606C7B005C0687 /* SKComponentScene.m in Sources */,
 				00C592ED194D9B0600976C6D /* AppDelegate.m in Sources */,
 				00C592E9194D9B0600976C6D /* main.m in Sources */,
