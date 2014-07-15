@@ -92,7 +92,7 @@ typedef enum : NSUInteger {
 
 -(void)addControl{
     _controlOrigin = CGPointMake(60, 60);
-    _fcA = [FireControl controlWithRadius:80 FireBlock:^(id object) {
+    _fcA = [FireControl controlWithRadius:120 FireBlock:^(id object) {
          NSLog(@"fire block");
         FireControl *fc = (FireControl *) object;
         CGPoint position = CGPointMake(boxA.position.x, boxA.position.y +15);
@@ -103,7 +103,7 @@ typedef enum : NSUInteger {
     _fcA.position = CGPointMake(60, 60);
     [self addChild:_fcA];
     
-    _fcB = [FireControl controlWithRadius:80 FireBlock:^(id object) {
+    _fcB = [FireControl controlWithRadius:120 FireBlock:^(id object) {
          NSLog(@"fire block");
         CGPoint position = CGPointMake(boxB.position.x, boxB.position.y +15);
         [self fireMissile:position Velocity:_fcB.controlVector];
