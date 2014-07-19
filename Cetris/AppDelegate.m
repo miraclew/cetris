@@ -7,11 +7,17 @@
 //
 
 #import "AppDelegate.h"
+#import "DefaultClient.h"
 
-@implementation AppDelegate
+@implementation AppDelegate {
+    DefaultClient *client;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    client = [[DefaultClient alloc] init];
+    [client connectWith:@"test" passWord:@"test"];
+
     // Override point for customization after application launch.
     return YES;
 }

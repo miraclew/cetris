@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		000047AD19781242006DAE3F /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 000047AC19781242006DAE3F /* libprotobuf.a */; };
 		0066A14C1975676B0047715D /* Documentation.html in Resources */ = {isa = PBXBuildFile; fileRef = 0066A1471975676B0047715D /* Documentation.html */; };
-		0066A14D1975676B0047715D /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 0066A1491975676B0047715D /* GCDAsyncSocket.m */; };
-		0066A14E1975676B0047715D /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 0066A14B1975676B0047715D /* GCDAsyncUdpSocket.m */; };
 		00686C76195CDBBC00674F1C /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 00686C74195CDBBC00674F1C /* spark.png */; };
 		00686C77195CDBBC00674F1C /* explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 00686C75195CDBBC00674F1C /* explosion.sks */; };
 		00686C79195CE0FF00674F1C /* missile.sks in Resources */ = {isa = PBXBuildFile; fileRef = 00686C78195CE0FF00674F1C /* missile.sks */; };
@@ -21,6 +20,9 @@
 		008663F3195EBF020048D023 /* pushbtn.wav in Resources */ = {isa = PBXBuildFile; fileRef = 008663F2195EBF020048D023 /* pushbtn.wav */; };
 		008663F6195EC4F90048D023 /* Terrain.m in Sources */ = {isa = PBXBuildFile; fileRef = 008663F5195EC4F90048D023 /* Terrain.m */; };
 		008663FA195ED2030048D023 /* TerrainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 008663F9195ED2030048D023 /* TerrainScene.m */; };
+		00A4FA8A197A4B3600965EE4 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A4FA88197A4B3600965EE4 /* GCDAsyncSocket.m */; };
+		00A4FA8D197A70B900965EE4 /* DefaultClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A4FA8C197A70B900965EE4 /* DefaultClient.m */; };
+		00A4FA93197A8B1400965EE4 /* missle.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 00A4FA91197A8B1400965EE4 /* missle.pb.cc */; };
 		00AD8EC719601D9E0017C556 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = 00AD8EC619601D9E0017C556 /* Car.m */; };
 		00C592DB194D9B0600976C6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C592DA194D9B0600976C6D /* Foundation.framework */; };
 		00C592DD194D9B0600976C6D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C592DC194D9B0600976C6D /* CoreGraphics.framework */; };
@@ -52,10 +54,6 @@
 		C46BAF1D196C767100320D79 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C46BAF10196C767100320D79 /* AFURLSessionManager.m */; };
 		C46BAF1E196C767100320D79 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = C46BAF14196C767100320D79 /* SRWebSocket.m */; };
 		C46BAF20196C773900320D79 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C46BAF1F196C773900320D79 /* libicucore.dylib */; };
-		C46BAF55197011C000320D79 /* person.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = C46BAF51197011C000320D79 /* person.pb.cc */; };
-		C46BAF56197011C000320D79 /* test.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = C46BAF53197011C000320D79 /* test.pb.cc */; };
-		C46BAF591970139E00320D79 /* Client.mm in Sources */ = {isa = PBXBuildFile; fileRef = C46BAF581970139E00320D79 /* Client.mm */; };
-		C46BAF5D19701B8100320D79 /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C46BAF5C19701B8100320D79 /* libprotobuf.a */; };
 		C4C709EC19608A3300EA83EB /* PhysicsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C709EB19608A3300EA83EB /* PhysicsHelper.m */; };
 		C4E6308919606848005C0687 /* TestScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E6308819606848005C0687 /* TestScene.m */; };
 		C4E6309819606C7B005C0687 /* SKCNodeIsComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E6308C19606C7A005C0687 /* SKCNodeIsComponent.m */; };
@@ -76,11 +74,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		000047AC19781242006DAE3F /* libprotobuf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libprotobuf.a; sourceTree = "<group>"; };
+		000047AF197A25E4006DAE3F /* Client.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Client.h; sourceTree = "<group>"; };
 		0066A1471975676B0047715D /* Documentation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Documentation.html; sourceTree = "<group>"; };
-		0066A1481975676B0047715D /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
-		0066A1491975676B0047715D /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
-		0066A14A1975676B0047715D /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
-		0066A14B1975676B0047715D /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
 		00686C74195CDBBC00674F1C /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		00686C75195CDBBC00674F1C /* explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = explosion.sks; sourceTree = "<group>"; };
 		00686C78195CE0FF00674F1C /* missile.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = missile.sks; sourceTree = "<group>"; };
@@ -95,6 +91,12 @@
 		008663F5195EC4F90048D023 /* Terrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Terrain.m; sourceTree = "<group>"; };
 		008663F8195ED2030048D023 /* TerrainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerrainScene.h; sourceTree = "<group>"; };
 		008663F9195ED2030048D023 /* TerrainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerrainScene.m; sourceTree = "<group>"; };
+		00A4FA88197A4B3600965EE4 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		00A4FA89197A4B3600965EE4 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		00A4FA8B197A70B900965EE4 /* DefaultClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultClient.h; sourceTree = "<group>"; };
+		00A4FA8C197A70B900965EE4 /* DefaultClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultClient.m; sourceTree = "<group>"; };
+		00A4FA91197A8B1400965EE4 /* missle.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = missle.pb.cc; sourceTree = "<group>"; };
+		00A4FA92197A8B1400965EE4 /* missle.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = missle.pb.h; sourceTree = "<group>"; };
 		00AD8EC519601D9E0017C556 /* Car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
 		00AD8EC619601D9E0017C556 /* Car.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
 		00C592D7194D9B0600976C6D /* Cetris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cetris.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,14 +148,7 @@
 		C46BAF13196C767100320D79 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
 		C46BAF14196C767100320D79 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
 		C46BAF1F196C773900320D79 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
-		C46BAF51197011C000320D79 /* person.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = person.pb.cc; sourceTree = "<group>"; };
-		C46BAF52197011C000320D79 /* person.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = person.pb.h; sourceTree = "<group>"; };
-		C46BAF53197011C000320D79 /* test.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test.pb.cc; sourceTree = "<group>"; };
-		C46BAF54197011C000320D79 /* test.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test.pb.h; sourceTree = "<group>"; };
-		C46BAF571970139E00320D79 /* Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Client.h; sourceTree = "<group>"; };
-		C46BAF581970139E00320D79 /* Client.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Client.mm; sourceTree = "<group>"; };
 		C46BAF5A1970157600320D79 /* libprotobuf.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libprotobuf.dylib; path = usr/lib/libprotobuf.dylib; sourceTree = SDKROOT; };
-		C46BAF5C19701B8100320D79 /* libprotobuf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libprotobuf.a; sourceTree = "<group>"; };
 		C4C709EA19608A3300EA83EB /* PhysicsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicsHelper.h; sourceTree = "<group>"; };
 		C4C709EB19608A3300EA83EB /* PhysicsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhysicsHelper.m; sourceTree = "<group>"; };
 		C4E6308719606848005C0687 /* TestScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestScene.h; sourceTree = "<group>"; };
@@ -179,10 +174,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C46BAF20196C773900320D79 /* libicucore.dylib in Frameworks */,
-				C46BAF5D19701B8100320D79 /* libprotobuf.a in Frameworks */,
 				00C592DD194D9B0600976C6D /* CoreGraphics.framework in Frameworks */,
 				00C592DF194D9B0600976C6D /* UIKit.framework in Frameworks */,
 				00C592E1194D9B0600976C6D /* SpriteKit.framework in Frameworks */,
+				000047AD19781242006DAE3F /* libprotobuf.a in Frameworks */,
 				00C592DB194D9B0600976C6D /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,14 +195,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		000047A51978105B006DAE3F /* pb */ = {
+			isa = PBXGroup;
+			children = (
+				00A4FA91197A8B1400965EE4 /* missle.pb.cc */,
+				00A4FA92197A8B1400965EE4 /* missle.pb.h */,
+			);
+			path = pb;
+			sourceTree = "<group>";
+		};
+		000047AE1979F3C1006DAE3F /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				000047A51978105B006DAE3F /* pb */,
+				000047AF197A25E4006DAE3F /* Client.h */,
+				00A4FA8B197A70B900965EE4 /* DefaultClient.h */,
+				00A4FA8C197A70B900965EE4 /* DefaultClient.m */,
+			);
+			name = Client;
+			sourceTree = "<group>";
+		};
 		0066A1461975676B0047715D /* CocoaAsyncSocket */ = {
 			isa = PBXGroup;
 			children = (
+				00A4FA88197A4B3600965EE4 /* GCDAsyncSocket.m */,
+				00A4FA89197A4B3600965EE4 /* GCDAsyncSocket.h */,
 				0066A1471975676B0047715D /* Documentation.html */,
-				0066A1481975676B0047715D /* GCDAsyncSocket.h */,
-				0066A1491975676B0047715D /* GCDAsyncSocket.m */,
-				0066A14A1975676B0047715D /* GCDAsyncUdpSocket.h */,
-				0066A14B1975676B0047715D /* GCDAsyncUdpSocket.m */,
 			);
 			path = CocoaAsyncSocket;
 			sourceTree = "<group>";
@@ -299,6 +312,7 @@
 		00C592E2194D9B0600976C6D /* Cetris */ = {
 			isa = PBXGroup;
 			children = (
+				000047AE1979F3C1006DAE3F /* Client */,
 				00AD8EC4196017880017C556 /* Scene */,
 				00AD8EC31960176E0017C556 /* Sprite */,
 				00AD8EC1196017110017C556 /* Sounds */,
@@ -350,7 +364,7 @@
 		C46BAEFC196C767100320D79 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				C46BAF5C19701B8100320D79 /* libprotobuf.a */,
+				000047AC19781242006DAE3F /* libprotobuf.a */,
 				0066A1461975676B0047715D /* CocoaAsyncSocket */,
 				C46BAEFD196C767100320D79 /* AFNetworking */,
 				C46BAF11196C767100320D79 /* SocketRocket */,
@@ -394,25 +408,11 @@
 			path = SocketRocket;
 			sourceTree = "<group>";
 		};
-		C46BAF50197011C000320D79 /* pb */ = {
-			isa = PBXGroup;
-			children = (
-				C46BAF51197011C000320D79 /* person.pb.cc */,
-				C46BAF52197011C000320D79 /* person.pb.h */,
-				C46BAF53197011C000320D79 /* test.pb.cc */,
-				C46BAF54197011C000320D79 /* test.pb.h */,
-			);
-			path = pb;
-			sourceTree = "<group>";
-		};
 		C4C709E9196089C400EA83EB /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				C46BAF50197011C000320D79 /* pb */,
 				C4C709EA19608A3300EA83EB /* PhysicsHelper.h */,
 				C4C709EB19608A3300EA83EB /* PhysicsHelper.m */,
-				C46BAF571970139E00320D79 /* Client.h */,
-				C46BAF581970139E00320D79 /* Client.mm */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -547,14 +547,14 @@
 			files = (
 				C46BAF1D196C767100320D79 /* AFURLSessionManager.m in Sources */,
 				C46BAF1A196C767100320D79 /* AFURLConnectionOperation.m in Sources */,
-				C46BAF591970139E00320D79 /* Client.mm in Sources */,
 				008663E9195EB0BF0048D023 /* GameOverScene.m in Sources */,
 				C46BAF17196C767100320D79 /* AFHTTPSessionManager.m in Sources */,
 				C46BAF18196C767100320D79 /* AFNetworkReachabilityManager.m in Sources */,
 				C4E6309819606C7B005C0687 /* SKCNodeIsComponent.m in Sources */,
+				00A4FA8A197A4B3600965EE4 /* GCDAsyncSocket.m in Sources */,
+				00A4FA8D197A70B900965EE4 /* DefaultClient.m in Sources */,
 				00C592F9194D9B0600976C6D /* MyScene.m in Sources */,
 				C4E6309C19606C7B005C0687 /* SKHelper.m in Sources */,
-				C46BAF56197011C000320D79 /* test.pb.cc in Sources */,
 				C4E6309A19606C7B005C0687 /* SKComponentNode.m in Sources */,
 				C46BAF19196C767100320D79 /* AFSecurityPolicy.m in Sources */,
 				C4C709EC19608A3300EA83EB /* PhysicsHelper.m in Sources */,
@@ -562,16 +562,14 @@
 				00C592F6194D9B0600976C6D /* ViewController.m in Sources */,
 				C46BAF16196C767100320D79 /* AFHTTPRequestOperationManager.m in Sources */,
 				C4E6308919606848005C0687 /* TestScene.m in Sources */,
+				00A4FA93197A8B1400965EE4 /* missle.pb.cc in Sources */,
 				008663F6195EC4F90048D023 /* Terrain.m in Sources */,
-				0066A14E1975676B0047715D /* GCDAsyncUdpSocket.m in Sources */,
-				0066A14D1975676B0047715D /* GCDAsyncSocket.m in Sources */,
 				C4E6309B19606C7B005C0687 /* SKComponentScene.m in Sources */,
 				00C592ED194D9B0600976C6D /* AppDelegate.m in Sources */,
 				00C592E9194D9B0600976C6D /* main.m in Sources */,
 				00AD8EC719601D9E0017C556 /* Car.m in Sources */,
 				008663FA195ED2030048D023 /* TerrainScene.m in Sources */,
 				C46BAF1B196C767100320D79 /* AFURLRequestSerialization.m in Sources */,
-				C46BAF55197011C000320D79 /* person.pb.cc in Sources */,
 				C46BAF15196C767100320D79 /* AFHTTPRequestOperation.m in Sources */,
 				C46BAF1C196C767100320D79 /* AFURLResponseSerialization.m in Sources */,
 				C46BAF1E196C767100320D79 /* SRWebSocket.m in Sources */,
