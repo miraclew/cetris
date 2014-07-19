@@ -7,11 +7,22 @@
 //
 
 typedef enum : NSUInteger {
-    INITIAL,
+    DISCONNECTED,
     CONNECTED,
     READY,
     GAMING,
 } ClientState;
+
+@interface Player : NSObject
+
+@property int64_t playerId;
+@property NSString* nickName;
+@property NSString* avatar;
+@property BOOL isLeft;
+@property CGPoint position;
+@property int health;
+
+@end
 
 // Server API
 @protocol Client
@@ -28,7 +39,7 @@ typedef enum : NSUInteger {
 
 -(void)fire:(Float32)x y:(Float32)y;
 
--(void)attacked:(int64_t)p1 damage:(Float32)damage;
+-(void)hit:(int64_t)p1 p2:(int64_t)p2 damage:(Float32)damage;
 
 
 @end
@@ -40,11 +51,14 @@ typedef enum : NSUInteger {
 -(void)didLostConnection:(NSError *)error;
 -(void)didConnectError:(NSError *)error;
 
--(void)matchBegin:(NSArray *)players KeyPoints:(NSArray *)points;
+-(void)didStateChange:(ClientState)state;
+
+-(void)matchInit:(NSArray *)players KeyPoints:(NSArray *)points;
 -(void)matchEnd:(int) points;
--(void)matchTurn;
+-(void)matchTurn:(int64_t)playerId;
 -(void)playerMove:(int64_t)playerId position:(CGPoint)position;
 -(void)playerFire:(int64_t)playerId velocity:(CGVector)velocity;
+-(void)playerHit:(int64_t)p1 p2:(int64_t)p2 damage:(int)damage;
 -(void)playerHealth:(int64_t)playerId health:(int)health;
 
 @end

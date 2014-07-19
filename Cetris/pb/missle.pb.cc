@@ -32,9 +32,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* EAuth_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   EAuth_reflection_ = NULL;
-const ::google::protobuf::Descriptor* EMatchBegin_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* CMatchEnter_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  EMatchBegin_reflection_ = NULL;
+  CMatchEnter_reflection_ = NULL;
+const ::google::protobuf::Descriptor* EMatcInit_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  EMatcInit_reflection_ = NULL;
 const ::google::protobuf::Descriptor* EMatchEnd_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   EMatchEnd_reflection_ = NULL;
@@ -59,6 +62,7 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* EPlayerHit_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   EPlayerHit_reflection_ = NULL;
+const ::google::protobuf::EnumDescriptor* Code_descriptor_ = NULL;
 
 }  // namespace
 
@@ -137,23 +141,37 @@ void protobuf_AssignDesc_missle_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EAuth));
-  EMatchBegin_descriptor_ = file->message_type(4);
-  static const int EMatchBegin_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EMatchBegin, players_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EMatchBegin, points_),
+  CMatchEnter_descriptor_ = file->message_type(4);
+  static const int CMatchEnter_offsets_[1] = {
   };
-  EMatchBegin_reflection_ =
+  CMatchEnter_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      EMatchBegin_descriptor_,
-      EMatchBegin::default_instance_,
-      EMatchBegin_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EMatchBegin, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EMatchBegin, _unknown_fields_),
+      CMatchEnter_descriptor_,
+      CMatchEnter::default_instance_,
+      CMatchEnter_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CMatchEnter, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CMatchEnter, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(EMatchBegin));
-  EMatchEnd_descriptor_ = file->message_type(5);
+      sizeof(CMatchEnter));
+  EMatcInit_descriptor_ = file->message_type(5);
+  static const int EMatcInit_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EMatcInit, players_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EMatcInit, points_),
+  };
+  EMatcInit_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      EMatcInit_descriptor_,
+      EMatcInit::default_instance_,
+      EMatcInit_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EMatcInit, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EMatcInit, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(EMatcInit));
+  EMatchEnd_descriptor_ = file->message_type(6);
   static const int EMatchEnd_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EMatchEnd, points_),
   };
@@ -168,7 +186,7 @@ void protobuf_AssignDesc_missle_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EMatchEnd));
-  EMatchTurn_descriptor_ = file->message_type(6);
+  EMatchTurn_descriptor_ = file->message_type(7);
   static const int EMatchTurn_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EMatchTurn, playerid_),
   };
@@ -183,7 +201,7 @@ void protobuf_AssignDesc_missle_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EMatchTurn));
-  CPlayerMove_descriptor_ = file->message_type(7);
+  CPlayerMove_descriptor_ = file->message_type(8);
   static const int CPlayerMove_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CPlayerMove, position_),
   };
@@ -198,7 +216,7 @@ void protobuf_AssignDesc_missle_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CPlayerMove));
-  EPlayerMove_descriptor_ = file->message_type(8);
+  EPlayerMove_descriptor_ = file->message_type(9);
   static const int EPlayerMove_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EPlayerMove, playerid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EPlayerMove, position_),
@@ -214,7 +232,7 @@ void protobuf_AssignDesc_missle_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EPlayerMove));
-  CPlayerFire_descriptor_ = file->message_type(9);
+  CPlayerFire_descriptor_ = file->message_type(10);
   static const int CPlayerFire_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CPlayerFire, playerid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CPlayerFire, velocity_),
@@ -230,7 +248,7 @@ void protobuf_AssignDesc_missle_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CPlayerFire));
-  EPlayerFire_descriptor_ = file->message_type(10);
+  EPlayerFire_descriptor_ = file->message_type(11);
   static const int EPlayerFire_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EPlayerFire, playerid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EPlayerFire, velocity_),
@@ -246,7 +264,7 @@ void protobuf_AssignDesc_missle_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EPlayerFire));
-  CPlayerHit_descriptor_ = file->message_type(11);
+  CPlayerHit_descriptor_ = file->message_type(12);
   static const int CPlayerHit_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CPlayerHit, p1_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CPlayerHit, p2_),
@@ -263,7 +281,7 @@ void protobuf_AssignDesc_missle_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CPlayerHit));
-  EPlayerHit_descriptor_ = file->message_type(12);
+  EPlayerHit_descriptor_ = file->message_type(13);
   static const int EPlayerHit_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EPlayerHit, p1_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EPlayerHit, p2_),
@@ -280,6 +298,7 @@ void protobuf_AssignDesc_missle_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EPlayerHit));
+  Code_descriptor_ = file->enum_type(0);
 }
 
 namespace {
@@ -301,7 +320,9 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     EAuth_descriptor_, &EAuth::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    EMatchBegin_descriptor_, &EMatchBegin::default_instance());
+    CMatchEnter_descriptor_, &CMatchEnter::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    EMatcInit_descriptor_, &EMatcInit::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     EMatchEnd_descriptor_, &EMatchEnd::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -331,8 +352,10 @@ void protobuf_ShutdownFile_missle_2eproto() {
   delete CAuth_reflection_;
   delete EAuth::default_instance_;
   delete EAuth_reflection_;
-  delete EMatchBegin::default_instance_;
-  delete EMatchBegin_reflection_;
+  delete CMatchEnter::default_instance_;
+  delete CMatchEnter_reflection_;
+  delete EMatcInit::default_instance_;
+  delete EMatcInit_reflection_;
   delete EMatchEnd::default_instance_;
   delete EMatchEnd_reflection_;
   delete EMatchTurn::default_instance_;
@@ -364,26 +387,33 @@ void protobuf_AddDesc_missle_2eproto() {
     "\010\022\033\n\010position\030\005 \002(\0132\t.pb.Point\022\016\n\006health"
     "\030\006 \002(\005\"+\n\005CAuth\022\020\n\010userName\030\001 \002(\t\022\020\n\010pas"
     "sword\030\002 \002(\t\"&\n\005EAuth\022\014\n\004code\030\001 \002(\005\022\017\n\007me"
-    "ssage\030\002 \001(\t\"E\n\013EMatchBegin\022\033\n\007players\030\001 "
-    "\003(\0132\n.pb.Player\022\031\n\006points\030\002 \003(\0132\t.pb.Poi"
-    "nt\"\033\n\tEMatchEnd\022\016\n\006points\030\001 \002(\005\"\036\n\nEMatc"
-    "hTurn\022\020\n\010playerId\030\001 \002(\003\"*\n\013CPlayerMove\022\033"
-    "\n\010position\030\002 \002(\0132\t.pb.Point\"<\n\013EPlayerMo"
-    "ve\022\020\n\010playerId\030\001 \002(\003\022\033\n\010position\030\002 \002(\0132\t"
-    ".pb.Point\"<\n\013CPlayerFire\022\020\n\010playerId\030\001 \002"
-    "(\003\022\033\n\010velocity\030\002 \002(\0132\t.pb.Point\"<\n\013EPlay"
-    "erFire\022\020\n\010playerId\030\001 \002(\003\022\033\n\010velocity\030\002 \002"
-    "(\0132\t.pb.Point\"4\n\nCPlayerHit\022\n\n\002p1\030\001 \002(\003\022"
-    "\n\n\002p2\030\002 \002(\003\022\016\n\006damage\030\003 \002(\005\"4\n\nEPlayerHi"
-    "t\022\n\n\002p1\030\001 \002(\003\022\n\n\002p2\030\002 \002(\003\022\016\n\006damage\030\003 \002("
-    "\005", 721);
+    "ssage\030\002 \001(\t\"\r\n\013CMatchEnter\"C\n\tEMatcInit\022"
+    "\033\n\007players\030\001 \003(\0132\n.pb.Player\022\031\n\006points\030\002"
+    " \003(\0132\t.pb.Point\"\033\n\tEMatchEnd\022\016\n\006points\030\001"
+    " \002(\005\"\036\n\nEMatchTurn\022\020\n\010playerId\030\001 \002(\003\"*\n\013"
+    "CPlayerMove\022\033\n\010position\030\002 \002(\0132\t.pb.Point"
+    "\"<\n\013EPlayerMove\022\020\n\010playerId\030\001 \002(\003\022\033\n\010pos"
+    "ition\030\002 \002(\0132\t.pb.Point\"<\n\013CPlayerFire\022\020\n"
+    "\010playerId\030\001 \002(\003\022\033\n\010velocity\030\002 \002(\0132\t.pb.P"
+    "oint\"<\n\013EPlayerFire\022\020\n\010playerId\030\001 \002(\003\022\033\n"
+    "\010velocity\030\002 \002(\0132\t.pb.Point\"4\n\nCPlayerHit"
+    "\022\n\n\002p1\030\001 \002(\003\022\n\n\002p2\030\002 \002(\003\022\016\n\006damage\030\003 \002(\005"
+    "\"4\n\nEPlayerHit\022\n\n\002p1\030\001 \002(\003\022\n\n\002p2\030\002 \002(\003\022\016"
+    "\n\006damage\030\003 \002(\005*\353\001\n\004Code\022\n\n\006C_AUTH\020\013\022\n\n\006E"
+    "_AUTH\020\014\022\021\n\rC_MATCH_ENTER\020\025\022\020\n\014E_MATCH_IN"
+    "IT\020\026\022\020\n\014E_MATCH_TURN\020\027\022\017\n\013E_MATCH_END\020\030\022"
+    "\021\n\rC_PLAYER_MOVE\020\037\022\021\n\rE_PLAYER_MOVE\020 \022\021\n"
+    "\rC_PLAYER_FIRE\020!\022\021\n\rE_PLAYER_FIRE\020\"\022\020\n\014C"
+    "_PLAYER_HIT\020#\022\020\n\014E_PLAYER_HIT\020$\022\023\n\017C_PLA"
+    "YER_HEALTH\020%", 972);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "missle.proto", &protobuf_RegisterTypes);
   Point::default_instance_ = new Point();
   Player::default_instance_ = new Player();
   CAuth::default_instance_ = new CAuth();
   EAuth::default_instance_ = new EAuth();
-  EMatchBegin::default_instance_ = new EMatchBegin();
+  CMatchEnter::default_instance_ = new CMatchEnter();
+  EMatcInit::default_instance_ = new EMatcInit();
   EMatchEnd::default_instance_ = new EMatchEnd();
   EMatchTurn::default_instance_ = new EMatchTurn();
   CPlayerMove::default_instance_ = new CPlayerMove();
@@ -396,7 +426,8 @@ void protobuf_AddDesc_missle_2eproto() {
   Player::default_instance_->InitAsDefaultInstance();
   CAuth::default_instance_->InitAsDefaultInstance();
   EAuth::default_instance_->InitAsDefaultInstance();
-  EMatchBegin::default_instance_->InitAsDefaultInstance();
+  CMatchEnter::default_instance_->InitAsDefaultInstance();
+  EMatcInit::default_instance_->InitAsDefaultInstance();
   EMatchEnd::default_instance_->InitAsDefaultInstance();
   EMatchTurn::default_instance_->InitAsDefaultInstance();
   CPlayerMove::default_instance_->InitAsDefaultInstance();
@@ -414,6 +445,31 @@ struct StaticDescriptorInitializer_missle_2eproto {
     protobuf_AddDesc_missle_2eproto();
   }
 } static_descriptor_initializer_missle_2eproto_;
+const ::google::protobuf::EnumDescriptor* Code_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Code_descriptor_;
+}
+bool Code_IsValid(int value) {
+  switch(value) {
+    case 11:
+    case 12:
+    case 21:
+    case 22:
+    case 23:
+    case 24:
+    case 31:
+    case 32:
+    case 33:
+    case 34:
+    case 35:
+    case 36:
+    case 37:
+      return true;
+    default:
+      return false;
+  }
+}
+
 
 // ===================================================================
 
@@ -1661,67 +1717,223 @@ void EAuth::Swap(EAuth* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int EMatchBegin::kPlayersFieldNumber;
-const int EMatchBegin::kPointsFieldNumber;
 #endif  // !_MSC_VER
 
-EMatchBegin::EMatchBegin()
+CMatchEnter::CMatchEnter()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void EMatchBegin::InitAsDefaultInstance() {
+void CMatchEnter::InitAsDefaultInstance() {
 }
 
-EMatchBegin::EMatchBegin(const EMatchBegin& from)
+CMatchEnter::CMatchEnter(const CMatchEnter& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void EMatchBegin::SharedCtor() {
+void CMatchEnter::SharedCtor() {
   _cached_size_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-EMatchBegin::~EMatchBegin() {
+CMatchEnter::~CMatchEnter() {
   SharedDtor();
 }
 
-void EMatchBegin::SharedDtor() {
+void CMatchEnter::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void EMatchBegin::SetCachedSize(int size) const {
+void CMatchEnter::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* EMatchBegin::descriptor() {
+const ::google::protobuf::Descriptor* CMatchEnter::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return EMatchBegin_descriptor_;
+  return CMatchEnter_descriptor_;
 }
 
-const EMatchBegin& EMatchBegin::default_instance() {
+const CMatchEnter& CMatchEnter::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_missle_2eproto();
   return *default_instance_;
 }
 
-EMatchBegin* EMatchBegin::default_instance_ = NULL;
+CMatchEnter* CMatchEnter::default_instance_ = NULL;
 
-EMatchBegin* EMatchBegin::New() const {
-  return new EMatchBegin;
+CMatchEnter* CMatchEnter::New() const {
+  return new CMatchEnter;
 }
 
-void EMatchBegin::Clear() {
+void CMatchEnter::Clear() {
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool CMatchEnter::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+        ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+      return true;
+    }
+    DO_(::google::protobuf::internal::WireFormat::SkipField(
+          input, tag, mutable_unknown_fields()));
+  }
+  return true;
+#undef DO_
+}
+
+void CMatchEnter::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* CMatchEnter::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int CMatchEnter::ByteSize() const {
+  int total_size = 0;
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void CMatchEnter::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const CMatchEnter* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const CMatchEnter*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void CMatchEnter::MergeFrom(const CMatchEnter& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void CMatchEnter::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CMatchEnter::CopyFrom(const CMatchEnter& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMatchEnter::IsInitialized() const {
+
+  return true;
+}
+
+void CMatchEnter::Swap(CMatchEnter* other) {
+  if (other != this) {
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata CMatchEnter::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = CMatchEnter_descriptor_;
+  metadata.reflection = CMatchEnter_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int EMatcInit::kPlayersFieldNumber;
+const int EMatcInit::kPointsFieldNumber;
+#endif  // !_MSC_VER
+
+EMatcInit::EMatcInit()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void EMatcInit::InitAsDefaultInstance() {
+}
+
+EMatcInit::EMatcInit(const EMatcInit& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void EMatcInit::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+EMatcInit::~EMatcInit() {
+  SharedDtor();
+}
+
+void EMatcInit::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void EMatcInit::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* EMatcInit::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return EMatcInit_descriptor_;
+}
+
+const EMatcInit& EMatcInit::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_missle_2eproto();
+  return *default_instance_;
+}
+
+EMatcInit* EMatcInit::default_instance_ = NULL;
+
+EMatcInit* EMatcInit::New() const {
+  return new EMatcInit;
+}
+
+void EMatcInit::Clear() {
   players_.Clear();
   points_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool EMatchBegin::MergePartialFromCodedStream(
+bool EMatcInit::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -1773,7 +1985,7 @@ bool EMatchBegin::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void EMatchBegin::SerializeWithCachedSizes(
+void EMatcInit::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // repeated .pb.Player players = 1;
   for (int i = 0; i < this->players_size(); i++) {
@@ -1793,7 +2005,7 @@ void EMatchBegin::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* EMatchBegin::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* EMatcInit::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // repeated .pb.Player players = 1;
   for (int i = 0; i < this->players_size(); i++) {
@@ -1816,7 +2028,7 @@ void EMatchBegin::SerializeWithCachedSizes(
   return target;
 }
 
-int EMatchBegin::ByteSize() const {
+int EMatcInit::ByteSize() const {
   int total_size = 0;
 
   // repeated .pb.Player players = 1;
@@ -1846,10 +2058,10 @@ int EMatchBegin::ByteSize() const {
   return total_size;
 }
 
-void EMatchBegin::MergeFrom(const ::google::protobuf::Message& from) {
+void EMatcInit::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const EMatchBegin* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const EMatchBegin*>(
+  const EMatcInit* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const EMatcInit*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1858,26 +2070,26 @@ void EMatchBegin::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void EMatchBegin::MergeFrom(const EMatchBegin& from) {
+void EMatcInit::MergeFrom(const EMatcInit& from) {
   GOOGLE_CHECK_NE(&from, this);
   players_.MergeFrom(from.players_);
   points_.MergeFrom(from.points_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void EMatchBegin::CopyFrom(const ::google::protobuf::Message& from) {
+void EMatcInit::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void EMatchBegin::CopyFrom(const EMatchBegin& from) {
+void EMatcInit::CopyFrom(const EMatcInit& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool EMatchBegin::IsInitialized() const {
+bool EMatcInit::IsInitialized() const {
 
   for (int i = 0; i < players_size(); i++) {
     if (!this->players(i).IsInitialized()) return false;
@@ -1888,7 +2100,7 @@ bool EMatchBegin::IsInitialized() const {
   return true;
 }
 
-void EMatchBegin::Swap(EMatchBegin* other) {
+void EMatcInit::Swap(EMatcInit* other) {
   if (other != this) {
     players_.Swap(&other->players_);
     points_.Swap(&other->points_);
@@ -1898,11 +2110,11 @@ void EMatchBegin::Swap(EMatchBegin* other) {
   }
 }
 
-::google::protobuf::Metadata EMatchBegin::GetMetadata() const {
+::google::protobuf::Metadata EMatcInit::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = EMatchBegin_descriptor_;
-  metadata.reflection = EMatchBegin_reflection_;
+  metadata.descriptor = EMatcInit_descriptor_;
+  metadata.reflection = EMatcInit_reflection_;
   return metadata;
 }
 

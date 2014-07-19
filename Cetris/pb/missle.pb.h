@@ -23,6 +23,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 
@@ -37,7 +38,8 @@ class Point;
 class Player;
 class CAuth;
 class EAuth;
-class EMatchBegin;
+class CMatchEnter;
+class EMatcInit;
 class EMatchEnd;
 class EMatchTurn;
 class CPlayerMove;
@@ -47,6 +49,36 @@ class EPlayerFire;
 class CPlayerHit;
 class EPlayerHit;
 
+enum Code {
+  C_AUTH = 11,
+  E_AUTH = 12,
+  C_MATCH_ENTER = 21,
+  E_MATCH_INIT = 22,
+  E_MATCH_TURN = 23,
+  E_MATCH_END = 24,
+  C_PLAYER_MOVE = 31,
+  E_PLAYER_MOVE = 32,
+  C_PLAYER_FIRE = 33,
+  E_PLAYER_FIRE = 34,
+  C_PLAYER_HIT = 35,
+  E_PLAYER_HIT = 36,
+  C_PLAYER_HEALTH = 37
+};
+bool Code_IsValid(int value);
+const Code Code_MIN = C_AUTH;
+const Code Code_MAX = C_PLAYER_HEALTH;
+const int Code_ARRAYSIZE = Code_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* Code_descriptor();
+inline const ::std::string& Code_Name(Code value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    Code_descriptor(), value);
+}
+inline bool Code_Parse(
+    const ::std::string& name, Code* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<Code>(
+    Code_descriptor(), name, value);
+}
 // ===================================================================
 
 class Point : public ::google::protobuf::Message {
@@ -484,14 +516,14 @@ class EAuth : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class EMatchBegin : public ::google::protobuf::Message {
+class CMatchEnter : public ::google::protobuf::Message {
  public:
-  EMatchBegin();
-  virtual ~EMatchBegin();
+  CMatchEnter();
+  virtual ~CMatchEnter();
 
-  EMatchBegin(const EMatchBegin& from);
+  CMatchEnter(const CMatchEnter& from);
 
-  inline EMatchBegin& operator=(const EMatchBegin& from) {
+  inline CMatchEnter& operator=(const CMatchEnter& from) {
     CopyFrom(from);
     return *this;
   }
@@ -505,17 +537,89 @@ class EMatchBegin : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const EMatchBegin& default_instance();
+  static const CMatchEnter& default_instance();
 
-  void Swap(EMatchBegin* other);
+  void Swap(CMatchEnter* other);
 
   // implements Message ----------------------------------------------
 
-  EMatchBegin* New() const;
+  CMatchEnter* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const EMatchBegin& from);
-  void MergeFrom(const EMatchBegin& from);
+  void CopyFrom(const CMatchEnter& from);
+  void MergeFrom(const CMatchEnter& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:pb.CMatchEnter)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[1];
+
+  friend void  protobuf_AddDesc_missle_2eproto();
+  friend void protobuf_AssignDesc_missle_2eproto();
+  friend void protobuf_ShutdownFile_missle_2eproto();
+
+  void InitAsDefaultInstance();
+  static CMatchEnter* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class EMatcInit : public ::google::protobuf::Message {
+ public:
+  EMatcInit();
+  virtual ~EMatcInit();
+
+  EMatcInit(const EMatcInit& from);
+
+  inline EMatcInit& operator=(const EMatcInit& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const EMatcInit& default_instance();
+
+  void Swap(EMatcInit* other);
+
+  // implements Message ----------------------------------------------
+
+  EMatcInit* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const EMatcInit& from);
+  void MergeFrom(const EMatcInit& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -562,7 +666,7 @@ class EMatchBegin : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::pb::Point >*
       mutable_points();
 
-  // @@protoc_insertion_point(class_scope:pb.EMatchBegin)
+  // @@protoc_insertion_point(class_scope:pb.EMatcInit)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
@@ -578,7 +682,7 @@ class EMatchBegin : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_missle_2eproto();
 
   void InitAsDefaultInstance();
-  static EMatchBegin* default_instance_;
+  static EMatcInit* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -1855,55 +1959,59 @@ inline void EAuth::set_allocated_message(::std::string* message) {
 
 // -------------------------------------------------------------------
 
-// EMatchBegin
+// CMatchEnter
+
+// -------------------------------------------------------------------
+
+// EMatcInit
 
 // repeated .pb.Player players = 1;
-inline int EMatchBegin::players_size() const {
+inline int EMatcInit::players_size() const {
   return players_.size();
 }
-inline void EMatchBegin::clear_players() {
+inline void EMatcInit::clear_players() {
   players_.Clear();
 }
-inline const ::pb::Player& EMatchBegin::players(int index) const {
+inline const ::pb::Player& EMatcInit::players(int index) const {
   return players_.Get(index);
 }
-inline ::pb::Player* EMatchBegin::mutable_players(int index) {
+inline ::pb::Player* EMatcInit::mutable_players(int index) {
   return players_.Mutable(index);
 }
-inline ::pb::Player* EMatchBegin::add_players() {
+inline ::pb::Player* EMatcInit::add_players() {
   return players_.Add();
 }
 inline const ::google::protobuf::RepeatedPtrField< ::pb::Player >&
-EMatchBegin::players() const {
+EMatcInit::players() const {
   return players_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::pb::Player >*
-EMatchBegin::mutable_players() {
+EMatcInit::mutable_players() {
   return &players_;
 }
 
 // repeated .pb.Point points = 2;
-inline int EMatchBegin::points_size() const {
+inline int EMatcInit::points_size() const {
   return points_.size();
 }
-inline void EMatchBegin::clear_points() {
+inline void EMatcInit::clear_points() {
   points_.Clear();
 }
-inline const ::pb::Point& EMatchBegin::points(int index) const {
+inline const ::pb::Point& EMatcInit::points(int index) const {
   return points_.Get(index);
 }
-inline ::pb::Point* EMatchBegin::mutable_points(int index) {
+inline ::pb::Point* EMatcInit::mutable_points(int index) {
   return points_.Mutable(index);
 }
-inline ::pb::Point* EMatchBegin::add_points() {
+inline ::pb::Point* EMatcInit::add_points() {
   return points_.Add();
 }
 inline const ::google::protobuf::RepeatedPtrField< ::pb::Point >&
-EMatchBegin::points() const {
+EMatcInit::points() const {
   return points_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::pb::Point >*
-EMatchBegin::mutable_points() {
+EMatcInit::mutable_points() {
   return &points_;
 }
 
@@ -2342,6 +2450,10 @@ inline void EPlayerHit::set_damage(::google::protobuf::int32 value) {
 namespace google {
 namespace protobuf {
 
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::pb::Code>() {
+  return ::pb::Code_descriptor();
+}
 
 }  // namespace google
 }  // namespace protobuf
