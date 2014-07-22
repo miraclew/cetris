@@ -22,7 +22,6 @@
 		008663FA195ED2030048D023 /* TerrainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 008663F9195ED2030048D023 /* TerrainScene.m */; };
 		00A4FA8A197A4B3600965EE4 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A4FA88197A4B3600965EE4 /* GCDAsyncSocket.m */; };
 		00A4FA8D197A70B900965EE4 /* DefaultClient.mm in Sources */ = {isa = PBXBuildFile; fileRef = 00A4FA8C197A70B900965EE4 /* DefaultClient.mm */; };
-		00A4FA93197A8B1400965EE4 /* missle.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 00A4FA91197A8B1400965EE4 /* missle.pb.cc */; };
 		00AD8EC719601D9E0017C556 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = 00AD8EC619601D9E0017C556 /* Car.m */; };
 		00C592DB194D9B0600976C6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C592DA194D9B0600976C6D /* Foundation.framework */; };
 		00C592DD194D9B0600976C6D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C592DC194D9B0600976C6D /* CoreGraphics.framework */; };
@@ -95,8 +94,6 @@
 		00A4FA89197A4B3600965EE4 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
 		00A4FA8B197A70B900965EE4 /* DefaultClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultClient.h; sourceTree = "<group>"; };
 		00A4FA8C197A70B900965EE4 /* DefaultClient.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DefaultClient.mm; sourceTree = "<group>"; };
-		00A4FA91197A8B1400965EE4 /* missle.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = missle.pb.cc; sourceTree = "<group>"; };
-		00A4FA92197A8B1400965EE4 /* missle.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = missle.pb.h; sourceTree = "<group>"; };
 		00AD8EC519601D9E0017C556 /* Car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
 		00AD8EC619601D9E0017C556 /* Car.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
 		00C592D7194D9B0600976C6D /* Cetris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cetris.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,8 +195,6 @@
 		000047A51978105B006DAE3F /* pb */ = {
 			isa = PBXGroup;
 			children = (
-				00A4FA91197A8B1400965EE4 /* missle.pb.cc */,
-				00A4FA92197A8B1400965EE4 /* missle.pb.h */,
 			);
 			path = pb;
 			sourceTree = "<group>";
@@ -562,7 +557,6 @@
 				00C592F6194D9B0600976C6D /* ViewController.m in Sources */,
 				C46BAF16196C767100320D79 /* AFHTTPRequestOperationManager.m in Sources */,
 				C4E6308919606848005C0687 /* TestScene.m in Sources */,
-				00A4FA93197A8B1400965EE4 /* missle.pb.cc in Sources */,
 				008663F6195EC4F90048D023 /* Terrain.m in Sources */,
 				C4E6309B19606C7B005C0687 /* SKComponentScene.m in Sources */,
 				00C592ED194D9B0600976C6D /* AppDelegate.m in Sources */,

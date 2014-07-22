@@ -16,7 +16,7 @@
 
 #define HEADER_LENGTH 8
 
-#define HOST @"127.0.0.1"
+#define HOST @"192.168.40.85"
 #define HTTP_PORT 8080
 #define TCP_PORT 8081
 
@@ -112,6 +112,11 @@ struct Header {
     header.code = code;
     header.length = ps.size();
 
+    NSData *data1 = [NSData dataWithBytes:(char *)&header length:HEADER_LENGTH];
+    NSData *data2 = [NSData dataWithBytes:ps.c_str() length:ps.size()];
+    NSLog(@"send head: %@", data1);
+    NSLog(@"send body: %@", data2);
+    
     [_socket writeData:[NSData dataWithBytes:(char *) &header length:HEADER_LENGTH] withTimeout:-1 tag:0];
     [_socket writeData:[NSData dataWithBytes:ps.c_str() length:ps.size()] withTimeout:-1 tag:0];
 }
@@ -173,6 +178,7 @@ struct Header {
         pb::EAuth auth;
         auth.ParseFromArray(raw, length);
         if (auth.code() == 0) {
+            NSLog(@"Auth OK: userId=%lld", auth.userid());
             [self setState:READY];
         }
     } else if (_code == pb::E_MATCH_INIT) {
