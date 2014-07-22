@@ -156,7 +156,8 @@ void protobuf_AssignDesc_missle_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CMatchEnter));
   EMatcInit_descriptor_ = file->message_type(5);
-  static const int EMatcInit_offsets_[2] = {
+  static const int EMatcInit_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EMatcInit, matchid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EMatcInit, players_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EMatcInit, points_),
   };
@@ -172,7 +173,8 @@ void protobuf_AssignDesc_missle_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EMatcInit));
   EMatchEnd_descriptor_ = file->message_type(6);
-  static const int EMatchEnd_offsets_[1] = {
+  static const int EMatchEnd_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EMatchEnd, matchid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EMatchEnd, points_),
   };
   EMatchEnd_reflection_ =
@@ -187,7 +189,8 @@ void protobuf_AssignDesc_missle_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EMatchEnd));
   EMatchTurn_descriptor_ = file->message_type(7);
-  static const int EMatchTurn_offsets_[1] = {
+  static const int EMatchTurn_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EMatchTurn, matchid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EMatchTurn, playerid_),
   };
   EMatchTurn_reflection_ =
@@ -202,7 +205,8 @@ void protobuf_AssignDesc_missle_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EMatchTurn));
   CPlayerMove_descriptor_ = file->message_type(8);
-  static const int CPlayerMove_offsets_[1] = {
+  static const int CPlayerMove_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CPlayerMove, matchid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CPlayerMove, position_),
   };
   CPlayerMove_reflection_ =
@@ -217,7 +221,8 @@ void protobuf_AssignDesc_missle_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CPlayerMove));
   EPlayerMove_descriptor_ = file->message_type(9);
-  static const int EPlayerMove_offsets_[2] = {
+  static const int EPlayerMove_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EPlayerMove, matchid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EPlayerMove, playerid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EPlayerMove, position_),
   };
@@ -233,7 +238,8 @@ void protobuf_AssignDesc_missle_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EPlayerMove));
   CPlayerFire_descriptor_ = file->message_type(10);
-  static const int CPlayerFire_offsets_[2] = {
+  static const int CPlayerFire_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CPlayerFire, matchid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CPlayerFire, playerid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CPlayerFire, velocity_),
   };
@@ -249,7 +255,8 @@ void protobuf_AssignDesc_missle_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CPlayerFire));
   EPlayerFire_descriptor_ = file->message_type(11);
-  static const int EPlayerFire_offsets_[2] = {
+  static const int EPlayerFire_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EPlayerFire, matchid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EPlayerFire, playerid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EPlayerFire, velocity_),
   };
@@ -265,7 +272,8 @@ void protobuf_AssignDesc_missle_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EPlayerFire));
   CPlayerHit_descriptor_ = file->message_type(12);
-  static const int CPlayerHit_offsets_[3] = {
+  static const int CPlayerHit_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CPlayerHit, matchid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CPlayerHit, p1_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CPlayerHit, p2_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CPlayerHit, damage_),
@@ -282,7 +290,8 @@ void protobuf_AssignDesc_missle_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CPlayerHit));
   EPlayerHit_descriptor_ = file->message_type(13);
-  static const int EPlayerHit_offsets_[3] = {
+  static const int EPlayerHit_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EPlayerHit, matchid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EPlayerHit, p1_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EPlayerHit, p2_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EPlayerHit, damage_),
@@ -387,25 +396,29 @@ void protobuf_AddDesc_missle_2eproto() {
     "\010\022\033\n\010position\030\005 \002(\0132\t.pb.Point\022\016\n\006health"
     "\030\006 \002(\005\"+\n\005CAuth\022\020\n\010userName\030\001 \002(\t\022\020\n\010pas"
     "sword\030\002 \002(\t\"&\n\005EAuth\022\014\n\004code\030\001 \002(\005\022\017\n\007me"
-    "ssage\030\002 \001(\t\"\r\n\013CMatchEnter\"C\n\tEMatcInit\022"
-    "\033\n\007players\030\001 \003(\0132\n.pb.Player\022\031\n\006points\030\002"
-    " \003(\0132\t.pb.Point\"\033\n\tEMatchEnd\022\016\n\006points\030\001"
-    " \002(\005\"\036\n\nEMatchTurn\022\020\n\010playerId\030\001 \002(\003\"*\n\013"
-    "CPlayerMove\022\033\n\010position\030\002 \002(\0132\t.pb.Point"
-    "\"<\n\013EPlayerMove\022\020\n\010playerId\030\001 \002(\003\022\033\n\010pos"
-    "ition\030\002 \002(\0132\t.pb.Point\"<\n\013CPlayerFire\022\020\n"
-    "\010playerId\030\001 \002(\003\022\033\n\010velocity\030\002 \002(\0132\t.pb.P"
-    "oint\"<\n\013EPlayerFire\022\020\n\010playerId\030\001 \002(\003\022\033\n"
-    "\010velocity\030\002 \002(\0132\t.pb.Point\"4\n\nCPlayerHit"
-    "\022\n\n\002p1\030\001 \002(\003\022\n\n\002p2\030\002 \002(\003\022\016\n\006damage\030\003 \002(\005"
-    "\"4\n\nEPlayerHit\022\n\n\002p1\030\001 \002(\003\022\n\n\002p2\030\002 \002(\003\022\016"
-    "\n\006damage\030\003 \002(\005*\353\001\n\004Code\022\n\n\006C_AUTH\020\013\022\n\n\006E"
-    "_AUTH\020\014\022\021\n\rC_MATCH_ENTER\020\025\022\020\n\014E_MATCH_IN"
-    "IT\020\026\022\020\n\014E_MATCH_TURN\020\027\022\017\n\013E_MATCH_END\020\030\022"
-    "\021\n\rC_PLAYER_MOVE\020\037\022\021\n\rE_PLAYER_MOVE\020 \022\021\n"
-    "\rC_PLAYER_FIRE\020!\022\021\n\rE_PLAYER_FIRE\020\"\022\020\n\014C"
-    "_PLAYER_HIT\020#\022\020\n\014E_PLAYER_HIT\020$\022\023\n\017C_PLA"
-    "YER_HEALTH\020%", 972);
+    "ssage\030\002 \001(\t\"\r\n\013CMatchEnter\"T\n\tEMatcInit\022"
+    "\017\n\007matchId\030\001 \002(\003\022\033\n\007players\030\002 \003(\0132\n.pb.P"
+    "layer\022\031\n\006points\030\003 \003(\0132\t.pb.Point\",\n\tEMat"
+    "chEnd\022\017\n\007matchId\030\001 \002(\003\022\016\n\006points\030\002 \002(\005\"/"
+    "\n\nEMatchTurn\022\017\n\007matchId\030\001 \002(\003\022\020\n\010playerI"
+    "d\030\002 \002(\003\";\n\013CPlayerMove\022\017\n\007matchId\030\001 \002(\003\022"
+    "\033\n\010position\030\002 \002(\0132\t.pb.Point\"M\n\013EPlayerM"
+    "ove\022\017\n\007matchId\030\001 \002(\003\022\020\n\010playerId\030\002 \002(\003\022\033"
+    "\n\010position\030\003 \002(\0132\t.pb.Point\"M\n\013CPlayerFi"
+    "re\022\017\n\007matchId\030\001 \002(\003\022\020\n\010playerId\030\002 \002(\003\022\033\n"
+    "\010velocity\030\003 \002(\0132\t.pb.Point\"M\n\013EPlayerFir"
+    "e\022\017\n\007matchId\030\001 \002(\003\022\020\n\010playerId\030\002 \002(\003\022\033\n\010"
+    "velocity\030\003 \002(\0132\t.pb.Point\"E\n\nCPlayerHit\022"
+    "\017\n\007matchId\030\001 \002(\003\022\n\n\002p1\030\002 \002(\003\022\n\n\002p2\030\003 \002(\003"
+    "\022\016\n\006damage\030\004 \002(\005\"E\n\nEPlayerHit\022\017\n\007matchI"
+    "d\030\001 \002(\003\022\n\n\002p1\030\002 \002(\003\022\n\n\002p2\030\003 \002(\003\022\016\n\006damag"
+    "e\030\004 \002(\005*\353\001\n\004Code\022\n\n\006C_AUTH\020\013\022\n\n\006E_AUTH\020\014"
+    "\022\021\n\rC_MATCH_ENTER\020\025\022\020\n\014E_MATCH_INIT\020\026\022\020\n"
+    "\014E_MATCH_TURN\020\027\022\017\n\013E_MATCH_END\020\030\022\021\n\rC_PL"
+    "AYER_MOVE\020\037\022\021\n\rE_PLAYER_MOVE\020 \022\021\n\rC_PLAY"
+    "ER_FIRE\020!\022\021\n\rE_PLAYER_FIRE\020\"\022\020\n\014C_PLAYER"
+    "_HIT\020#\022\020\n\014E_PLAYER_HIT\020$\022\023\n\017C_PLAYER_HEA"
+    "LTH\020%", 1125);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "missle.proto", &protobuf_RegisterTypes);
   Point::default_instance_ = new Point();
@@ -1873,6 +1886,7 @@ void CMatchEnter::Swap(CMatchEnter* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int EMatcInit::kMatchIdFieldNumber;
 const int EMatcInit::kPlayersFieldNumber;
 const int EMatcInit::kPointsFieldNumber;
 #endif  // !_MSC_VER
@@ -1893,6 +1907,7 @@ EMatcInit::EMatcInit(const EMatcInit& from)
 
 void EMatcInit::SharedCtor() {
   _cached_size_ = 0;
+  matchid_ = GOOGLE_LONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1927,6 +1942,9 @@ EMatcInit* EMatcInit::New() const {
 }
 
 void EMatcInit::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    matchid_ = GOOGLE_LONGLONG(0);
+  }
   players_.Clear();
   points_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -1939,8 +1957,23 @@ bool EMatcInit::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .pb.Player players = 1;
+      // required int64 matchId = 1;
       case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &matchid_)));
+          set_has_matchid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_players;
+        break;
+      }
+
+      // repeated .pb.Player players = 2;
+      case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_players:
@@ -1949,13 +1982,13 @@ bool EMatcInit::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_players;
-        if (input->ExpectTag(18)) goto parse_points;
+        if (input->ExpectTag(18)) goto parse_players;
+        if (input->ExpectTag(26)) goto parse_points;
         break;
       }
 
-      // repeated .pb.Point points = 2;
-      case 2: {
+      // repeated .pb.Point points = 3;
+      case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_points:
@@ -1964,7 +1997,7 @@ bool EMatcInit::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_points;
+        if (input->ExpectTag(26)) goto parse_points;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1987,16 +2020,21 @@ bool EMatcInit::MergePartialFromCodedStream(
 
 void EMatcInit::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .pb.Player players = 1;
-  for (int i = 0; i < this->players_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->players(i), output);
+  // required int64 matchId = 1;
+  if (has_matchid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->matchid(), output);
   }
 
-  // repeated .pb.Point points = 2;
+  // repeated .pb.Player players = 2;
+  for (int i = 0; i < this->players_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->players(i), output);
+  }
+
+  // repeated .pb.Point points = 3;
   for (int i = 0; i < this->points_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->points(i), output);
+      3, this->points(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -2007,18 +2045,23 @@ void EMatcInit::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* EMatcInit::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .pb.Player players = 1;
+  // required int64 matchId = 1;
+  if (has_matchid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->matchid(), target);
+  }
+
+  // repeated .pb.Player players = 2;
   for (int i = 0; i < this->players_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->players(i), target);
+        2, this->players(i), target);
   }
 
-  // repeated .pb.Point points = 2;
+  // repeated .pb.Point points = 3;
   for (int i = 0; i < this->points_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, this->points(i), target);
+        3, this->points(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2031,7 +2074,16 @@ void EMatcInit::SerializeWithCachedSizes(
 int EMatcInit::ByteSize() const {
   int total_size = 0;
 
-  // repeated .pb.Player players = 1;
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required int64 matchId = 1;
+    if (has_matchid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->matchid());
+    }
+
+  }
+  // repeated .pb.Player players = 2;
   total_size += 1 * this->players_size();
   for (int i = 0; i < this->players_size(); i++) {
     total_size +=
@@ -2039,7 +2091,7 @@ int EMatcInit::ByteSize() const {
         this->players(i));
   }
 
-  // repeated .pb.Point points = 2;
+  // repeated .pb.Point points = 3;
   total_size += 1 * this->points_size();
   for (int i = 0; i < this->points_size(); i++) {
     total_size +=
@@ -2074,6 +2126,11 @@ void EMatcInit::MergeFrom(const EMatcInit& from) {
   GOOGLE_CHECK_NE(&from, this);
   players_.MergeFrom(from.players_);
   points_.MergeFrom(from.points_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_matchid()) {
+      set_matchid(from.matchid());
+    }
+  }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
@@ -2090,6 +2147,7 @@ void EMatcInit::CopyFrom(const EMatcInit& from) {
 }
 
 bool EMatcInit::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
   for (int i = 0; i < players_size(); i++) {
     if (!this->players(i).IsInitialized()) return false;
@@ -2102,6 +2160,7 @@ bool EMatcInit::IsInitialized() const {
 
 void EMatcInit::Swap(EMatcInit* other) {
   if (other != this) {
+    std::swap(matchid_, other->matchid_);
     players_.Swap(&other->players_);
     points_.Swap(&other->points_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
@@ -2122,6 +2181,7 @@ void EMatcInit::Swap(EMatcInit* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int EMatchEnd::kMatchIdFieldNumber;
 const int EMatchEnd::kPointsFieldNumber;
 #endif  // !_MSC_VER
 
@@ -2141,6 +2201,7 @@ EMatchEnd::EMatchEnd(const EMatchEnd& from)
 
 void EMatchEnd::SharedCtor() {
   _cached_size_ = 0;
+  matchid_ = GOOGLE_LONGLONG(0);
   points_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -2177,6 +2238,7 @@ EMatchEnd* EMatchEnd::New() const {
 
 void EMatchEnd::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    matchid_ = GOOGLE_LONGLONG(0);
     points_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -2189,10 +2251,26 @@ bool EMatchEnd::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int32 points = 1;
+      // required int64 matchId = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &matchid_)));
+          set_has_matchid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_points;
+        break;
+      }
+
+      // required int32 points = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_points:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &points_)));
@@ -2222,9 +2300,14 @@ bool EMatchEnd::MergePartialFromCodedStream(
 
 void EMatchEnd::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required int32 points = 1;
+  // required int64 matchId = 1;
+  if (has_matchid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->matchid(), output);
+  }
+
+  // required int32 points = 2;
   if (has_points()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->points(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->points(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -2235,9 +2318,14 @@ void EMatchEnd::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* EMatchEnd::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required int32 points = 1;
+  // required int64 matchId = 1;
+  if (has_matchid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->matchid(), target);
+  }
+
+  // required int32 points = 2;
   if (has_points()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->points(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->points(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2251,7 +2339,14 @@ int EMatchEnd::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required int32 points = 1;
+    // required int64 matchId = 1;
+    if (has_matchid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->matchid());
+    }
+
+    // required int32 points = 2;
     if (has_points()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2285,6 +2380,9 @@ void EMatchEnd::MergeFrom(const ::google::protobuf::Message& from) {
 void EMatchEnd::MergeFrom(const EMatchEnd& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_matchid()) {
+      set_matchid(from.matchid());
+    }
     if (from.has_points()) {
       set_points(from.points());
     }
@@ -2305,13 +2403,14 @@ void EMatchEnd::CopyFrom(const EMatchEnd& from) {
 }
 
 bool EMatchEnd::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
   return true;
 }
 
 void EMatchEnd::Swap(EMatchEnd* other) {
   if (other != this) {
+    std::swap(matchid_, other->matchid_);
     std::swap(points_, other->points_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
@@ -2331,6 +2430,7 @@ void EMatchEnd::Swap(EMatchEnd* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int EMatchTurn::kMatchIdFieldNumber;
 const int EMatchTurn::kPlayerIdFieldNumber;
 #endif  // !_MSC_VER
 
@@ -2350,6 +2450,7 @@ EMatchTurn::EMatchTurn(const EMatchTurn& from)
 
 void EMatchTurn::SharedCtor() {
   _cached_size_ = 0;
+  matchid_ = GOOGLE_LONGLONG(0);
   playerid_ = GOOGLE_LONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -2386,6 +2487,7 @@ EMatchTurn* EMatchTurn::New() const {
 
 void EMatchTurn::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    matchid_ = GOOGLE_LONGLONG(0);
     playerid_ = GOOGLE_LONGLONG(0);
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -2398,10 +2500,26 @@ bool EMatchTurn::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int64 playerId = 1;
+      // required int64 matchId = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &matchid_)));
+          set_has_matchid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_playerId;
+        break;
+      }
+
+      // required int64 playerId = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_playerId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &playerid_)));
@@ -2431,9 +2549,14 @@ bool EMatchTurn::MergePartialFromCodedStream(
 
 void EMatchTurn::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required int64 playerId = 1;
+  // required int64 matchId = 1;
+  if (has_matchid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->matchid(), output);
+  }
+
+  // required int64 playerId = 2;
   if (has_playerid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->playerid(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->playerid(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -2444,9 +2567,14 @@ void EMatchTurn::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* EMatchTurn::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required int64 playerId = 1;
+  // required int64 matchId = 1;
+  if (has_matchid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->matchid(), target);
+  }
+
+  // required int64 playerId = 2;
   if (has_playerid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->playerid(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->playerid(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2460,7 +2588,14 @@ int EMatchTurn::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required int64 playerId = 1;
+    // required int64 matchId = 1;
+    if (has_matchid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->matchid());
+    }
+
+    // required int64 playerId = 2;
     if (has_playerid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -2494,6 +2629,9 @@ void EMatchTurn::MergeFrom(const ::google::protobuf::Message& from) {
 void EMatchTurn::MergeFrom(const EMatchTurn& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_matchid()) {
+      set_matchid(from.matchid());
+    }
     if (from.has_playerid()) {
       set_playerid(from.playerid());
     }
@@ -2514,13 +2652,14 @@ void EMatchTurn::CopyFrom(const EMatchTurn& from) {
 }
 
 bool EMatchTurn::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
   return true;
 }
 
 void EMatchTurn::Swap(EMatchTurn* other) {
   if (other != this) {
+    std::swap(matchid_, other->matchid_);
     std::swap(playerid_, other->playerid_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
@@ -2540,6 +2679,7 @@ void EMatchTurn::Swap(EMatchTurn* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int CPlayerMove::kMatchIdFieldNumber;
 const int CPlayerMove::kPositionFieldNumber;
 #endif  // !_MSC_VER
 
@@ -2560,6 +2700,7 @@ CPlayerMove::CPlayerMove(const CPlayerMove& from)
 
 void CPlayerMove::SharedCtor() {
   _cached_size_ = 0;
+  matchid_ = GOOGLE_LONGLONG(0);
   position_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -2597,6 +2738,7 @@ CPlayerMove* CPlayerMove::New() const {
 
 void CPlayerMove::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    matchid_ = GOOGLE_LONGLONG(0);
     if (has_position()) {
       if (position_ != NULL) position_->::pb::Point::Clear();
     }
@@ -2611,10 +2753,26 @@ bool CPlayerMove::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int64 matchId = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &matchid_)));
+          set_has_matchid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_position;
+        break;
+      }
+
       // required .pb.Point position = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_position:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_position()));
         } else {
@@ -2642,6 +2800,11 @@ bool CPlayerMove::MergePartialFromCodedStream(
 
 void CPlayerMove::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
+  // required int64 matchId = 1;
+  if (has_matchid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->matchid(), output);
+  }
+
   // required .pb.Point position = 2;
   if (has_position()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
@@ -2656,6 +2819,11 @@ void CPlayerMove::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* CPlayerMove::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
+  // required int64 matchId = 1;
+  if (has_matchid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->matchid(), target);
+  }
+
   // required .pb.Point position = 2;
   if (has_position()) {
     target = ::google::protobuf::internal::WireFormatLite::
@@ -2674,6 +2842,13 @@ int CPlayerMove::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required int64 matchId = 1;
+    if (has_matchid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->matchid());
+    }
+
     // required .pb.Point position = 2;
     if (has_position()) {
       total_size += 1 +
@@ -2708,6 +2883,9 @@ void CPlayerMove::MergeFrom(const ::google::protobuf::Message& from) {
 void CPlayerMove::MergeFrom(const CPlayerMove& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_matchid()) {
+      set_matchid(from.matchid());
+    }
     if (from.has_position()) {
       mutable_position()->::pb::Point::MergeFrom(from.position());
     }
@@ -2728,7 +2906,7 @@ void CPlayerMove::CopyFrom(const CPlayerMove& from) {
 }
 
 bool CPlayerMove::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
   if (has_position()) {
     if (!this->position().IsInitialized()) return false;
@@ -2738,6 +2916,7 @@ bool CPlayerMove::IsInitialized() const {
 
 void CPlayerMove::Swap(CPlayerMove* other) {
   if (other != this) {
+    std::swap(matchid_, other->matchid_);
     std::swap(position_, other->position_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
@@ -2757,6 +2936,7 @@ void CPlayerMove::Swap(CPlayerMove* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int EPlayerMove::kMatchIdFieldNumber;
 const int EPlayerMove::kPlayerIdFieldNumber;
 const int EPlayerMove::kPositionFieldNumber;
 #endif  // !_MSC_VER
@@ -2778,6 +2958,7 @@ EPlayerMove::EPlayerMove(const EPlayerMove& from)
 
 void EPlayerMove::SharedCtor() {
   _cached_size_ = 0;
+  matchid_ = GOOGLE_LONGLONG(0);
   playerid_ = GOOGLE_LONGLONG(0);
   position_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -2816,6 +2997,7 @@ EPlayerMove* EPlayerMove::New() const {
 
 void EPlayerMove::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    matchid_ = GOOGLE_LONGLONG(0);
     playerid_ = GOOGLE_LONGLONG(0);
     if (has_position()) {
       if (position_ != NULL) position_->::pb::Point::Clear();
@@ -2831,10 +3013,26 @@ bool EPlayerMove::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int64 playerId = 1;
+      // required int64 matchId = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &matchid_)));
+          set_has_matchid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_playerId;
+        break;
+      }
+
+      // required int64 playerId = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_playerId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &playerid_)));
@@ -2842,12 +3040,12 @@ bool EPlayerMove::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_position;
+        if (input->ExpectTag(26)) goto parse_position;
         break;
       }
 
-      // required .pb.Point position = 2;
-      case 2: {
+      // required .pb.Point position = 3;
+      case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_position:
@@ -2878,15 +3076,20 @@ bool EPlayerMove::MergePartialFromCodedStream(
 
 void EPlayerMove::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required int64 playerId = 1;
-  if (has_playerid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->playerid(), output);
+  // required int64 matchId = 1;
+  if (has_matchid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->matchid(), output);
   }
 
-  // required .pb.Point position = 2;
+  // required int64 playerId = 2;
+  if (has_playerid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->playerid(), output);
+  }
+
+  // required .pb.Point position = 3;
   if (has_position()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->position(), output);
+      3, this->position(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -2897,16 +3100,21 @@ void EPlayerMove::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* EPlayerMove::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required int64 playerId = 1;
-  if (has_playerid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->playerid(), target);
+  // required int64 matchId = 1;
+  if (has_matchid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->matchid(), target);
   }
 
-  // required .pb.Point position = 2;
+  // required int64 playerId = 2;
+  if (has_playerid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->playerid(), target);
+  }
+
+  // required .pb.Point position = 3;
   if (has_position()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, this->position(), target);
+        3, this->position(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2920,14 +3128,21 @@ int EPlayerMove::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required int64 playerId = 1;
+    // required int64 matchId = 1;
+    if (has_matchid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->matchid());
+    }
+
+    // required int64 playerId = 2;
     if (has_playerid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->playerid());
     }
 
-    // required .pb.Point position = 2;
+    // required .pb.Point position = 3;
     if (has_position()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -2961,6 +3176,9 @@ void EPlayerMove::MergeFrom(const ::google::protobuf::Message& from) {
 void EPlayerMove::MergeFrom(const EPlayerMove& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_matchid()) {
+      set_matchid(from.matchid());
+    }
     if (from.has_playerid()) {
       set_playerid(from.playerid());
     }
@@ -2984,7 +3202,7 @@ void EPlayerMove::CopyFrom(const EPlayerMove& from) {
 }
 
 bool EPlayerMove::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
 
   if (has_position()) {
     if (!this->position().IsInitialized()) return false;
@@ -2994,6 +3212,7 @@ bool EPlayerMove::IsInitialized() const {
 
 void EPlayerMove::Swap(EPlayerMove* other) {
   if (other != this) {
+    std::swap(matchid_, other->matchid_);
     std::swap(playerid_, other->playerid_);
     std::swap(position_, other->position_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
@@ -3014,6 +3233,7 @@ void EPlayerMove::Swap(EPlayerMove* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int CPlayerFire::kMatchIdFieldNumber;
 const int CPlayerFire::kPlayerIdFieldNumber;
 const int CPlayerFire::kVelocityFieldNumber;
 #endif  // !_MSC_VER
@@ -3035,6 +3255,7 @@ CPlayerFire::CPlayerFire(const CPlayerFire& from)
 
 void CPlayerFire::SharedCtor() {
   _cached_size_ = 0;
+  matchid_ = GOOGLE_LONGLONG(0);
   playerid_ = GOOGLE_LONGLONG(0);
   velocity_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -3073,6 +3294,7 @@ CPlayerFire* CPlayerFire::New() const {
 
 void CPlayerFire::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    matchid_ = GOOGLE_LONGLONG(0);
     playerid_ = GOOGLE_LONGLONG(0);
     if (has_velocity()) {
       if (velocity_ != NULL) velocity_->::pb::Point::Clear();
@@ -3088,10 +3310,26 @@ bool CPlayerFire::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int64 playerId = 1;
+      // required int64 matchId = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &matchid_)));
+          set_has_matchid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_playerId;
+        break;
+      }
+
+      // required int64 playerId = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_playerId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &playerid_)));
@@ -3099,12 +3337,12 @@ bool CPlayerFire::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_velocity;
+        if (input->ExpectTag(26)) goto parse_velocity;
         break;
       }
 
-      // required .pb.Point velocity = 2;
-      case 2: {
+      // required .pb.Point velocity = 3;
+      case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_velocity:
@@ -3135,15 +3373,20 @@ bool CPlayerFire::MergePartialFromCodedStream(
 
 void CPlayerFire::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required int64 playerId = 1;
-  if (has_playerid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->playerid(), output);
+  // required int64 matchId = 1;
+  if (has_matchid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->matchid(), output);
   }
 
-  // required .pb.Point velocity = 2;
+  // required int64 playerId = 2;
+  if (has_playerid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->playerid(), output);
+  }
+
+  // required .pb.Point velocity = 3;
   if (has_velocity()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->velocity(), output);
+      3, this->velocity(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -3154,16 +3397,21 @@ void CPlayerFire::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* CPlayerFire::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required int64 playerId = 1;
-  if (has_playerid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->playerid(), target);
+  // required int64 matchId = 1;
+  if (has_matchid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->matchid(), target);
   }
 
-  // required .pb.Point velocity = 2;
+  // required int64 playerId = 2;
+  if (has_playerid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->playerid(), target);
+  }
+
+  // required .pb.Point velocity = 3;
   if (has_velocity()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, this->velocity(), target);
+        3, this->velocity(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -3177,14 +3425,21 @@ int CPlayerFire::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required int64 playerId = 1;
+    // required int64 matchId = 1;
+    if (has_matchid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->matchid());
+    }
+
+    // required int64 playerId = 2;
     if (has_playerid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->playerid());
     }
 
-    // required .pb.Point velocity = 2;
+    // required .pb.Point velocity = 3;
     if (has_velocity()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -3218,6 +3473,9 @@ void CPlayerFire::MergeFrom(const ::google::protobuf::Message& from) {
 void CPlayerFire::MergeFrom(const CPlayerFire& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_matchid()) {
+      set_matchid(from.matchid());
+    }
     if (from.has_playerid()) {
       set_playerid(from.playerid());
     }
@@ -3241,7 +3499,7 @@ void CPlayerFire::CopyFrom(const CPlayerFire& from) {
 }
 
 bool CPlayerFire::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
 
   if (has_velocity()) {
     if (!this->velocity().IsInitialized()) return false;
@@ -3251,6 +3509,7 @@ bool CPlayerFire::IsInitialized() const {
 
 void CPlayerFire::Swap(CPlayerFire* other) {
   if (other != this) {
+    std::swap(matchid_, other->matchid_);
     std::swap(playerid_, other->playerid_);
     std::swap(velocity_, other->velocity_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
@@ -3271,6 +3530,7 @@ void CPlayerFire::Swap(CPlayerFire* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int EPlayerFire::kMatchIdFieldNumber;
 const int EPlayerFire::kPlayerIdFieldNumber;
 const int EPlayerFire::kVelocityFieldNumber;
 #endif  // !_MSC_VER
@@ -3292,6 +3552,7 @@ EPlayerFire::EPlayerFire(const EPlayerFire& from)
 
 void EPlayerFire::SharedCtor() {
   _cached_size_ = 0;
+  matchid_ = GOOGLE_LONGLONG(0);
   playerid_ = GOOGLE_LONGLONG(0);
   velocity_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -3330,6 +3591,7 @@ EPlayerFire* EPlayerFire::New() const {
 
 void EPlayerFire::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    matchid_ = GOOGLE_LONGLONG(0);
     playerid_ = GOOGLE_LONGLONG(0);
     if (has_velocity()) {
       if (velocity_ != NULL) velocity_->::pb::Point::Clear();
@@ -3345,10 +3607,26 @@ bool EPlayerFire::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int64 playerId = 1;
+      // required int64 matchId = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &matchid_)));
+          set_has_matchid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_playerId;
+        break;
+      }
+
+      // required int64 playerId = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_playerId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &playerid_)));
@@ -3356,12 +3634,12 @@ bool EPlayerFire::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_velocity;
+        if (input->ExpectTag(26)) goto parse_velocity;
         break;
       }
 
-      // required .pb.Point velocity = 2;
-      case 2: {
+      // required .pb.Point velocity = 3;
+      case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_velocity:
@@ -3392,15 +3670,20 @@ bool EPlayerFire::MergePartialFromCodedStream(
 
 void EPlayerFire::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required int64 playerId = 1;
-  if (has_playerid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->playerid(), output);
+  // required int64 matchId = 1;
+  if (has_matchid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->matchid(), output);
   }
 
-  // required .pb.Point velocity = 2;
+  // required int64 playerId = 2;
+  if (has_playerid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->playerid(), output);
+  }
+
+  // required .pb.Point velocity = 3;
   if (has_velocity()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->velocity(), output);
+      3, this->velocity(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -3411,16 +3694,21 @@ void EPlayerFire::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* EPlayerFire::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required int64 playerId = 1;
-  if (has_playerid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->playerid(), target);
+  // required int64 matchId = 1;
+  if (has_matchid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->matchid(), target);
   }
 
-  // required .pb.Point velocity = 2;
+  // required int64 playerId = 2;
+  if (has_playerid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->playerid(), target);
+  }
+
+  // required .pb.Point velocity = 3;
   if (has_velocity()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, this->velocity(), target);
+        3, this->velocity(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -3434,14 +3722,21 @@ int EPlayerFire::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required int64 playerId = 1;
+    // required int64 matchId = 1;
+    if (has_matchid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->matchid());
+    }
+
+    // required int64 playerId = 2;
     if (has_playerid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->playerid());
     }
 
-    // required .pb.Point velocity = 2;
+    // required .pb.Point velocity = 3;
     if (has_velocity()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -3475,6 +3770,9 @@ void EPlayerFire::MergeFrom(const ::google::protobuf::Message& from) {
 void EPlayerFire::MergeFrom(const EPlayerFire& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_matchid()) {
+      set_matchid(from.matchid());
+    }
     if (from.has_playerid()) {
       set_playerid(from.playerid());
     }
@@ -3498,7 +3796,7 @@ void EPlayerFire::CopyFrom(const EPlayerFire& from) {
 }
 
 bool EPlayerFire::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
 
   if (has_velocity()) {
     if (!this->velocity().IsInitialized()) return false;
@@ -3508,6 +3806,7 @@ bool EPlayerFire::IsInitialized() const {
 
 void EPlayerFire::Swap(EPlayerFire* other) {
   if (other != this) {
+    std::swap(matchid_, other->matchid_);
     std::swap(playerid_, other->playerid_);
     std::swap(velocity_, other->velocity_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
@@ -3528,6 +3827,7 @@ void EPlayerFire::Swap(EPlayerFire* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int CPlayerHit::kMatchIdFieldNumber;
 const int CPlayerHit::kP1FieldNumber;
 const int CPlayerHit::kP2FieldNumber;
 const int CPlayerHit::kDamageFieldNumber;
@@ -3549,6 +3849,7 @@ CPlayerHit::CPlayerHit(const CPlayerHit& from)
 
 void CPlayerHit::SharedCtor() {
   _cached_size_ = 0;
+  matchid_ = GOOGLE_LONGLONG(0);
   p1_ = GOOGLE_LONGLONG(0);
   p2_ = GOOGLE_LONGLONG(0);
   damage_ = 0;
@@ -3587,6 +3888,7 @@ CPlayerHit* CPlayerHit::New() const {
 
 void CPlayerHit::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    matchid_ = GOOGLE_LONGLONG(0);
     p1_ = GOOGLE_LONGLONG(0);
     p2_ = GOOGLE_LONGLONG(0);
     damage_ = 0;
@@ -3601,10 +3903,26 @@ bool CPlayerHit::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int64 p1 = 1;
+      // required int64 matchId = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &matchid_)));
+          set_has_matchid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_p1;
+        break;
+      }
+
+      // required int64 p1 = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_p1:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &p1_)));
@@ -3612,12 +3930,12 @@ bool CPlayerHit::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_p2;
+        if (input->ExpectTag(24)) goto parse_p2;
         break;
       }
 
-      // required int64 p2 = 2;
-      case 2: {
+      // required int64 p2 = 3;
+      case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_p2:
@@ -3628,12 +3946,12 @@ bool CPlayerHit::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_damage;
+        if (input->ExpectTag(32)) goto parse_damage;
         break;
       }
 
-      // required int32 damage = 3;
-      case 3: {
+      // required int32 damage = 4;
+      case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_damage:
@@ -3666,19 +3984,24 @@ bool CPlayerHit::MergePartialFromCodedStream(
 
 void CPlayerHit::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required int64 p1 = 1;
+  // required int64 matchId = 1;
+  if (has_matchid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->matchid(), output);
+  }
+
+  // required int64 p1 = 2;
   if (has_p1()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->p1(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->p1(), output);
   }
 
-  // required int64 p2 = 2;
+  // required int64 p2 = 3;
   if (has_p2()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->p2(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(3, this->p2(), output);
   }
 
-  // required int32 damage = 3;
+  // required int32 damage = 4;
   if (has_damage()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->damage(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->damage(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -3689,19 +4012,24 @@ void CPlayerHit::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* CPlayerHit::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required int64 p1 = 1;
+  // required int64 matchId = 1;
+  if (has_matchid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->matchid(), target);
+  }
+
+  // required int64 p1 = 2;
   if (has_p1()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->p1(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->p1(), target);
   }
 
-  // required int64 p2 = 2;
+  // required int64 p2 = 3;
   if (has_p2()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->p2(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(3, this->p2(), target);
   }
 
-  // required int32 damage = 3;
+  // required int32 damage = 4;
   if (has_damage()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->damage(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->damage(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -3715,21 +4043,28 @@ int CPlayerHit::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required int64 p1 = 1;
+    // required int64 matchId = 1;
+    if (has_matchid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->matchid());
+    }
+
+    // required int64 p1 = 2;
     if (has_p1()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->p1());
     }
 
-    // required int64 p2 = 2;
+    // required int64 p2 = 3;
     if (has_p2()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->p2());
     }
 
-    // required int32 damage = 3;
+    // required int32 damage = 4;
     if (has_damage()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -3763,6 +4098,9 @@ void CPlayerHit::MergeFrom(const ::google::protobuf::Message& from) {
 void CPlayerHit::MergeFrom(const CPlayerHit& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_matchid()) {
+      set_matchid(from.matchid());
+    }
     if (from.has_p1()) {
       set_p1(from.p1());
     }
@@ -3789,13 +4127,14 @@ void CPlayerHit::CopyFrom(const CPlayerHit& from) {
 }
 
 bool CPlayerHit::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
+  if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
 
   return true;
 }
 
 void CPlayerHit::Swap(CPlayerHit* other) {
   if (other != this) {
+    std::swap(matchid_, other->matchid_);
     std::swap(p1_, other->p1_);
     std::swap(p2_, other->p2_);
     std::swap(damage_, other->damage_);
@@ -3817,6 +4156,7 @@ void CPlayerHit::Swap(CPlayerHit* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int EPlayerHit::kMatchIdFieldNumber;
 const int EPlayerHit::kP1FieldNumber;
 const int EPlayerHit::kP2FieldNumber;
 const int EPlayerHit::kDamageFieldNumber;
@@ -3838,6 +4178,7 @@ EPlayerHit::EPlayerHit(const EPlayerHit& from)
 
 void EPlayerHit::SharedCtor() {
   _cached_size_ = 0;
+  matchid_ = GOOGLE_LONGLONG(0);
   p1_ = GOOGLE_LONGLONG(0);
   p2_ = GOOGLE_LONGLONG(0);
   damage_ = 0;
@@ -3876,6 +4217,7 @@ EPlayerHit* EPlayerHit::New() const {
 
 void EPlayerHit::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    matchid_ = GOOGLE_LONGLONG(0);
     p1_ = GOOGLE_LONGLONG(0);
     p2_ = GOOGLE_LONGLONG(0);
     damage_ = 0;
@@ -3890,10 +4232,26 @@ bool EPlayerHit::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int64 p1 = 1;
+      // required int64 matchId = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &matchid_)));
+          set_has_matchid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_p1;
+        break;
+      }
+
+      // required int64 p1 = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_p1:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &p1_)));
@@ -3901,12 +4259,12 @@ bool EPlayerHit::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_p2;
+        if (input->ExpectTag(24)) goto parse_p2;
         break;
       }
 
-      // required int64 p2 = 2;
-      case 2: {
+      // required int64 p2 = 3;
+      case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_p2:
@@ -3917,12 +4275,12 @@ bool EPlayerHit::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_damage;
+        if (input->ExpectTag(32)) goto parse_damage;
         break;
       }
 
-      // required int32 damage = 3;
-      case 3: {
+      // required int32 damage = 4;
+      case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_damage:
@@ -3955,19 +4313,24 @@ bool EPlayerHit::MergePartialFromCodedStream(
 
 void EPlayerHit::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required int64 p1 = 1;
+  // required int64 matchId = 1;
+  if (has_matchid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->matchid(), output);
+  }
+
+  // required int64 p1 = 2;
   if (has_p1()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->p1(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->p1(), output);
   }
 
-  // required int64 p2 = 2;
+  // required int64 p2 = 3;
   if (has_p2()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->p2(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(3, this->p2(), output);
   }
 
-  // required int32 damage = 3;
+  // required int32 damage = 4;
   if (has_damage()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->damage(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->damage(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -3978,19 +4341,24 @@ void EPlayerHit::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* EPlayerHit::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required int64 p1 = 1;
+  // required int64 matchId = 1;
+  if (has_matchid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->matchid(), target);
+  }
+
+  // required int64 p1 = 2;
   if (has_p1()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->p1(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->p1(), target);
   }
 
-  // required int64 p2 = 2;
+  // required int64 p2 = 3;
   if (has_p2()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->p2(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(3, this->p2(), target);
   }
 
-  // required int32 damage = 3;
+  // required int32 damage = 4;
   if (has_damage()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->damage(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->damage(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -4004,21 +4372,28 @@ int EPlayerHit::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required int64 p1 = 1;
+    // required int64 matchId = 1;
+    if (has_matchid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->matchid());
+    }
+
+    // required int64 p1 = 2;
     if (has_p1()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->p1());
     }
 
-    // required int64 p2 = 2;
+    // required int64 p2 = 3;
     if (has_p2()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->p2());
     }
 
-    // required int32 damage = 3;
+    // required int32 damage = 4;
     if (has_damage()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -4052,6 +4427,9 @@ void EPlayerHit::MergeFrom(const ::google::protobuf::Message& from) {
 void EPlayerHit::MergeFrom(const EPlayerHit& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_matchid()) {
+      set_matchid(from.matchid());
+    }
     if (from.has_p1()) {
       set_p1(from.p1());
     }
@@ -4078,13 +4456,14 @@ void EPlayerHit::CopyFrom(const EPlayerHit& from) {
 }
 
 bool EPlayerHit::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
+  if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
 
   return true;
 }
 
 void EPlayerHit::Swap(EPlayerHit* other) {
   if (other != this) {
+    std::swap(matchid_, other->matchid_);
     std::swap(p1_, other->p1_);
     std::swap(p2_, other->p2_);
     std::swap(damage_, other->damage_);

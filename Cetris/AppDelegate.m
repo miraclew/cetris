@@ -15,7 +15,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    client = [[DefaultClient alloc] init];
+    client = [[DefaultClient alloc] initWithDelegate:nil];
     [client connectWith:@"test" passWord:@"test"];
 
     // Override point for customization after application launch.

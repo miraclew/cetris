@@ -16,7 +16,7 @@
 
 #define HEADER_LENGTH 8
 
-#define HOST @"localhost"
+#define HOST @"127.0.0.1"
 #define HTTP_PORT 8080
 #define TCP_PORT 8081
 
@@ -134,7 +134,7 @@ struct Header {
     auth.set_password([_password UTF8String]);
     std::string ps = auth.SerializeAsString();
 
-    [sock writeData:[NSData dataWithBytes:ps.c_str() length:ps.size()] withTimeout:-1 tag:0];
+    [self send:pb::C_AUTH Message:&auth];
     [sock readDataToLength:HEADER_LENGTH withTimeout:-1 tag:TAG_FIXED_LENGTH_HEADER];
 }
 
