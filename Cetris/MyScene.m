@@ -10,6 +10,7 @@
 #import "Car.h"
 #import "PhysicsHelper.h"
 #import "FireControl.h"
+#import "AppDelegate.h"
 
 #define NA_ENEMY_LABEL   @"enemy"
 #define NA_MISSILE_LABEL @"missile"
@@ -24,7 +25,7 @@ typedef enum : NSUInteger {
     None,
     A,
     B,
-} Player;
+} PlayerType;
 
 typedef enum : NSUInteger {
     NONE,
@@ -57,8 +58,8 @@ typedef enum : NSUInteger {
     SKNode *hud;
     int healthA;
     int healthB;
-    Player turn;
-    Player winner;
+    PlayerType turn;
+    PlayerType winner;
     SKLabelNode *topCenterLabel;
     BOOL isGameOver;
     
@@ -169,6 +170,7 @@ typedef enum : NSUInteger {
     backNode.name = @"BackButton";
     backNode.position = CGPointMake(self.size.width - 50, self.size.height - 20);
     [self addChild:backNode];
+    
 }
 
 -(void)addPlayers {
@@ -333,6 +335,8 @@ typedef enum : NSUInteger {
     if (_missileCurve != nil) {
         [_missileCurve removeFromParent];
     }
+    
+    
 }
 
 -(void)moveControl:(CGPoint) location {
