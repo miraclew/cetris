@@ -21,6 +21,8 @@
 		008663F6195EC4F90048D023 /* Terrain.m in Sources */ = {isa = PBXBuildFile; fileRef = 008663F5195EC4F90048D023 /* Terrain.m */; };
 		008663FA195ED2030048D023 /* TerrainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 008663F9195ED2030048D023 /* TerrainScene.m */; };
 		00905DF2197EB5F500388438 /* missle.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 00905DF0197EB5F500388438 /* missle.pb.cc */; };
+		00905DF5197FF02F00388438 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 00905DF4197FF02F00388438 /* Game.m */; };
+		00905DF8197FF23A00388438 /* InitScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 00905DF7197FF23A00388438 /* InitScene.m */; };
 		00A4FA8A197A4B3600965EE4 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A4FA88197A4B3600965EE4 /* GCDAsyncSocket.m */; };
 		00A4FA8D197A70B900965EE4 /* DefaultClient.mm in Sources */ = {isa = PBXBuildFile; fileRef = 00A4FA8C197A70B900965EE4 /* DefaultClient.mm */; };
 		00AD8EC719601D9E0017C556 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = 00AD8EC619601D9E0017C556 /* Car.m */; };
@@ -93,6 +95,10 @@
 		008663F9195ED2030048D023 /* TerrainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerrainScene.m; sourceTree = "<group>"; };
 		00905DF0197EB5F500388438 /* missle.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = missle.pb.cc; path = Cetris/missle.pb.cc; sourceTree = SOURCE_ROOT; };
 		00905DF1197EB5F500388438 /* missle.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = missle.pb.h; path = Cetris/missle.pb.h; sourceTree = SOURCE_ROOT; };
+		00905DF3197FF02F00388438 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		00905DF4197FF02F00388438 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		00905DF6197FF23A00388438 /* InitScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitScene.h; sourceTree = "<group>"; };
+		00905DF7197FF23A00388438 /* InitScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitScene.m; sourceTree = "<group>"; };
 		00A4FA88197A4B3600965EE4 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 		00A4FA89197A4B3600965EE4 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
 		00A4FA8B197A70B900965EE4 /* DefaultClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultClient.h; sourceTree = "<group>"; };
@@ -264,6 +270,8 @@
 		00AD8EC4196017880017C556 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				00905DF6197FF23A00388438 /* InitScene.h */,
+				00905DF7197FF23A00388438 /* InitScene.m */,
 				00C592F7194D9B0600976C6D /* MyScene.h */,
 				00C592F8194D9B0600976C6D /* MyScene.m */,
 				008663E7195EB0BF0048D023 /* GameOverScene.h */,
@@ -318,6 +326,8 @@
 				00AD8EC1196017110017C556 /* Sounds */,
 				00AD8EC21960174D0017C556 /* Effect */,
 				C4C709E9196089C400EA83EB /* Class */,
+				00905DF3197FF02F00388438 /* Game.h */,
+				00905DF4197FF02F00388438 /* Game.m */,
 				00C592EB194D9B0600976C6D /* AppDelegate.h */,
 				00C592EC194D9B0600976C6D /* AppDelegate.m */,
 				00C592F4194D9B0600976C6D /* ViewController.h */,
@@ -560,12 +570,14 @@
 				C4C709EC19608A3300EA83EB /* PhysicsHelper.m in Sources */,
 				C4E6309919606C7B005C0687 /* SKComponentManager.m in Sources */,
 				00C592F6194D9B0600976C6D /* ViewController.m in Sources */,
+				00905DF5197FF02F00388438 /* Game.m in Sources */,
 				C46BAF16196C767100320D79 /* AFHTTPRequestOperationManager.m in Sources */,
 				C4E6308919606848005C0687 /* TestScene.m in Sources */,
 				00905DF2197EB5F500388438 /* missle.pb.cc in Sources */,
 				008663F6195EC4F90048D023 /* Terrain.m in Sources */,
 				C4E6309B19606C7B005C0687 /* SKComponentScene.m in Sources */,
 				00C592ED194D9B0600976C6D /* AppDelegate.m in Sources */,
+				00905DF8197FF23A00388438 /* InitScene.m in Sources */,
 				00C592E9194D9B0600976C6D /* main.m in Sources */,
 				00AD8EC719601D9E0017C556 /* Car.m in Sources */,
 				008663FA195ED2030048D023 /* TerrainScene.m in Sources */,

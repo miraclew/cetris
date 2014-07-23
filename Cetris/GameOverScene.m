@@ -45,8 +45,8 @@
         SKTransition *transition = [SKTransition flipHorizontalWithDuration:0.5];
         [self.view presentScene:gameScene transition:transition];
         
-        AppDelegate *appDelegate = ( AppDelegate *) [UIApplication sharedApplication].delegate;
-        [appDelegate.client enter];
+//        AppDelegate *appDelegate = ( AppDelegate *) [UIApplication sharedApplication].delegate;
+//        [appDelegate.client enter];
     }
 }
 

@@ -7,18 +7,12 @@
 //
 
 #import "AppDelegate.h"
-#import "DefaultClient.h"
 
 @implementation AppDelegate {
-    DefaultClient *_defaultClient;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    _defaultClient = [[DefaultClient alloc] initWithDelegate:nil];
-    self.client = _defaultClient;
-    [_defaultClient connectWith:@"Scron" passWord:@"bot"];
-
     // Override point for customization after application launch.
     return YES;
 }
