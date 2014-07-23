@@ -7,7 +7,8 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "Client.h"
 
-@interface MyScene : SKScene <SKPhysicsContactDelegate>
+@interface MyScene : SKScene <SKPhysicsContactDelegate, ClientDelegate>
 
 @end
