@@ -23,6 +23,7 @@
 		00905DF2197EB5F500388438 /* missle.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 00905DF0197EB5F500388438 /* missle.pb.cc */; };
 		00905DF5197FF02F00388438 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 00905DF4197FF02F00388438 /* Game.m */; };
 		00905DF8197FF23A00388438 /* InitScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 00905DF7197FF23A00388438 /* InitScene.m */; };
+		00905DFB19814C1E00388438 /* PlayerHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 00905DFA19814C1E00388438 /* PlayerHud.m */; };
 		00A4FA8A197A4B3600965EE4 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A4FA88197A4B3600965EE4 /* GCDAsyncSocket.m */; };
 		00A4FA8D197A70B900965EE4 /* DefaultClient.mm in Sources */ = {isa = PBXBuildFile; fileRef = 00A4FA8C197A70B900965EE4 /* DefaultClient.mm */; };
 		00AD8EC719601D9E0017C556 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = 00AD8EC619601D9E0017C556 /* Car.m */; };
@@ -99,6 +100,8 @@
 		00905DF4197FF02F00388438 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		00905DF6197FF23A00388438 /* InitScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitScene.h; sourceTree = "<group>"; };
 		00905DF7197FF23A00388438 /* InitScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitScene.m; sourceTree = "<group>"; };
+		00905DF919814C1E00388438 /* PlayerHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerHud.h; sourceTree = "<group>"; };
+		00905DFA19814C1E00388438 /* PlayerHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerHud.m; sourceTree = "<group>"; };
 		00A4FA88197A4B3600965EE4 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 		00A4FA89197A4B3600965EE4 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
 		00A4FA8B197A70B900965EE4 /* DefaultClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultClient.h; sourceTree = "<group>"; };
@@ -263,6 +266,8 @@
 				00AD8EC619601D9E0017C556 /* Car.m */,
 				00ED03A01967B79F002B841E /* FireControl.h */,
 				00ED03A11967B79F002B841E /* FireControl.m */,
+				00905DF919814C1E00388438 /* PlayerHud.h */,
+				00905DFA19814C1E00388438 /* PlayerHud.m */,
 			);
 			name = Sprite;
 			sourceTree = "<group>";
@@ -575,6 +580,7 @@
 				C4E6308919606848005C0687 /* TestScene.m in Sources */,
 				00905DF2197EB5F500388438 /* missle.pb.cc in Sources */,
 				008663F6195EC4F90048D023 /* Terrain.m in Sources */,
+				00905DFB19814C1E00388438 /* PlayerHud.m in Sources */,
 				C4E6309B19606C7B005C0687 /* SKComponentScene.m in Sources */,
 				00C592ED194D9B0600976C6D /* AppDelegate.m in Sources */,
 				00905DF8197FF23A00388438 /* InitScene.m in Sources */,

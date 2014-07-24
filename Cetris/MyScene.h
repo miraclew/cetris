@@ -11,4 +11,7 @@
 
 @interface MyScene : SKScene <SKPhysicsContactDelegate, ClientDelegate>
 
+@property (nonatomic, strong) NSArray* players;
+@property (nonatomic, strong) NSArray* keyPoints;
+
 @end

@@ -11,6 +11,7 @@
 #import "PhysicsHelper.h"
 #import "FireControl.h"
 #import "AppDelegate.h"
+#import "PlayerHud.h"
 
 #define NA_ENEMY_LABEL   @"enemy"
 #define NA_MISSILE_LABEL @"missile"
@@ -72,7 +73,7 @@ typedef enum : NSUInteger {
     Terrain *terrain;
 }
 
--(id)initWithSize:(CGSize)size {    
+-(id)initWithSize:(CGSize)size Game:(Game*)game {
     if (self = [super initWithSize:size]) {
         [self initBase];
         

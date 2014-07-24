@@ -53,7 +53,7 @@ typedef enum : NSUInteger {
 
 -(void)didStateChange:(ClientState)state;
 
--(void)authComplete:(NSError *)error;
+-(void)authComplete:(BOOL)success;
 -(void)matchInit:(NSArray *)players KeyPoints:(NSArray *)points;
 -(void)matchEnd:(int) points;
 -(void)matchTurn:(int64_t)playerId;

@@ -4,7 +4,8 @@
 //
 //  Created by Wan Wei on 14/7/19.
 //  Copyright (c) 2014年 Wan Wei. All rights reserved.
-//
+// http://stackoverflow.com/questions/10277576/google-protocol-buffers-on-ios
+
 
 #import "DefaultClient.h"
 #import "AFNetworking.h"
@@ -16,7 +17,7 @@
 
 #define HEADER_LENGTH 8
 
-#define HOST @"192.168.40.85"
+#define HOST @"127.0.0.1"
 #define HTTP_PORT 8080
 #define TCP_PORT 8081
 
@@ -170,7 +171,6 @@ struct Header {
 }
 
 -(void)handleResponseBody:(NSData *)data {
-    // http://stackoverflow.com/questions/10277576/google-protocol-buffers-on-ios
     int length = (int)[data length];
     char raw[length];
     [data getBytes:raw length:length];
@@ -179,7 +179,15 @@ struct Header {
         auth.ParseFromArray(raw, length);
         if (auth.code() == 0) {
             NSLog(@"Auth OK: userId=%lld", auth.userid());
+            if ([_delegate respondsToSelector:@selector(authComplete:)]) {
+                [_delegate authComplete:YES];
+            }
+            
             [self setState:READY];
+        } else {
+            if ([_delegate respondsToSelector:@selector(authComplete:)]) {
+                [_delegate authComplete:NO];
+            }
         }
     } else if (_code == pb::E_MATCH_INIT) {
         pb::EMatcInit matchInit;

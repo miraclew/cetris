@@ -23,10 +23,13 @@
 
 @implementation Terrain
 
--(id) initWithSize:(CGSize) size {
+-(id) initWithSize:(CGSize) size Points:(NSArray*) points {
     if (self = [super init]) {
         _size = size;
-        [self generateHills];
+//        [self generateHills];
+        if (points != nil) {
+//            _hillKeyPoints = points;
+        }
         [self generateTerrian];
     }
     return self;

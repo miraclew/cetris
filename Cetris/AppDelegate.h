@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Client.h"
+#import "Game.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
