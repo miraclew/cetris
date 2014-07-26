@@ -29,6 +29,7 @@
 -(void)start {
     _state = GS_INIT;
     _defaultClient = [[DefaultClient alloc] initWithDelegate:self];
+    _client = _defaultClient;
     [_defaultClient connectWith:@"Scron" passWord:@"bot"];
 }
 

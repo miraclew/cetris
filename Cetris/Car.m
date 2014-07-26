@@ -26,6 +26,16 @@
     return car;
 }
 
+-(void)takeTurn:(BOOL)take {
+    [self removeAllActions];
+    self.alpha = 1.0;
+    if (take) {
+        SKAction* fadeOut = [SKAction fadeOutWithDuration:1];
+        SKAction* fadeIn = [SKAction fadeInWithDuration:1];
+        [self runAction:[SKAction repeatActionForever:[SKAction sequence:@[fadeOut, fadeIn]]]];
+    }
+}
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     _isSelected = YES;
 }
@@ -34,6 +44,9 @@
     if (_isSelected) {
         CGPoint location = [[touches anyObject] locationInNode:self.parent];
         self.position = CGPointMake(location.x, self.position.y);
+        if ([_delegate respondsToSelector:@selector(didPositionChanged:Position:)]) {
+            [_delegate didPositionChanged:self Position:self.position];
+        }
     }
 }
 

@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "Client.h"
 #import "Game.h"
+#import "Car.h"
 
-@interface MatchScene : SKScene <SKPhysicsContactDelegate, ClientDelegate>
+@interface MatchScene : SKScene <SKPhysicsContactDelegate, ClientDelegate, CarDelegate>
 
 -(instancetype)initWithSize:(CGSize)size Game:(Game*)game;
 

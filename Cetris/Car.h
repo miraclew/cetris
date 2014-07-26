@@ -8,11 +8,22 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface Car : SKSpriteNode
+@protocol CarDelegate
 
-+(instancetype) carWithId:(int64_t) carId IsLeft:(BOOL)isLeft;
+@optional
+-(void)didPositionChanged:(SKSpriteNode*) car Position:(CGPoint) position;
+
+@end
+
+@interface Car : SKSpriteNode
 
 @property (nonatomic, assign) BOOL isLeft;
 @property (nonatomic, assign) int carId;
+@property (nonatomic, assign) id  delegate;
+
++(instancetype) carWithId:(int64_t) carId IsLeft:(BOOL)isLeft;
+
+-(void)takeTurn:(BOOL)take;
+
 
 @end

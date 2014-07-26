@@ -33,6 +33,7 @@ typedef enum : NSUInteger {
 @interface Game : NSObject<ClientDelegate>
 
 @property (nonatomic, weak)SKView* view;
+@property (nonatomic, strong)id<Client> client;
 
 @property (nonatomic, assign) int64_t playerId;
 
