@@ -156,18 +156,23 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
     }
     
 //    NSLog(@"%@ <-> %@", contact.bodyA.node.name, contact.bodyB.node.name);
+    int64_t p1 = _prevTurnPlayer;
+    int64_t p2 = 0;
     if ((secondBody.categoryBitMask & BULLET_CATEGORY) != 0)
     {
         if ((firstBody.categoryBitMask & PLAYER_CATEGORY) != 0) {
             if ([firstBody.node.name isEqualToString:@"PlayerA"]) {
-                int64_t p1 = 1;
-                int64_t p2 = [secondBody.node.name intValue];
-                [_game.client hit:p1 p2:p2 damage:20.0];
             } else {
             }
             
+            p2 = [firstBody.node.name intValue];
 //            NSLog(@"attack %@", firstBody.node.name);
         }
+        
+        if (p1 == _game.playerId) {
+            [_game.client hit:p1 p2:p2 damage:20.0];
+        }
+        
         [self explodeAtPoint:contact.contactPoint];
         [secondBody.node runAction:[SKAction removeFromParent]];
     }
