@@ -35,6 +35,7 @@ typedef enum : NSUInteger {
 
 // Server callbacks
 @protocol ClientDelegate
+@optional
 
 -(void)didConnected;
 -(void)didLostConnection:(NSError *)error;
@@ -42,7 +43,7 @@ typedef enum : NSUInteger {
 
 -(void)didStateChange:(ClientState)state;
 
--(void)authComplete:(BOOL)success;
+-(void)authComplete:(BOOL)success UserId:(int64_t) userId;
 -(void)matchInit:(NSArray *)players KeyPoints:(NSArray *)points;
 -(void)matchEnd:(int) points;
 -(void)matchTurn:(int64_t)playerId;

@@ -14,28 +14,31 @@
     SKSpriteNode *_avatarNode;
 }
 
--(instancetype)init {
+-(instancetype)initWithPlayer:(Player*)player {
     if(self = [super init]) {
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"sprite%lld", player.playerId]];
+        _avatarNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:image] size:CGSizeMake(80, 80)];
+        [self addChild:_avatarNode];
+
         _nickNameLabel = [SKLabelNode labelNodeWithFontNamed:@"System"];
         _nickNameLabel.fontColor = [SKColor whiteColor];
         _nickNameLabel.fontSize = 16.0f;
-        _nickNameLabel.position = CGPointMake(50, 0);
-        _nickNameLabel.text = _player.nickName;
+        _nickNameLabel.position = CGPointMake(_avatarNode.size.width + 20, 0);
+        _nickNameLabel.text = player.nickName;
         [self addChild:_nickNameLabel];
 
         _healthLabel = [SKLabelNode labelNodeWithFontNamed:@"System"];
         _healthLabel.fontColor = [SKColor whiteColor];
         _healthLabel.fontSize = 16.0f;
-        _healthLabel.text = [NSString stringWithFormat:@"%d", _player.health];
-        _healthLabel.position = CGPointMake(50, 30);
+        _healthLabel.text = [NSString stringWithFormat:@"%d", player.health];
+        _healthLabel.position = CGPointMake(_nickNameLabel.position.x, _nickNameLabel.position.y - 30);
         [self addChild:_healthLabel];
-        
-        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:_player.avatar]];
-        UIImage *image = [UIImage imageWithData:imageData];
-        _avatarNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:image]];
-        [self addChild:_avatarNode];
     }
     return self;
+}
+
+-(void)setHealth:(int)Health {
+    _healthLabel.text = [NSString stringWithFormat:@"%d", Health];
 }
 
 @end

@@ -10,6 +10,6 @@
 
 @interface Terrain : SKShapeNode
 
--(id) initWithSize:(CGSize) size;
+-(id) initWithSize:(CGSize)size Points:(NSArray*) points;
 
 @end

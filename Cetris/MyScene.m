@@ -66,7 +66,7 @@ typedef enum : NSUInteger {
     if (self = [super initWithSize:size]) {
         [self initBase];
         
-        terrain = [[Terrain alloc] initWithSize:size];
+        terrain = [[Terrain alloc] initWithSize:size Points:nil];
         terrain.physicsBody.categoryBitMask = bottomCategory;
         terrain.name = @"Buttom";
         [self addChild:terrain];
@@ -161,19 +161,19 @@ typedef enum : NSUInteger {
 }
 
 -(void)addPlayers {
-    boxA = [Car leftCarWithId:1];
-    boxA.name = @"BoxA";
-    boxA.position = CGPointMake(15 + self.size.width/4, self.size.height);
-    boxA.physicsBody.categoryBitMask = boxCategory;
-    boxA.physicsBody.restitution = 0.0;
-    [self addChild:boxA];
-    
-    boxB = [Car rightCarWithId:2];
-    boxB.name = @"BoxB";
-    boxB.position = CGPointMake(15 + self.size.width*3/4, self.size.height);
-    boxB.physicsBody.categoryBitMask = boxCategory;
-    boxB.physicsBody.restitution = 0.0;
-    [self addChild:boxB];
+//    boxA = [Car leftCarWithId:1];
+//    boxA.name = @"BoxA";
+//    boxA.position = CGPointMake(15 + self.size.width/4, self.size.height);
+//    boxA.physicsBody.categoryBitMask = boxCategory;
+//    boxA.physicsBody.restitution = 0.0;
+//    [self addChild:boxA];
+//    
+//    boxB = [Car rightCarWithId:2];
+//    boxB.name = @"BoxB";
+//    boxB.position = CGPointMake(15 + self.size.width*3/4, self.size.height);
+//    boxB.physicsBody.categoryBitMask = boxCategory;
+//    boxB.physicsBody.restitution = 0.0;
+//    [self addChild:boxB];
 }
 
 -(void)didBeginContact:(SKPhysicsContact *)contact {

@@ -26,7 +26,7 @@
 -(id) initWithSize:(CGSize) size Points:(NSArray*) points {
     if (self = [super init]) {
         _size = size;
-//        [self generateHills];
+        [self generateHills];
         if (points != nil) {
 //            _hillKeyPoints = points;
         }

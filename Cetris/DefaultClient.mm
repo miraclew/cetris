@@ -176,14 +176,14 @@ struct Header {
         auth.ParseFromArray(raw, length);
         if (auth.code() == 0) {
             NSLog(@"Auth OK: userId=%lld", auth.userid());
-            if ([_delegate respondsToSelector:@selector(authComplete:)]) {
-                [_delegate authComplete:YES];
+            if ([_delegate respondsToSelector:@selector(authComplete:UserId:)]) {
+                [_delegate authComplete:YES UserId:auth.userid()];
             }
             
             [self setState:READY];
         } else {
-            if ([_delegate respondsToSelector:@selector(authComplete:)]) {
-                [_delegate authComplete:NO];
+            if ([_delegate respondsToSelector:@selector(authComplete:UserId:)]) {
+                [_delegate authComplete:NO UserId:0];
             }
         }
     } else if (_code == pb::E_MATCH_INIT) {
@@ -199,6 +199,7 @@ struct Header {
             player.avatar = [NSString stringWithUTF8String:pbPlayer.avatar().c_str()];
             player.isLeft = pbPlayer.isleft();
             player.position = CGPointMake(pbPlayer.position().x(), pbPlayer.position().y());
+            player.health = pbPlayer.health();
             [players addObject:player];
         }
         

@@ -14,27 +14,15 @@
 
 @implementation Car
 
-+(instancetype) carWithId:(int) carId {
++(instancetype) carWithId:(int64_t) carId IsLeft:(BOOL)isLeft {
     CGSize size = CGSizeMake(15, 10);
-    Car *car = [Car spriteNodeWithColor:[UIColor redColor] size:size];
+    Car *car = [Car spriteNodeWithColor:isLeft?[UIColor redColor]:[UIColor greenColor] size:size];
     car.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:size];
     car.physicsBody.friction = 1.0f;
     car.physicsBody.usesPreciseCollisionDetection = YES;
     car.isSelected = NO;
+    car.isLeft = isLeft;
     [car setUserInteractionEnabled:YES];
-    return car;
-}
-
-+(instancetype) leftCarWithId:(int) carId {
-    Car *car = [Car carWithId:carId];
-    car.isLeft = YES;
-    return car;
-}
-
-+(instancetype) rightCarWithId:(int) carId {
-    Car *car = [Car carWithId:carId];
-    car.color = [UIColor greenColor];
-    car.isLeft = NO;
     return car;
 }
 

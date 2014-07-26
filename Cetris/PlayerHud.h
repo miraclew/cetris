@@ -11,6 +11,9 @@
 
 @interface PlayerHud : SKSpriteNode
 
-@property (nonatomic, assign) Player* player;
+@property (nonatomic, assign) int Health;
+
+-(instancetype)initWithPlayer:(Player*)player;
+
 
 @end
