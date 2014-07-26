@@ -20,17 +20,17 @@
         _nickNameLabel.fontColor = [SKColor whiteColor];
         _nickNameLabel.fontSize = 16.0f;
         _nickNameLabel.position = CGPointMake(50, 0);
-        _nickNameLabel.text = _nickName;
+        _nickNameLabel.text = _player.nickName;
         [self addChild:_nickNameLabel];
 
         _healthLabel = [SKLabelNode labelNodeWithFontNamed:@"System"];
         _healthLabel.fontColor = [SKColor whiteColor];
         _healthLabel.fontSize = 16.0f;
-        _healthLabel.text = _health;
+        _healthLabel.text = [NSString stringWithFormat:@"%d", _player.health];
         _healthLabel.position = CGPointMake(50, 30);
         [self addChild:_healthLabel];
         
-        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:_avatar]];
+        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:_player.avatar]];
         UIImage *image = [UIImage imageWithData:imageData];
         _avatarNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:image]];
         [self addChild:_avatarNode];

@@ -7,12 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Player.h"
 
 @interface PlayerHud : SKSpriteNode
 
-@property (nonatomic, assign) NSInteger playerId;
-@property (nonatomic, strong) NSString* nickName;
-@property (nonatomic, strong) NSString* avatar;
-@property (nonatomic, strong) NSString* health;
+@property (nonatomic, assign) Player* player;
 
 @end

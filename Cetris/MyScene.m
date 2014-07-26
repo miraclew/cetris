@@ -23,22 +23,10 @@ static const uint32_t blockCategory = 0x1 << 2;
 static const uint32_t bulletCategory = 0x1 << 3;
 
 typedef enum : NSUInteger {
-    None,
-    A,
-    B,
-} PlayerType;
-
-typedef enum : NSUInteger {
     NONE,
     DIRECTION,
     LUANCH,
 } ControlMode;
-
-typedef enum : NSUInteger {
-    Single,
-    OffLine,
-    Online,
-} GameMode;
 
 @interface MyScene() {
     CGPoint _controlOrigin;
@@ -52,6 +40,7 @@ typedef enum : NSUInteger {
 @end
 
 @implementation MyScene {
+    Game* _game;
     SKSpriteNode *boxA;
     SKSpriteNode *boxB;
     SKLabelNode *healthLabelA;
@@ -59,8 +48,8 @@ typedef enum : NSUInteger {
     SKNode *hud;
     int healthA;
     int healthB;
-    PlayerType turn;
-    PlayerType winner;
+    
+    PlayerHud *playerHudA;
     SKLabelNode *topCenterLabel;
     BOOL isGameOver;
     
@@ -86,7 +75,6 @@ typedef enum : NSUInteger {
         self.physicsWorld.contactDelegate = self;
         
         [self addHud];
-        
         [self addControl];
     }
     return self;
@@ -134,11 +122,6 @@ typedef enum : NSUInteger {
 }
 
 -(void)initBase{
-    healthA = 100;
-    healthB = 100;
-    turn = A;
-    isGameOver = NO;
-    winner = None;
 //    fireSound = [SKAction playSoundFileNamed:@"box.wav" waitForCompletion:NO];
 //    explosionSound = [SKAction playSoundFileNamed:@"nitro.wav" waitForCompletion:NO];
 //    gameOverSound = [SKAction playSoundFileNamed:@"win.wav" waitForCompletion:NO];
@@ -153,6 +136,9 @@ typedef enum : NSUInteger {
     healthLabelA.fontSize = 20.0f;
     healthLabelA.position = CGPointMake(padding + 20, self.size.height-padding);
     [self addChild:healthLabelA];
+    
+    playerHudA = [[PlayerHud alloc] init];
+    
     healthLabelB = [SKLabelNode labelNodeWithFontNamed:@"System"];
     healthLabelB.position = CGPointMake(self.size.width - padding - 100, self.size.height - padding);
     healthLabelB.fontSize = 20.0f;
@@ -212,14 +198,14 @@ typedef enum : NSUInteger {
                 healthA -= 20;
                 if (healthA <= 0) {
                     healthA = 0;
-                    winner = B;
+//                    winner = B;
                     [self gameOver];
                 }
             } else {
                 healthB -= 20;
                 if (healthB <= 0) {
                     healthB = 0;
-                    winner = A;
+//                    winner = A;
                     [self gameOver];
                 }
             }
@@ -237,13 +223,13 @@ typedef enum : NSUInteger {
     
     SKSpriteNode *winnerNode;
     SKSpriteNode *loserNode;
-    if (winner == A) {
-        winnerNode = boxA;
-        loserNode = boxB;
-    } else {
-        winnerNode = boxB;
-        loserNode = boxA;
-    }
+//    if (winner == A) {
+//        winnerNode = boxA;
+//        loserNode = boxB;
+//    } else {
+//        winnerNode = boxB;
+//        loserNode = boxA;
+//    }
     
     [loserNode removeFromParent];
     [winnerNode runAction:[SKAction moveToX:self.size.width/2 duration:1]];
@@ -288,11 +274,12 @@ typedef enum : NSUInteger {
 }
 
 -(SKNode *)getPlayer{
-    if (turn == A) {
-        return boxA;
-    } else {
-        return boxB;
-    }
+//    if (turn == A) {
+//        return boxA;
+//    } else {
+//        return boxB;
+//    }
+    return nil;
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -355,8 +342,6 @@ typedef enum : NSUInteger {
             
         }
         
-//        NSLog(@"xOffset=%d, yOffset=%d", xOffset, yOffset);
-//        NSLog(@"mode=%lu", _mode);
         if (_mode == DIRECTION) {
             if (abs(xOffset) < 30) {
                 //_draggedNode.position = CGPointMake(location.x, _draggedNode.position.y);
@@ -405,11 +390,11 @@ typedef enum : NSUInteger {
             topCenterLabel.text = [NSString stringWithFormat:@"红方赢了!"];
         }
     } else {
-        if (turn == A) {
-            topCenterLabel.text = [NSString stringWithFormat:@"等待红方发射"];
-        } else {
-            topCenterLabel.text = [NSString stringWithFormat:@"等待绿方发射"];
-        }
+//        if (turn == A) {
+//            topCenterLabel.text = [NSString stringWithFormat:@"等待红方发射"];
+//        } else {
+//            topCenterLabel.text = [NSString stringWithFormat:@"等待绿方发射"];
+//        }
     }
 }
 

@@ -13,17 +13,6 @@ typedef enum : NSUInteger {
     GAMING,
 } ClientState;
 
-@interface Player : NSObject
-
-@property int64_t playerId;
-@property NSString* nickName;
-@property NSString* avatar;
-@property BOOL isLeft;
-@property CGPoint position;
-@property int health;
-
-@end
-
 // Server API
 @protocol Client
 

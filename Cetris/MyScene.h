@@ -7,11 +7,7 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
-#import "Client.h"
 
-@interface MyScene : SKScene <SKPhysicsContactDelegate, ClientDelegate>
-
-@property (nonatomic, strong) NSArray* players;
-@property (nonatomic, strong) NSArray* keyPoints;
+@interface MyScene : SKScene <SKPhysicsContactDelegate>
 
 @end

@@ -8,6 +8,7 @@
 //  The Game class control the scene transition and networking
 
 #import <Foundation/Foundation.h>
+#import "Player.h"
 #import "Client.h"
 
 typedef enum : NSUInteger {
@@ -17,11 +18,36 @@ typedef enum : NSUInteger {
     GS_OVER,
 } GameState;
 
+typedef enum : NSUInteger {
+    None,
+    A,
+    B,
+} PlayerTeam;
+
+typedef enum : NSUInteger {
+    Single,
+    OffLine,
+    Online,
+} GameMode;
 
 @interface Game : NSObject<ClientDelegate>
 
 @property (nonatomic, weak)SKView* view;
 
+@property (nonatomic, assign) int64_t playerId;
+
+@property (nonatomic, assign) GameState state;
+
+@property (nonatomic, assign) NSArray* players;
+@property (nonatomic, assign) NSArray* keyPoints;
+
+@property (nonatomic, assign) PlayerTeam turn;
+@property (nonatomic, assign) int64_t turnPlayerId;
+@property (nonatomic, assign) PlayerTeam winner;
+
 -(void)start;
+-(Player*) getPlayer:(int64_t)playerId;
+-(Player *) getTeamA;
+-(Player *) getTeamB;
 
 @end

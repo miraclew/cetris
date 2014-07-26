@@ -27,6 +27,7 @@
 		00A4FA8A197A4B3600965EE4 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A4FA88197A4B3600965EE4 /* GCDAsyncSocket.m */; };
 		00A4FA8D197A70B900965EE4 /* DefaultClient.mm in Sources */ = {isa = PBXBuildFile; fileRef = 00A4FA8C197A70B900965EE4 /* DefaultClient.mm */; };
 		00AD8EC719601D9E0017C556 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = 00AD8EC619601D9E0017C556 /* Car.m */; };
+		00BEEB141982915A009D2E82 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BEEB131982915A009D2E82 /* Player.m */; };
 		00C592DB194D9B0600976C6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C592DA194D9B0600976C6D /* Foundation.framework */; };
 		00C592DD194D9B0600976C6D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C592DC194D9B0600976C6D /* CoreGraphics.framework */; };
 		00C592DF194D9B0600976C6D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C592DE194D9B0600976C6D /* UIKit.framework */; };
@@ -108,6 +109,8 @@
 		00A4FA8C197A70B900965EE4 /* DefaultClient.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DefaultClient.mm; sourceTree = "<group>"; };
 		00AD8EC519601D9E0017C556 /* Car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
 		00AD8EC619601D9E0017C556 /* Car.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
+		00BEEB121982915A009D2E82 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		00BEEB131982915A009D2E82 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		00C592D7194D9B0600976C6D /* Cetris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cetris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00C592DA194D9B0600976C6D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		00C592DC194D9B0600976C6D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -220,6 +223,8 @@
 				000047AF197A25E4006DAE3F /* Client.h */,
 				00A4FA8B197A70B900965EE4 /* DefaultClient.h */,
 				00A4FA8C197A70B900965EE4 /* DefaultClient.mm */,
+				00BEEB121982915A009D2E82 /* Player.h */,
+				00BEEB131982915A009D2E82 /* Player.m */,
 			);
 			name = Client;
 			sourceTree = "<group>";
@@ -588,6 +593,7 @@
 				00AD8EC719601D9E0017C556 /* Car.m in Sources */,
 				008663FA195ED2030048D023 /* TerrainScene.m in Sources */,
 				C46BAF1B196C767100320D79 /* AFURLRequestSerialization.m in Sources */,
+				00BEEB141982915A009D2E82 /* Player.m in Sources */,
 				C46BAF15196C767100320D79 /* AFHTTPRequestOperation.m in Sources */,
 				C46BAF1C196C767100320D79 /* AFURLResponseSerialization.m in Sources */,
 				C46BAF1E196C767100320D79 /* SRWebSocket.m in Sources */,

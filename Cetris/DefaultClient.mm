@@ -8,8 +8,8 @@
 
 
 #import "DefaultClient.h"
-#import "AFNetworking.h"
 #import "missle.pb.h"
+#import "Player.h"
 
 #define TAG_FIXED_LENGTH_HEADER 1
 #define TAG_RESPONSE_BODY 2
@@ -26,9 +26,6 @@ struct Header {
     UInt16 length;
     UInt32 crc32;
 };
-
-@implementation Player
-@end
 
 @implementation DefaultClient {
     GCDAsyncSocket *_socket;

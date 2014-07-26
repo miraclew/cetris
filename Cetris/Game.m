@@ -13,9 +13,6 @@
 
 @implementation Game {
     DefaultClient *_defaultClient;
-    GameState _state;
-    NSArray* _players;
-    NSArray* _keyPoints;
     MyScene* _matchScene;
     GameOverScene* _gameOverScence;
 }
@@ -25,6 +22,29 @@
     _defaultClient = [[DefaultClient alloc] initWithDelegate:self];
     [_defaultClient connectWith:@"Scron" passWord:@"bot"];
 }
+
+-(Player*) getPlayer:(int64_t)playerId {
+    return _players[playerId];
+}
+
+-(Player *) getTeamA {
+    for (Player* p in _players) {
+        if (p.isLeft) {
+            return p;
+        }
+    }
+    return nil;
+}
+
+-(Player *) getTeamB {
+    for (Player* p in _players) {
+        if (!p.isLeft) {
+            return p;
+        }
+    }
+    return nil;
+}
+
 
 #pragma mark -
 #pragma mark ClientDelegate
@@ -47,6 +67,7 @@
 
 -(void)authComplete:(BOOL)success{
     if (success) {
+        _state = GS_READY;
         [_defaultClient enter];
     }
 }
@@ -58,28 +79,32 @@
     
     _matchScene = [[MyScene alloc] initWithSize:self.view.bounds.size];
     _matchScene.scaleMode = SKSceneScaleModeAspectFill;
-    _matchScene.players = _players;
-    _matchScene.keyPoints = _keyPoints;
     
     // Present the scene.
     [_view presentScene:_matchScene];
+    _state = GS_GAMING;
 }
 
 -(void)matchEnd:(int) points {
-    
+    _state = GS_OVER;
 }
+
 -(void)matchTurn:(int64_t)playerId {
     
 }
+
 -(void)playerMove:(int64_t)playerId position:(CGPoint)position{
     
 }
+
 -(void)playerFire:(int64_t)playerId velocity:(CGVector)velocity{
     
 }
+
 -(void)playerHit:(int64_t)p1 p2:(int64_t)p2 damage:(int)damage{
     
 }
+
 -(void)playerHealth:(int64_t)playerId health:(int)health{
     
 }
