@@ -203,6 +203,7 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
 #pragma mark touch event
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+    NSLog(@"MatchScene.touchesEnded");
     SKNode *node = [self nodeAtPoint:[[touches anyObject] locationInNode:self]];
     
     if ([node.name isEqualToString:@"BackButton"]) {

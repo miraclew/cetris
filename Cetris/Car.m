@@ -76,6 +76,7 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     _isSelected = YES;
+    NSLog(@"touchesBegan");
 }
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
