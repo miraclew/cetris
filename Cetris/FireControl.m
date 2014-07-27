@@ -34,13 +34,8 @@
         _controlVector = CGVectorMake(0.5, 0.5);
         [self setUserInteractionEnabled:YES];
         
-//        _back = [SKShapeNode node];
-//        CGMutablePathRef path0 = CGPathCreateMutable();
-//        CGPathAddArc(path0, NULL, 0, 0, 0.4*radius, 0, 0, YES);
-//        CGPathCloseSubpath(path0);
-//        [self addChild:_back];
-        
         _fireButton = [SKShapeNode node];
+        [_fireButton setUserInteractionEnabled:YES];
         CGMutablePathRef path1 = CGPathCreateMutable();
         CGPathAddArc(path1, NULL, 0, 0, 0.2*radius, 0, M_PI*2, YES);
         _fireButton.path = path1;
@@ -55,8 +50,6 @@
         [self drawHandle];
         [self drawArrow];
     }
-    
-    NSLog(@"bbb");
     
     return self;
 }

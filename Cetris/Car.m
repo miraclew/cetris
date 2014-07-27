@@ -33,7 +33,7 @@
 -(instancetype)initWithColor:(UIColor *)color size:(CGSize)size {
     if (self = [super initWithColor:color size:size]) {
         _timeOut = 5;
-        _countDown = [SKLabelNode labelNodeWithText:@"5"];
+        _countDown = [SKLabelNode labelNodeWithFontNamed:@"System"];
         _countDown.position = CGPointMake(0, 30);
         _countDown.hidden = YES;
         [self addChild:_countDown];

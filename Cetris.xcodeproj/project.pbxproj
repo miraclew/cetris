@@ -34,6 +34,9 @@
 		00BEEBF31984F8EC009D2E82 /* libprotoc.la in Resources */ = {isa = PBXBuildFile; fileRef = 00BEEBED1984F8EC009D2E82 /* libprotoc.la */; };
 		00BEEBF41984F8EC009D2E82 /* libprotobuf-lite.la in Resources */ = {isa = PBXBuildFile; fileRef = 00BEEBEE1984F8EC009D2E82 /* libprotobuf-lite.la */; };
 		00BEEBF51984F8EC009D2E82 /* libprotobuf.la in Resources */ = {isa = PBXBuildFile; fileRef = 00BEEBEF1984F8EC009D2E82 /* libprotobuf.la */; };
+		00BEEBF91984FEEA009D2E82 /* sprite1.png in Resources */ = {isa = PBXBuildFile; fileRef = 00BEEBF61984FEEA009D2E82 /* sprite1.png */; };
+		00BEEBFA1984FEEA009D2E82 /* sprite2.png in Resources */ = {isa = PBXBuildFile; fileRef = 00BEEBF71984FEEA009D2E82 /* sprite2.png */; };
+		00BEEBFB1984FEEA009D2E82 /* sprite9.png in Resources */ = {isa = PBXBuildFile; fileRef = 00BEEBF81984FEEA009D2E82 /* sprite9.png */; };
 		00C592DB194D9B0600976C6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C592DA194D9B0600976C6D /* Foundation.framework */; };
 		00C592DD194D9B0600976C6D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C592DC194D9B0600976C6D /* CoreGraphics.framework */; };
 		00C592DF194D9B0600976C6D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C592DE194D9B0600976C6D /* UIKit.framework */; };
@@ -71,21 +74,6 @@
 		C4E6309B19606C7B005C0687 /* SKComponentScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E6309419606C7B005C0687 /* SKComponentScene.m */; };
 		C4E6309C19606C7B005C0687 /* SKHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E6309619606C7B005C0687 /* SKHelper.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXBuildRule section */
-		00BEEBE31984EFF8009D2E82 /* PBXBuildRule */ = {
-			isa = PBXBuildRule;
-			compilerSpec = com.apple.compilers.proxy.script;
-			filePatterns = "*.proto";
-			fileType = pattern.proxy;
-			isEditable = 1;
-			outputFiles = (
-				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_BASE).pb.h",
-				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_BASE).pb.cc",
-			);
-			script = "cd ${INPUT_FILE_DIR}\n/usr/local/bin/protoc --proto_path=${INPUT_FILE_DIR} ${INPUT_FILE_PATH} --cpp_out=${DERIVED_FILE_DIR}\n";
-		};
-/* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
 		00C59307194D9B0600976C6D /* PBXContainerItemProxy */ = {
@@ -137,6 +125,9 @@
 		00BEEBED1984F8EC009D2E82 /* libprotoc.la */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libprotoc.la; sourceTree = "<group>"; };
 		00BEEBEE1984F8EC009D2E82 /* libprotobuf-lite.la */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "libprotobuf-lite.la"; sourceTree = "<group>"; };
 		00BEEBEF1984F8EC009D2E82 /* libprotobuf.la */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libprotobuf.la; sourceTree = "<group>"; };
+		00BEEBF61984FEEA009D2E82 /* sprite1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite1.png; sourceTree = "<group>"; };
+		00BEEBF71984FEEA009D2E82 /* sprite2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite2.png; sourceTree = "<group>"; };
+		00BEEBF81984FEEA009D2E82 /* sprite9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite9.png; sourceTree = "<group>"; };
 		00C592D7194D9B0600976C6D /* Cetris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cetris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00C592DA194D9B0600976C6D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		00C592DC194D9B0600976C6D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -392,6 +383,9 @@
 		00C592E3194D9B0600976C6D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				00BEEBF61984FEEA009D2E82 /* sprite1.png */,
+				00BEEBF71984FEEA009D2E82 /* sprite2.png */,
+				00BEEBF81984FEEA009D2E82 /* sprite9.png */,
 				C4E6308A19606C7A005C0687 /* SpriteKit-Components */,
 				00C592E4194D9B0600976C6D /* Cetris-Info.plist */,
 				00C592E5194D9B0600976C6D /* InfoPlist.strings */,
@@ -507,7 +501,6 @@
 				00C592D5194D9B0600976C6D /* Resources */,
 			);
 			buildRules = (
-				00BEEBE31984EFF8009D2E82 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -579,14 +572,17 @@
 				00686C76195CDBBC00674F1C /* spark.png in Resources */,
 				00BEEBF31984F8EC009D2E82 /* libprotoc.la in Resources */,
 				00C592FD194D9B0600976C6D /* Images.xcassets in Resources */,
+				00BEEBFB1984FEEA009D2E82 /* sprite9.png in Resources */,
 				0066A14C1975676B0047715D /* Documentation.html in Resources */,
 				00C592F3194D9B0600976C6D /* Main_iPad.storyboard in Resources */,
 				00686C77195CDBBC00674F1C /* explosion.sks in Resources */,
 				008663F0195EBC010048D023 /* lose.wav in Resources */,
+				00BEEBFA1984FEEA009D2E82 /* sprite2.png in Resources */,
 				00C592F0194D9B0600976C6D /* Main_iPhone.storyboard in Resources */,
 				00BEEBF41984F8EC009D2E82 /* libprotobuf-lite.la in Resources */,
 				008663F1195EBC010048D023 /* win.wav in Resources */,
 				008663F3195EBF020048D023 /* pushbtn.wav in Resources */,
+				00BEEBF91984FEEA009D2E82 /* sprite1.png in Resources */,
 				00BEEBF51984F8EC009D2E82 /* libprotobuf.la in Resources */,
 				00C592E7194D9B0600976C6D /* InfoPlist.strings in Resources */,
 				008663ED195EB9F80048D023 /* nitro.wav in Resources */,
