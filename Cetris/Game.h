@@ -36,8 +36,11 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong)id<Client> client;
 
 @property (nonatomic, assign) int64_t playerId;
+@property (nonatomic, assign) GameState state;
 
 -(void)start;
+-(void)matchEnter;
+-(void)matchFinish;
 -(Player*) getPlayer:(int64_t)playerId;
 -(Player *) getTeamA;
 -(Player *) getTeamB;

@@ -7,21 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		000047AD19781242006DAE3F /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 000047AC19781242006DAE3F /* libprotobuf.a */; };
 		0066A14C1975676B0047715D /* Documentation.html in Resources */ = {isa = PBXBuildFile; fileRef = 0066A1471975676B0047715D /* Documentation.html */; };
 		00686C76195CDBBC00674F1C /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 00686C74195CDBBC00674F1C /* spark.png */; };
 		00686C77195CDBBC00674F1C /* explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 00686C75195CDBBC00674F1C /* explosion.sks */; };
 		00686C79195CE0FF00674F1C /* missile.sks in Resources */ = {isa = PBXBuildFile; fileRef = 00686C78195CE0FF00674F1C /* missile.sks */; };
-		008663E9195EB0BF0048D023 /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 008663E8195EB0BF0048D023 /* GameOverScene.m */; };
 		008663EC195EB9F80048D023 /* box.wav in Resources */ = {isa = PBXBuildFile; fileRef = 008663EA195EB9F80048D023 /* box.wav */; };
 		008663ED195EB9F80048D023 /* nitro.wav in Resources */ = {isa = PBXBuildFile; fileRef = 008663EB195EB9F80048D023 /* nitro.wav */; };
 		008663F0195EBC010048D023 /* lose.wav in Resources */ = {isa = PBXBuildFile; fileRef = 008663EE195EBC010048D023 /* lose.wav */; };
 		008663F1195EBC010048D023 /* win.wav in Resources */ = {isa = PBXBuildFile; fileRef = 008663EF195EBC010048D023 /* win.wav */; };
 		008663F3195EBF020048D023 /* pushbtn.wav in Resources */ = {isa = PBXBuildFile; fileRef = 008663F2195EBF020048D023 /* pushbtn.wav */; };
 		008663F6195EC4F90048D023 /* Terrain.m in Sources */ = {isa = PBXBuildFile; fileRef = 008663F5195EC4F90048D023 /* Terrain.m */; };
-		00905DF2197EB5F500388438 /* missle.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 00905DF0197EB5F500388438 /* missle.pb.cc */; };
 		00905DF5197FF02F00388438 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 00905DF4197FF02F00388438 /* Game.m */; };
-		00905DF8197FF23A00388438 /* InitScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 00905DF7197FF23A00388438 /* InitScene.m */; };
 		00905DFB19814C1E00388438 /* PlayerHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 00905DFA19814C1E00388438 /* PlayerHud.m */; };
 		00A4FA8A197A4B3600965EE4 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A4FA88197A4B3600965EE4 /* GCDAsyncSocket.m */; };
 		00A4FA8D197A70B900965EE4 /* DefaultClient.mm in Sources */ = {isa = PBXBuildFile; fileRef = 00A4FA8C197A70B900965EE4 /* DefaultClient.mm */; };
@@ -29,6 +25,15 @@
 		00BEEB141982915A009D2E82 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BEEB131982915A009D2E82 /* Player.m */; };
 		00BEEB1719833034009D2E82 /* MatchScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BEEB1619833034009D2E82 /* MatchScene.m */; };
 		00BEEB1A198333F5009D2E82 /* MockClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BEEB19198333F5009D2E82 /* MockClient.m */; };
+		00BEEB1E1984DA08009D2E82 /* StartScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BEEB1D1984DA08009D2E82 /* StartScene.m */; };
+		00BEEBE21984EFD8009D2E82 /* missle.proto in Resources */ = {isa = PBXBuildFile; fileRef = 00BEEBE11984EFD8009D2E82 /* missle.proto */; };
+		00BEEBE91984F8B1009D2E82 /* missle.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 00BEEBE71984F8B1009D2E82 /* missle.pb.cc */; };
+		00BEEBF01984F8EC009D2E82 /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00BEEBEA1984F8EC009D2E82 /* libprotobuf.a */; };
+		00BEEBF11984F8EC009D2E82 /* libprotoc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00BEEBEB1984F8EC009D2E82 /* libprotoc.a */; };
+		00BEEBF21984F8EC009D2E82 /* libprotobuf-lite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00BEEBEC1984F8EC009D2E82 /* libprotobuf-lite.a */; };
+		00BEEBF31984F8EC009D2E82 /* libprotoc.la in Resources */ = {isa = PBXBuildFile; fileRef = 00BEEBED1984F8EC009D2E82 /* libprotoc.la */; };
+		00BEEBF41984F8EC009D2E82 /* libprotobuf-lite.la in Resources */ = {isa = PBXBuildFile; fileRef = 00BEEBEE1984F8EC009D2E82 /* libprotobuf-lite.la */; };
+		00BEEBF51984F8EC009D2E82 /* libprotobuf.la in Resources */ = {isa = PBXBuildFile; fileRef = 00BEEBEF1984F8EC009D2E82 /* libprotobuf.la */; };
 		00C592DB194D9B0600976C6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C592DA194D9B0600976C6D /* Foundation.framework */; };
 		00C592DD194D9B0600976C6D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C592DC194D9B0600976C6D /* CoreGraphics.framework */; };
 		00C592DF194D9B0600976C6D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C592DE194D9B0600976C6D /* UIKit.framework */; };
@@ -67,6 +72,21 @@
 		C4E6309C19606C7B005C0687 /* SKHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E6309619606C7B005C0687 /* SKHelper.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXBuildRule section */
+		00BEEBE31984EFF8009D2E82 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.proto";
+			fileType = pattern.proxy;
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_BASE).pb.h",
+				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_BASE).pb.cc",
+			);
+			script = "cd ${INPUT_FILE_DIR}\n/usr/local/bin/protoc --proto_path=${INPUT_FILE_DIR} ${INPUT_FILE_PATH} --cpp_out=${DERIVED_FILE_DIR}\n";
+		};
+/* End PBXBuildRule section */
+
 /* Begin PBXContainerItemProxy section */
 		00C59307194D9B0600976C6D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -78,14 +98,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		000047AC19781242006DAE3F /* libprotobuf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libprotobuf.a; sourceTree = "<group>"; };
 		000047AF197A25E4006DAE3F /* Client.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Client.h; sourceTree = "<group>"; };
 		0066A1471975676B0047715D /* Documentation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Documentation.html; sourceTree = "<group>"; };
 		00686C74195CDBBC00674F1C /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		00686C75195CDBBC00674F1C /* explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = explosion.sks; sourceTree = "<group>"; };
 		00686C78195CE0FF00674F1C /* missile.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = missile.sks; sourceTree = "<group>"; };
-		008663E7195EB0BF0048D023 /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
-		008663E8195EB0BF0048D023 /* GameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverScene.m; sourceTree = "<group>"; };
 		008663EA195EB9F80048D023 /* box.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = box.wav; sourceTree = "<group>"; };
 		008663EB195EB9F80048D023 /* nitro.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = nitro.wav; sourceTree = "<group>"; };
 		008663EE195EBC010048D023 /* lose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lose.wav; sourceTree = "<group>"; };
@@ -93,12 +110,8 @@
 		008663F2195EBF020048D023 /* pushbtn.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pushbtn.wav; sourceTree = "<group>"; };
 		008663F4195EC4F90048D023 /* Terrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Terrain.h; sourceTree = "<group>"; };
 		008663F5195EC4F90048D023 /* Terrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Terrain.m; sourceTree = "<group>"; };
-		00905DF0197EB5F500388438 /* missle.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = missle.pb.cc; path = Cetris/missle.pb.cc; sourceTree = SOURCE_ROOT; };
-		00905DF1197EB5F500388438 /* missle.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = missle.pb.h; path = Cetris/missle.pb.h; sourceTree = SOURCE_ROOT; };
 		00905DF3197FF02F00388438 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		00905DF4197FF02F00388438 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
-		00905DF6197FF23A00388438 /* InitScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitScene.h; sourceTree = "<group>"; };
-		00905DF7197FF23A00388438 /* InitScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitScene.m; sourceTree = "<group>"; };
 		00905DF919814C1E00388438 /* PlayerHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerHud.h; sourceTree = "<group>"; };
 		00905DFA19814C1E00388438 /* PlayerHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerHud.m; sourceTree = "<group>"; };
 		00A4FA88197A4B3600965EE4 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
@@ -113,6 +126,17 @@
 		00BEEB1619833034009D2E82 /* MatchScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchScene.m; sourceTree = "<group>"; };
 		00BEEB18198333F5009D2E82 /* MockClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockClient.h; sourceTree = "<group>"; };
 		00BEEB19198333F5009D2E82 /* MockClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockClient.m; sourceTree = "<group>"; };
+		00BEEB1C1984DA08009D2E82 /* StartScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartScene.h; sourceTree = "<group>"; };
+		00BEEB1D1984DA08009D2E82 /* StartScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartScene.m; sourceTree = "<group>"; };
+		00BEEBE11984EFD8009D2E82 /* missle.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = missle.proto; sourceTree = "<group>"; };
+		00BEEBE71984F8B1009D2E82 /* missle.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = missle.pb.cc; sourceTree = "<group>"; };
+		00BEEBE81984F8B1009D2E82 /* missle.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = missle.pb.h; sourceTree = "<group>"; };
+		00BEEBEA1984F8EC009D2E82 /* libprotobuf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libprotobuf.a; sourceTree = "<group>"; };
+		00BEEBEB1984F8EC009D2E82 /* libprotoc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libprotoc.a; sourceTree = "<group>"; };
+		00BEEBEC1984F8EC009D2E82 /* libprotobuf-lite.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libprotobuf-lite.a"; sourceTree = "<group>"; };
+		00BEEBED1984F8EC009D2E82 /* libprotoc.la */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libprotoc.la; sourceTree = "<group>"; };
+		00BEEBEE1984F8EC009D2E82 /* libprotobuf-lite.la */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "libprotobuf-lite.la"; sourceTree = "<group>"; };
+		00BEEBEF1984F8EC009D2E82 /* libprotobuf.la */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libprotobuf.la; sourceTree = "<group>"; };
 		00C592D7194D9B0600976C6D /* Cetris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cetris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00C592DA194D9B0600976C6D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		00C592DC194D9B0600976C6D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -189,7 +213,9 @@
 				00C592DD194D9B0600976C6D /* CoreGraphics.framework in Frameworks */,
 				00C592DF194D9B0600976C6D /* UIKit.framework in Frameworks */,
 				00C592E1194D9B0600976C6D /* SpriteKit.framework in Frameworks */,
-				000047AD19781242006DAE3F /* libprotobuf.a in Frameworks */,
+				00BEEBF21984F8EC009D2E82 /* libprotobuf-lite.a in Frameworks */,
+				00BEEBF01984F8EC009D2E82 /* libprotobuf.a in Frameworks */,
+				00BEEBF11984F8EC009D2E82 /* libprotoc.a in Frameworks */,
 				00C592DB194D9B0600976C6D /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,19 +233,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		000047A51978105B006DAE3F /* pb */ = {
-			isa = PBXGroup;
-			children = (
-				00905DF0197EB5F500388438 /* missle.pb.cc */,
-				00905DF1197EB5F500388438 /* missle.pb.h */,
-			);
-			path = pb;
-			sourceTree = "<group>";
-		};
 		000047AE1979F3C1006DAE3F /* Client */ = {
 			isa = PBXGroup;
 			children = (
-				000047A51978105B006DAE3F /* pb */,
+				00BEEBE01984EFD8009D2E82 /* pb */,
 				000047AF197A25E4006DAE3F /* Client.h */,
 				00A4FA8B197A70B900965EE4 /* DefaultClient.h */,
 				00A4FA8C197A70B900965EE4 /* DefaultClient.mm */,
@@ -282,16 +299,37 @@
 		00AD8EC4196017880017C556 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				00905DF6197FF23A00388438 /* InitScene.h */,
-				00905DF7197FF23A00388438 /* InitScene.m */,
 				00C592F7194D9B0600976C6D /* MyScene.h */,
 				00C592F8194D9B0600976C6D /* MyScene.m */,
-				008663E7195EB0BF0048D023 /* GameOverScene.h */,
-				008663E8195EB0BF0048D023 /* GameOverScene.m */,
 				00BEEB1519833034009D2E82 /* MatchScene.h */,
 				00BEEB1619833034009D2E82 /* MatchScene.m */,
+				00BEEB1C1984DA08009D2E82 /* StartScene.h */,
+				00BEEB1D1984DA08009D2E82 /* StartScene.m */,
 			);
 			name = Scene;
+			sourceTree = "<group>";
+		};
+		00BEEBD31984EBF2009D2E82 /* protobuf */ = {
+			isa = PBXGroup;
+			children = (
+				00BEEBEA1984F8EC009D2E82 /* libprotobuf.a */,
+				00BEEBEB1984F8EC009D2E82 /* libprotoc.a */,
+				00BEEBEC1984F8EC009D2E82 /* libprotobuf-lite.a */,
+				00BEEBED1984F8EC009D2E82 /* libprotoc.la */,
+				00BEEBEE1984F8EC009D2E82 /* libprotobuf-lite.la */,
+				00BEEBEF1984F8EC009D2E82 /* libprotobuf.la */,
+			);
+			path = protobuf;
+			sourceTree = "<group>";
+		};
+		00BEEBE01984EFD8009D2E82 /* pb */ = {
+			isa = PBXGroup;
+			children = (
+				00BEEBE71984F8B1009D2E82 /* missle.pb.cc */,
+				00BEEBE81984F8B1009D2E82 /* missle.pb.h */,
+				00BEEBE11984EFD8009D2E82 /* missle.proto */,
+			);
+			path = pb;
 			sourceTree = "<group>";
 		};
 		00C592CE194D9B0600976C6D = {
@@ -384,7 +422,7 @@
 		C46BAEFC196C767100320D79 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				000047AC19781242006DAE3F /* libprotobuf.a */,
+				00BEEBD31984EBF2009D2E82 /* protobuf */,
 				0066A1461975676B0047715D /* CocoaAsyncSocket */,
 				C46BAEFD196C767100320D79 /* AFNetworking */,
 				C46BAF11196C767100320D79 /* SocketRocket */,
@@ -469,6 +507,7 @@
 				00C592D5194D9B0600976C6D /* Resources */,
 			);
 			buildRules = (
+				00BEEBE31984EFF8009D2E82 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -533,18 +572,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00BEEBE21984EFD8009D2E82 /* missle.proto in Resources */,
 				008663EC195EB9F80048D023 /* box.wav in Resources */,
 				00686C79195CE0FF00674F1C /* missile.sks in Resources */,
 				00C592FB194D9B0600976C6D /* Spaceship.png in Resources */,
 				00686C76195CDBBC00674F1C /* spark.png in Resources */,
+				00BEEBF31984F8EC009D2E82 /* libprotoc.la in Resources */,
 				00C592FD194D9B0600976C6D /* Images.xcassets in Resources */,
 				0066A14C1975676B0047715D /* Documentation.html in Resources */,
 				00C592F3194D9B0600976C6D /* Main_iPad.storyboard in Resources */,
 				00686C77195CDBBC00674F1C /* explosion.sks in Resources */,
 				008663F0195EBC010048D023 /* lose.wav in Resources */,
 				00C592F0194D9B0600976C6D /* Main_iPhone.storyboard in Resources */,
+				00BEEBF41984F8EC009D2E82 /* libprotobuf-lite.la in Resources */,
 				008663F1195EBC010048D023 /* win.wav in Resources */,
 				008663F3195EBF020048D023 /* pushbtn.wav in Resources */,
+				00BEEBF51984F8EC009D2E82 /* libprotobuf.la in Resources */,
 				00C592E7194D9B0600976C6D /* InfoPlist.strings in Resources */,
 				008663ED195EB9F80048D023 /* nitro.wav in Resources */,
 			);
@@ -567,7 +610,6 @@
 			files = (
 				C46BAF1D196C767100320D79 /* AFURLSessionManager.m in Sources */,
 				C46BAF1A196C767100320D79 /* AFURLConnectionOperation.m in Sources */,
-				008663E9195EB0BF0048D023 /* GameOverScene.m in Sources */,
 				C46BAF17196C767100320D79 /* AFHTTPSessionManager.m in Sources */,
 				C46BAF18196C767100320D79 /* AFNetworkReachabilityManager.m in Sources */,
 				C4E6309819606C7B005C0687 /* SKCNodeIsComponent.m in Sources */,
@@ -579,18 +621,18 @@
 				C46BAF19196C767100320D79 /* AFSecurityPolicy.m in Sources */,
 				C4C709EC19608A3300EA83EB /* PhysicsHelper.m in Sources */,
 				C4E6309919606C7B005C0687 /* SKComponentManager.m in Sources */,
+				00BEEBE91984F8B1009D2E82 /* missle.pb.cc in Sources */,
 				00C592F6194D9B0600976C6D /* ViewController.m in Sources */,
 				00905DF5197FF02F00388438 /* Game.m in Sources */,
 				C46BAF16196C767100320D79 /* AFHTTPRequestOperationManager.m in Sources */,
-				00905DF2197EB5F500388438 /* missle.pb.cc in Sources */,
 				008663F6195EC4F90048D023 /* Terrain.m in Sources */,
 				00BEEB1A198333F5009D2E82 /* MockClient.m in Sources */,
 				00BEEB1719833034009D2E82 /* MatchScene.m in Sources */,
 				00905DFB19814C1E00388438 /* PlayerHud.m in Sources */,
 				C4E6309B19606C7B005C0687 /* SKComponentScene.m in Sources */,
 				00C592ED194D9B0600976C6D /* AppDelegate.m in Sources */,
-				00905DF8197FF23A00388438 /* InitScene.m in Sources */,
 				00C592E9194D9B0600976C6D /* main.m in Sources */,
+				00BEEB1E1984DA08009D2E82 /* StartScene.m in Sources */,
 				00AD8EC719601D9E0017C556 /* Car.m in Sources */,
 				C46BAF1B196C767100320D79 /* AFURLRequestSerialization.m in Sources */,
 				00BEEB141982915A009D2E82 /* Player.m in Sources */,
@@ -735,13 +777,16 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cetris/Cetris-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"/usr/local/include/**",
+					"/Users/aaaa/git/build-protobuf/protobuf/include/**",
 					"$(inherited)",
 					"/Applications/Xcode6-Beta2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
 				);
 				INFOPLIST_FILE = "Cetris/Cetris-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Cetris/Lib";
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Cetris/Lib",
+					"$(PROJECT_DIR)/Cetris/Lib/protobuf",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -757,13 +802,16 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cetris/Cetris-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"/usr/local/include/**",
+					"/Users/aaaa/git/build-protobuf/protobuf/include/**",
 					"$(inherited)",
 					"/Applications/Xcode6-Beta2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
 				);
 				INFOPLIST_FILE = "Cetris/Cetris-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Cetris/Lib";
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Cetris/Lib",
+					"$(PROJECT_DIR)/Cetris/Lib/protobuf",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				USER_HEADER_SEARCH_PATHS = "";

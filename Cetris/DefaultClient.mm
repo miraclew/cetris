@@ -35,6 +35,7 @@ struct Header {
     NSString *_username;
     NSString *_password;
     pb::Code _code;
+    int64_t _matchId;
 }
 
 -(instancetype) initWithDelegate:(id)delegate {
@@ -83,6 +84,7 @@ struct Header {
     point.set_x(x);
     point.set_y(y);
     move.set_allocated_position(&point);
+    move.set_matchid(_matchId);
     [self send:pb::C_PLAYER_MOVE Message:&move];
 }
 
@@ -92,28 +94,30 @@ struct Header {
     point.set_x(x);
     point.set_y(y);
     fire.set_allocated_velocity(&point);
+    fire.set_matchid(_matchId);
     [self send:pb::C_PLAYER_MOVE Message:&fire];
 }
 
 -(void)hit:(int64_t)p1 p2:(int64_t)p2 damage:(Float32)damage{
     pb::CPlayerHit hit;
+    hit.set_matchid(_matchId);
     hit.set_p1(p1);
     hit.set_p2(p2);
     hit.set_damage(damage);
     [self send:pb::C_PLAYER_HIT Message:&hit];
 }
 
--(void)send:(pb::Code)code Message:(::google::protobuf::Message *)msg {
+-(void)send:(pb::Code)code Message:(::google_public::protobuf::Message *)msg {
     std::string ps = msg->SerializeAsString();
 
     Header header;
     header.code = code;
     header.length = ps.size();
 
-    NSData *data1 = [NSData dataWithBytes:(char *)&header length:HEADER_LENGTH];
-    NSData *data2 = [NSData dataWithBytes:ps.c_str() length:ps.size()];
-    NSLog(@"send head: %@", data1);
-    NSLog(@"send body: %@", data2);
+//    NSData *data1 = [NSData dataWithBytes:(char *)&header length:HEADER_LENGTH];
+//    NSData *data2 = [NSData dataWithBytes:ps.c_str() length:ps.size()];
+//    NSLog(@"send head: %@", data1);
+//    NSLog(@"send body: %@", data2);
     
     [_socket writeData:[NSData dataWithBytes:(char *) &header length:HEADER_LENGTH] withTimeout:-1 tag:0];
     [_socket writeData:[NSData dataWithBytes:ps.c_str() length:ps.size()] withTimeout:-1 tag:0];
@@ -207,6 +211,7 @@ struct Header {
             pb::Point pbPoint = matchInit.points(i);
             [points addObject:[NSValue valueWithCGPoint:CGPointMake(pbPoint.x(), pbPoint.y())]];
         }
+        _matchId = matchInit.matchid();
         
         if ([_delegate respondsToSelector:@selector(matchInit:KeyPoints:)]) {
             [_delegate matchInit:players KeyPoints:points];

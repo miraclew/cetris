@@ -5,7 +5,6 @@
 //
 
 #import "MyScene.h"
-#import "GameOverScene.h"
 #import "Terrain.h"
 #import "Car.h"
 #import "PhysicsHelper.h"
@@ -268,9 +267,9 @@ typedef enum : NSUInteger {
 }
 
 -(void)goToMenu {
-    SKScene *scene = [[GameOverScene alloc] initWithSize:self.size];
-    SKTransition *transition = [SKTransition flipHorizontalWithDuration:0.5];
-    [self.view presentScene:scene transition:transition];
+//    SKScene *scene = [[GameOverScene alloc] initWithSize:self.size];
+//    SKTransition *transition = [SKTransition flipHorizontalWithDuration:0.5];
+//    [self.view presentScene:scene transition:transition];
 }
 
 -(SKNode *)getPlayer{

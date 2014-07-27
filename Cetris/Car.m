@@ -10,9 +10,13 @@
 
 @interface Car()
 @property BOOL isSelected;
+@property (nonatomic)  int timeOut;
 @end
 
-@implementation Car
+@implementation Car {
+    SKLabelNode* _countDown;
+    NSTimer* _countDownTimer;
+}
 
 +(instancetype) carWithId:(int64_t) carId IsLeft:(BOOL)isLeft {
     CGSize size = CGSizeMake(15, 10);
@@ -26,14 +30,48 @@
     return car;
 }
 
+-(instancetype)initWithColor:(UIColor *)color size:(CGSize)size {
+    if (self = [super initWithColor:color size:size]) {
+        _timeOut = 5;
+        _countDown = [SKLabelNode labelNodeWithText:@"5"];
+        _countDown.position = CGPointMake(0, 30);
+        _countDown.hidden = YES;
+        [self addChild:_countDown];
+    }
+    
+    return self;
+}
+
 -(void)takeTurn:(BOOL)take {
-    [self removeAllActions];
+//    [self removeAllActions];
+    [_countDownTimer invalidate];
+    _countDown.hidden = YES;
+    self.timeOut = 5;
+    
     self.alpha = 1.0;
     if (take) {
-        SKAction* fadeOut = [SKAction fadeOutWithDuration:1];
-        SKAction* fadeIn = [SKAction fadeInWithDuration:1];
-        [self runAction:[SKAction repeatActionForever:[SKAction sequence:@[fadeOut, fadeIn]]]];
+        _countDown.hidden = NO;
+        _countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDown) userInfo:nil repeats:YES];
+//        SKAction* fadeOut = [SKAction fadeOutWithDuration:1];
+//        SKAction* fadeIn = [SKAction fadeInWithDuration:1];
+//        [self runAction:[SKAction repeatActionForever:[SKAction sequence:@[fadeOut, fadeIn]]]];
     }
+}
+
+-(void)countDown {
+    self.timeOut--;
+
+    if (self.timeOut == 0) {
+        [_countDownTimer invalidate];
+        _countDown.hidden = YES;
+    } else {
+        
+    }
+}
+
+-(void)setTimeOut:(int)timeOut{
+    _timeOut = timeOut;
+    _countDown.text = [NSString stringWithFormat:@"%d", _timeOut];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

@@ -50,10 +50,11 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
         self.backgroundColor = [SKColor grayColor];
         
         _fireControl = [FireControl controlWithRadius:120 FireBlock:^(id object) {
-            NSLog(@"fire block");
+//            NSLog(@"fire block");
             FireControl *fc = (FireControl *) object;
             CGPoint position = CGPointMake(_myComponnets.Car.position.x, _myComponnets.Car.position.y +15);
             [self fireMissile:position Velocity:fc.controlVector];
+            [_myComponnets.Car takeTurn:NO];
         } VectorChangeBlock:^(id object) {
             
         }];
@@ -155,7 +156,7 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
         secondBody = contact.bodyA;
     }
     
-//    NSLog(@"%@ <-> %@", contact.bodyA.node.name, contact.bodyB.node.name);
+    NSLog(@"%@ <-> %@", contact.bodyA.node.name, contact.bodyB.node.name);
     int64_t p1 = _prevTurnPlayer;
     int64_t p2 = 0;
     if ((secondBody.categoryBitMask & BULLET_CATEGORY) != 0)
@@ -169,9 +170,12 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
 //            NSLog(@"attack %@", firstBody.node.name);
         }
         
-        if (p1 == _game.playerId) {
-            [_game.client hit:p1 p2:p2 damage:20.0];
+        //
+        if (p2 == _game.playerId || p1 >= 5) {
+            
         }
+        NSLog(@"p1 %lld -> p2 %lld", p1, p2);
+        [_game.client hit:p1 p2:p2 damage:20.0];
         
         [self explodeAtPoint:contact.contactPoint];
         [secondBody.node runAction:[SKAction removeFromParent]];
@@ -193,6 +197,22 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
     [self addChild:backMenu];
     
     [self runAction:gameOverSound];
+}
+
+#pragma mark -
+#pragma mark touch event
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+    SKNode *node = [self nodeAtPoint:[[touches anyObject] locationInNode:self]];
+    
+    if ([node.name isEqualToString:@"BackButton"]) {
+        SKAction *buttonClick = [SKAction playSoundFileNamed:@"pushbtn.wav" waitForCompletion:NO];
+        [self runAction:buttonClick];
+        
+        if (_game.state == GS_OVER) {
+            [_game matchFinish];
+        }
+    }
 }
 
 #pragma mark -

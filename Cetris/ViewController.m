@@ -7,10 +7,9 @@
 //
 
 #import "ViewController.h"
-#import "MyScene.h"
-#import "GameOverScene.h"
 #import "TerrainScene.h"
 #import "TestScene.h"
+#import "StartScene.h"
 
 @implementation ViewController
 
@@ -24,15 +23,8 @@
     skView.showsNodeCount = YES;
 //    skView.showsPhysics = YES;
     
-    // Create and configure the scene.
-    SKScene * scene = [GameOverScene sceneWithSize:skView.bounds.size];
-    scene.scaleMode = SKSceneScaleModeAspectFill;
-    
-    // Present the scene.
-    [skView presentScene:scene];
-    
     self.game = [[Game alloc] init];
-    self.game.view = skView;
+    self.game.view = skView;    
     [self.game start];
 }
 

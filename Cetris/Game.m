@@ -8,15 +8,13 @@
 
 #import "Game.h"
 #import "DefaultClient.h"
-#import "GameOverScene.h"
 #import "MatchScene.h"
+#import "StartScene.h"
 
 @implementation Game {
     DefaultClient *_defaultClient;
     MatchScene* _matchScene;
-    GameOverScene* _gameOverScence;
-    
-    GameState _state;
+    StartScene* _startScene;
     
     NSArray* _players;
     NSArray* _keyPoints;
@@ -28,9 +26,25 @@
 
 -(void)start {
     _state = GS_INIT;
+    
+    _startScene = [[StartScene alloc] initWithSize:self.view.bounds.size Game:self];
+    _startScene.scaleMode = SKSceneScaleModeAspectFill;
+    [self.view presentScene:_startScene];
+
     _defaultClient = [[DefaultClient alloc] initWithDelegate:self];
     _client = _defaultClient;
     [_defaultClient connectWith:@"Scron" passWord:@"bot"];
+    
+}
+
+-(void)matchEnter {
+    [_defaultClient enter];
+}
+
+-(void)matchFinish {
+    SKScene *scene = [[StartScene alloc] initWithSize:self.view.bounds.size Game:self];
+    SKTransition *transition = [SKTransition flipHorizontalWithDuration:0.5];
+    [self.view presentScene:scene transition:transition];
 }
 
 -(Player*) getPlayer:(int64_t)playerId {
@@ -84,7 +98,7 @@
     if (success) {
         _state = GS_READY;
         _playerId = userId;
-        [_defaultClient enter];
+        [_startScene ready];
     }
 }
 
