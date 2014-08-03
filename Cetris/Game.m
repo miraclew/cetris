@@ -129,8 +129,8 @@
     [_matchScene playerMove:playerId position:position];
 }
 
--(void)playerFire:(int64_t)playerId velocity:(CGVector)velocity{
-    [_matchScene playerFire:playerId velocity:velocity];
+-(void)playerFire:(int64_t)playerId position:(CGPoint)position velocity:(CGVector)velocity{
+    [_matchScene playerFire:playerId position:position velocity:velocity];
 }
 
 -(void)playerHit:(int64_t)p1 p2:(int64_t)p2 damage:(int)damage{

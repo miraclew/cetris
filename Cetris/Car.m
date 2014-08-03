@@ -28,7 +28,7 @@
     CGSize _size = CGSizeMake(15, 10);
     UIColor* _color = isLeft?[UIColor redColor]:[UIColor greenColor];
     if (self = [super initWithColor:_color size:_size]) {
-        _timeOut = 5;
+        _timeOut = TURN_TIME;
         
         self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_size];
         self.physicsBody.friction = 0.1f;
@@ -74,7 +74,7 @@
 //    [self removeAllActions];
     [_countDownTimer invalidate];
     _countDown.hidden = YES;
-    self.timeOut = 5;
+    self.timeOut = TURN_TIME;
     
     self.alpha = 1.0;
     if (take) {

@@ -26,7 +26,7 @@ typedef enum : NSUInteger {
 
 -(void)move:(Float32)x y:(Float32)y;
 
--(void)fire:(Float32)x y:(Float32)y;
+-(void)fire:(CGPoint)position velocity:(CGVector)velocity;
 
 -(void)hit:(int64_t)p1 p2:(int64_t)p2 damage:(Float32)damage;
 
@@ -49,7 +49,7 @@ typedef enum : NSUInteger {
 -(void)matchEnd:(int) points;
 -(void)matchTurn:(int64_t)playerId;
 -(void)playerMove:(int64_t)playerId position:(CGPoint)position;
--(void)playerFire:(int64_t)playerId velocity:(CGVector)velocity;
+-(void)playerFire:(int64_t)playerId position:(CGPoint)position velocity:(CGVector)velocity;
 -(void)playerHit:(int64_t)p1 p2:(int64_t)p2 damage:(int)damage;
 -(void)playerHealth:(int64_t)playerId health:(int)health;
 

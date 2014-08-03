@@ -88,11 +88,15 @@ struct Header {
     [self send:pb::C_PLAYER_MOVE Message:&move];
 }
 
--(void)fire:(Float32)x y:(Float32)y{
+-(void)fire:(CGPoint)position velocity:(CGVector)velocity {
     pb::CPlayerFire fire;
-    pb::Point *point = fire.mutable_velocity();
-    point->set_x(x);
-    point->set_y(y);
+    pb::Point *vel = fire.mutable_velocity();
+    vel->set_x(velocity.dx);
+    vel->set_y(velocity.dy);
+    
+    pb::Point *pos = fire.mutable_position();
+    pos->set_x(position.x);
+    pos->set_y(position.y);
     
     fire.set_matchid(_matchId);
     [self send:pb::C_PLAYER_FIRE Message:&fire];
@@ -244,8 +248,8 @@ struct Header {
     } else if (_code == pb::E_PLAYER_FIRE) {
         pb::EPlayerFire fire;
         fire.ParseFromArray(raw, length);
-        if (fire.playerid() != _playerId && [_delegate respondsToSelector:@selector(playerFire:velocity:)]) {
-            [_delegate playerFire:fire.playerid() velocity:CGVectorMake(fire.velocity().x(), fire.velocity().y())];
+        if (fire.playerid() != _playerId && [_delegate respondsToSelector:@selector(playerFire:position:velocity:)]) {
+            [_delegate playerFire:fire.playerid() position:CGPointMake(fire.position().x(), fire.position().y()) velocity:CGVectorMake(fire.velocity().x(), fire.velocity().y())];
         }
     } else if (_code == pb::E_PLAYER_HIT) {
         pb::EPlayerHit hit;

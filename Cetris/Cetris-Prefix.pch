@@ -17,3 +17,5 @@
 #endif
 
 #define kWsStateChanged @"ws-state-changed"
+
+#define TURN_TIME 10

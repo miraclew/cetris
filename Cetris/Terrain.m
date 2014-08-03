@@ -28,7 +28,11 @@
         _size = size;
         [self generateHills];
         if (points != nil) {
-//            _hillKeyPoints = points;
+            for (int i=0; i<[points count] && i<kMaxHillKeyPoints; i++) {
+                NSValue* v = points[i];
+                CGPoint point = [v CGPointValue];
+                _hillKeyPoints[i] = CGPointMake(point.x*size.width, point.y*size.height);
+            }
         }
         [self generateTerrian];
     }

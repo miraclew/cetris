@@ -23,7 +23,9 @@
 }
 
 -(void)setPercent:(CGFloat)percent{
+    _percent = percent;
     _stick.size = CGSizeMake(self.size.width*percent, self.size.height);
+    _stick.position = CGPointMake(_stick.size.width/2-self.size.width/2, _stick.position.y);
 }
 
 @end
