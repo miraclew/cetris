@@ -33,12 +33,22 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
     SKShapeNode *_missileCurve;
     FireControl *_fireControl;
     PlayerComponents* _myComponnets;
-
+    SKSpriteNode* _moveLeft;
+    SKSpriteNode* _moveRight;
+    SKSpriteNode* _angleLeft;
+    SKSpriteNode* _angleRight;
+    SKSpriteNode* _fireButton;
+    SKLabelNode* _exitButton;
+    
+    CGFloat _angle;
+    int _move;
+    CGFloat _power;
     Terrain* terrain;
     // Sounds
     SKAction *fireSound;
     SKAction *explosionSound;
     SKAction *gameOverSound;
+    SKAction *changeAngleSound;
     int64_t _prevTurnPlayer;
 }
 
@@ -46,11 +56,15 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
     if (self == [super initWithSize:size]) {
         _game = game;
         _prevTurnPlayer = 0;
+        _move = 0;
+        _power = 0.0f;
         _playerNodes = [[NSMutableDictionary alloc] init];
         self.backgroundColor = [SKColor grayColor];
         
+        self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
+        
         _fireControl = [FireControl controlWithRadius:120 FireBlock:^(id object) {
-//            NSLog(@"fire block");
+//            NSLog(@"fire blockvvv                                                                                           ");
             FireControl *fc = (FireControl *) object;
             CGPoint position = CGPointMake(_myComponnets.Car.position.x, _myComponnets.Car.position.y +15);
             [self fireMissile:position Velocity:fc.controlVector];
@@ -59,20 +73,54 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
             
         }];
         _fireControl.position = CGPointMake(120, 120);
-        [self addChild:_fireControl];
+        _fireControl.zPosition = 100;
+        
+//        [self addControls];
         
         fireSound = [SKAction playSoundFileNamed:@"box.wav" waitForCompletion:NO];
         explosionSound = [SKAction playSoundFileNamed:@"nitro.wav" waitForCompletion:NO];
         gameOverSound = [SKAction playSoundFileNamed:@"win.wav" waitForCompletion:NO];
-
+        changeAngleSound = [SKAction playSoundFileNamed:@"10.wav" waitForCompletion:NO];
         self.physicsWorld.contactDelegate = self;
     }
     
     return self;
 }
 
+-(void)addControls{
+    _moveLeft = [SKSpriteNode spriteNodeWithColor:[SKColor greenColor] size:CGSizeMake(40, 30)];
+    _moveLeft.name = @"MoveLeft";
+    _moveLeft.position = CGPointMake(200, 30);
+    [self addChild:_moveLeft];
+    _moveRight = [SKSpriteNode spriteNodeWithColor:[SKColor greenColor] size:CGSizeMake(40, 30)];
+    _moveRight.name = @"MoveRight";
+    _moveRight.position = CGPointMake(245, 30);
+    [self addChild:_moveRight];
+    
+    _angleLeft = [SKSpriteNode spriteNodeWithColor:[SKColor purpleColor] size:CGSizeMake(40, 30)];
+    _angleLeft.name = @"AngleLeft";
+    _angleLeft.position = CGPointMake(200, 80);
+    [self addChild:_angleLeft];
+    
+    _angleRight = [SKSpriteNode spriteNodeWithColor:[SKColor purpleColor] size:CGSizeMake(40,30)];
+    _angleRight.name = @"AngleRight";
+    _angleRight.position = CGPointMake(245, 80);
+    [self addChild:_angleRight];
+    
+    _fireButton = [SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:CGSizeMake(60, 60)];
+    _fireButton.name = @"FireButton";
+    _fireButton.position = CGPointMake(320, 60);
+    [self addChild:_fireButton];
+    
+    _exitButton = [SKLabelNode labelNodeWithFontNamed:@"System"];
+    _exitButton.name = @"ExitButton";
+    _exitButton.position = CGPointMake(30, 20);
+    _exitButton.text = @"退出";
+    [self addChild:_exitButton];
+}
+
 -(Car*)addPlayerNode:(Player*) player {
-    Car* node = [Car carWithId:player.playerId IsLeft:player.isLeft];
+    Car* node = [Car carWithId:player.playerId IsLeft:player.isLeft IsMe:player.playerId == _game.playerId];
     node.name = [NSString stringWithFormat:@"%lld", player.playerId];
     node.position = CGPointMake([self translatePoint:player.position].x, self.size.height-100);
     node.physicsBody.categoryBitMask = PLAYER_CATEGORY;
@@ -86,7 +134,7 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
 -(PlayerHud*)addHudNode:(Player*) player {
     int HUD_PADDING = 80;
     
-    PlayerHud* hud = [[PlayerHud alloc] initWithPlayer:player];
+    PlayerHud* hud = [[PlayerHud alloc] initWithPlayer:player IsMe:player.playerId == _game.playerId];
     if (player.isLeft) {
         hud.position = CGPointMake(HUD_PADDING, self.size.height-HUD_PADDING-hud.size.height);
     } else {
@@ -116,6 +164,7 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
     [bullet runAction:fireSound];
     CGFloat factor = 1000;
     bullet.physicsBody.velocity = CGVectorMake(velocity.dx * factor, velocity.dy * factor);
+    [_game.client fire:velocity.dx y:velocity.dy];
 }
 
 -(SKNode *)newMissileNode {
@@ -145,6 +194,44 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
     return [_playerNodes objectForKey:@(playerId)];
 }
 
+-(void)gameOver {
+//    SKSpriteNode *winnerNode;
+//    SKSpriteNode *loserNode;
+//    
+//    [loserNode removeFromParent];
+//    [winnerNode runAction:[SKAction moveToX:self.size.width/2 duration:1]];
+    
+    SKLabelNode *backMenu = [SKLabelNode labelNodeWithFontNamed:@"System"];
+    backMenu.name = @"BackButton";
+    backMenu.fontColor = [SKColor whiteColor];
+    backMenu.text = @"返回";
+    backMenu.position = CGPointMake(self.size.width/2, self.size.height/2);
+    [self addChild:backMenu];
+    
+    [self runAction:gameOverSound];
+}
+
+-(void)movePositionWithX:(CGFloat)deltaX {
+//    if (deltaX > 0) {
+//        
+//        [_myComponnets.Car.physicsBody applyImpulse:CGVectorMake(2, 0)];
+//    } else {
+//    }
+    
+//    [_myComponnets.Car runAction:[SKAction moveToX:deltaX duration:1] completion:^{
+//        CGPoint pos = _myComponnets.Car.position;
+//        [self playerMove:_game.playerId position:pos];
+//    }];
+}
+
+-(void)changeAngle:(CGFloat)angle {
+    _myComponnets.Car.towerRotation += angle;
+    [self runAction:changeAngleSound];
+}
+
+#pragma mark -
+#pragma mark collide event
+
 -(void)didBeginContact:(SKPhysicsContact *)contact {
     SKPhysicsBody *firstBody, *secondBody;
     
@@ -167,7 +254,7 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
             }
             
             p2 = [firstBody.node.name intValue];
-//            NSLog(@"attack %@", firstBody.node.name);
+            //            NSLog(@"attack %@", firstBody.node.name);
         }
         
         //
@@ -182,28 +269,39 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
     }
 }
 
--(void)gameOver {
-//    SKSpriteNode *winnerNode;
-//    SKSpriteNode *loserNode;
-//    
-//    [loserNode removeFromParent];
-//    [winnerNode runAction:[SKAction moveToX:self.size.width/2 duration:1]];
-    
-    SKLabelNode *backMenu = [SKLabelNode labelNodeWithFontNamed:@"System"];
-    backMenu.name = @"BackButton";
-    backMenu.fontColor = [SKColor whiteColor];
-    backMenu.text = @"返回";
-    backMenu.position = CGPointMake(self.size.width/2, self.size.height/2);
-    [self addChild:backMenu];
-    
-    [self runAction:gameOverSound];
-}
-
 #pragma mark -
 #pragma mark touch event
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    SKNode *node = [self nodeAtPoint:[[touches anyObject] locationInNode:self]];
+    NSLog(@"TouchedBegin: %@", node.name);
+    if ([node.name isEqualToString:@"MoveLeft"]) {
+        _move = -1;
+        [self movePositionWithX:-50.0];
+    } else if ([node.name isEqualToString:@"MoveRight"]) {
+        [self movePositionWithX:50.0];
+        _move = 1;
+    } else if ([node.name isEqualToString:@"AngleLeft"]) {
+        [self changeAngle:0.1];
+    } else if ([node.name isEqualToString:@"AngleRight"]) {
+        [self changeAngle:-0.1];
+    } else if ([node.name isEqualToString:@"FireButton"]) {
+        if(_prevTurnPlayer == _game.playerId) {
+            CGPoint position = CGPointMake(_myComponnets.Car.position.x, _myComponnets.Car.position.y +25);
+            CGFloat power = 1;
+            CGFloat x = cosf(_myComponnets.Car.towerRotation) * power;
+            CGFloat y = sinf(_myComponnets.Car.towerRotation) * power;
+            [self fireMissile:position Velocity:CGVectorMake(x, y)];
+        }
+    } else if ([node.name isEqualToString:@"ExitButton"]) {
+        [_game.client exit];
+        [_game matchFinish];
+    }
+}
+
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-    NSLog(@"MatchScene.touchesEnded");
+    _move = 0;
+//    NSLog(@"MatchScene.touchesEnded");
     SKNode *node = [self nodeAtPoint:[[touches anyObject] locationInNode:self]];
     
     if ([node.name isEqualToString:@"BackButton"]) {
@@ -254,7 +352,12 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
     terrain = [[Terrain alloc] initWithSize:self.size Points:points];
     terrain.physicsBody.categoryBitMask = HILL_CATEGORY;
     terrain.name = @"Buttom";
+    terrain.zPosition = -1;
     [self addChild:terrain];
+    
+//    [self addChild:_fireControl];
+    _angle = _myComponnets.Player.isLeft ? 45 : 135;
+    [self addControls];
 }
 
 -(void)matchEnd:(int) points {
@@ -264,6 +367,7 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
 -(void)matchTurn:(int64_t)playerId {
     if (_prevTurnPlayer != 0) {
         Car* car = [self getPlayerNode:_prevTurnPlayer].Car;
+        car.zRotation = 0;
         [car takeTurn:NO];
     }
     
@@ -271,6 +375,8 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
     Car* car = [self getPlayerNode:playerId].Car;
     [car takeTurn:YES];
     _prevTurnPlayer = playerId;
+    
+//    _myComponnets.Car.zRotation = 0.0;
 }
 
 -(void)playerMove:(int64_t)playerId position:(CGPoint)position{
@@ -281,9 +387,9 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
 -(void)playerFire:(int64_t)playerId velocity:(CGVector)velocity{
     Car* car = [self getPlayerNode:playerId].Car;
     CGPoint position = CGPointMake(car.position.x, car.position.y +15);
-    if (!car.isLeft) {
-        velocity.dx = - velocity.dx;
-    }
+//    if (!car.isLeft) {
+//        velocity.dx = - velocity.dx;
+//    }
     [car takeTurn:NO];
     [self fireMissile:position Velocity:velocity];
 }
@@ -299,5 +405,28 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
 }
 
 
+-(void)update:(NSTimeInterval)currentTime {
+    
+    CGFloat rotation = _myComponnets.Car.zRotation + M_PI_2;
+    CGFloat thrust = 10;
+    CGVector thrustVector = CGVectorMake(thrust*cosf(rotation),
+                                         thrust*sinf(rotation));
+    if (_move > 0) {
+//        _myComponnets.Car.physicsBody.friction = 0.1f;
+        NSLog(@"moveRight: %f/%f", thrustVector.dx, thrustVector.dy);
+        
+//        [_myComponnets.Car.physicsBody applyForce:thrustVector];
+        [_myComponnets.Car.physicsBody applyForce:CGVectorMake(20, 0)];
+    } else if(_move < 0) {
+//        _myComponnets.Car.physicsBody.friction = 0.1f;
+        CGVector thrustVector = CGVectorMake(-thrust*cosf(rotation),
+                                             thrust*sinf(rotation));
+        NSLog(@"moveLeft: %f/%f", thrustVector.dx, thrustVector.dy);
+//        [_myComponnets.Car.physicsBody applyForce:thrustVector];
+        [_myComponnets.Car.physicsBody applyForce:CGVectorMake(-20, 0)];
+    } else {
+//        _myComponnets.Car.physicsBody.friction = 1.0f;
+    }
+}
 
 @end

@@ -20,8 +20,9 @@
 @property (nonatomic, assign) BOOL isLeft;
 @property (nonatomic, assign) int carId;
 @property (nonatomic, assign) id  delegate;
+@property (nonatomic, assign) CGFloat towerRotation;
 
-+(instancetype) carWithId:(int64_t) carId IsLeft:(BOOL)isLeft;
++(instancetype) carWithId:(int64_t) carId IsLeft:(BOOL)isLeft IsMe:(BOOL)isMe;
 
 -(void)takeTurn:(BOOL)take;
 

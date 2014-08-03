@@ -17,7 +17,7 @@
 
 #define HEADER_LENGTH 8
 
-#define HOST @"192.168.1.106"
+#define HOST @"192.168.1.102"
 #define HTTP_PORT 8080
 #define TCP_PORT 8081
 
@@ -36,6 +36,7 @@ struct Header {
     NSString *_password;
     pb::Code _code;
     int64_t _matchId;
+    int64_t _playerId;
 }
 
 -(instancetype) initWithDelegate:(id)delegate {
@@ -80,22 +81,21 @@ struct Header {
 
 -(void)move:(Float32)x y:(Float32)y{
     pb::CPlayerMove move;
-    pb::Point point;
-    point.set_x(x);
-    point.set_y(y);
-    move.set_allocated_position(&point);
+    pb::Point *point = move.mutable_position();
+    point->set_x(x);
+    point->set_y(y);
     move.set_matchid(_matchId);
     [self send:pb::C_PLAYER_MOVE Message:&move];
 }
 
 -(void)fire:(Float32)x y:(Float32)y{
     pb::CPlayerFire fire;
-    pb::Point point;
-    point.set_x(x);
-    point.set_y(y);
-    fire.set_allocated_velocity(&point);
+    pb::Point *point = fire.mutable_velocity();
+    point->set_x(x);
+    point->set_y(y);
+    
     fire.set_matchid(_matchId);
-    [self send:pb::C_PLAYER_MOVE Message:&fire];
+    [self send:pb::C_PLAYER_FIRE Message:&fire];
 }
 
 -(void)hit:(int64_t)p1 p2:(int64_t)p2 damage:(Float32)damage{
@@ -105,6 +105,12 @@ struct Header {
     hit.set_p2(p2);
     hit.set_damage(damage);
     [self send:pb::C_PLAYER_HIT Message:&hit];
+}
+
+-(void)exit {
+    pb::CMatchExit exit;
+    exit.set_matchid(_matchId);
+    [self send:pb::C_MATCH_EXIT Message:&exit];
 }
 
 -(void)send:(pb::Code)code Message:(::google_public::protobuf::Message *)msg {
@@ -180,6 +186,7 @@ struct Header {
         auth.ParseFromArray(raw, length);
         if (auth.code() == 0) {
             NSLog(@"Auth OK: userId=%lld", auth.userid());
+            _playerId = auth.userid();
             if ([_delegate respondsToSelector:@selector(authComplete:UserId:)]) {
                 [_delegate authComplete:YES UserId:auth.userid()];
             }
@@ -231,18 +238,19 @@ struct Header {
     } else if (_code == pb::E_PLAYER_MOVE) {
         pb::EPlayerMove move;
         move.ParseFromArray(raw, length);
-        if ([_delegate respondsToSelector:@selector(playerMove:position:)]) {
+        if (move.playerid() != _playerId && [_delegate respondsToSelector:@selector(playerMove:position:)]) {
             [_delegate playerMove:move.playerid() position:CGPointMake(move.position().x(), move.position().y())];
         }
     } else if (_code == pb::E_PLAYER_FIRE) {
         pb::EPlayerFire fire;
         fire.ParseFromArray(raw, length);
-        if ([_delegate respondsToSelector:@selector(playerFire:velocity:)]) {
+        if (fire.playerid() != _playerId && [_delegate respondsToSelector:@selector(playerFire:velocity:)]) {
             [_delegate playerFire:fire.playerid() velocity:CGVectorMake(fire.velocity().x(), fire.velocity().y())];
         }
     } else if (_code == pb::E_PLAYER_HIT) {
         pb::EPlayerHit hit;
         hit.ParseFromArray(raw, length);
+        // hit.p1() != _playerId && 
         if ([_delegate respondsToSelector:@selector(playerHit:p2:damage:)]) {
             [_delegate playerHit:hit.p1() p2:hit.p2() damage:hit.damage()];
         }

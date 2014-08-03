@@ -30,6 +30,7 @@ typedef enum : NSUInteger {
 
 -(void)hit:(int64_t)p1 p2:(int64_t)p2 damage:(Float32)damage;
 
+-(void)exit;
 
 @end
 

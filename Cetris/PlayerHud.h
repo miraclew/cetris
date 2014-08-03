@@ -13,7 +13,7 @@
 
 @property (nonatomic, assign) int Health;
 
--(instancetype)initWithPlayer:(Player*)player;
+-(instancetype)initWithPlayer:(Player*)player IsMe:(BOOL) isMe;
 
 
 @end

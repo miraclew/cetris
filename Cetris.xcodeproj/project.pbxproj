@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0032B6F2198C776C006A0BDD /* TestScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0032B6F1198C776C006A0BDD /* TestScene.sks */; };
+		0032B6F9198CBE20006A0BDD /* sprite3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0032B6F3198CBE20006A0BDD /* sprite3.png */; };
+		0032B6FA198CBE20006A0BDD /* sprite4.png in Resources */ = {isa = PBXBuildFile; fileRef = 0032B6F4198CBE20006A0BDD /* sprite4.png */; };
+		0032B6FB198CBE20006A0BDD /* sprite5.png in Resources */ = {isa = PBXBuildFile; fileRef = 0032B6F5198CBE20006A0BDD /* sprite5.png */; };
+		0032B6FC198CBE20006A0BDD /* sprite6.png in Resources */ = {isa = PBXBuildFile; fileRef = 0032B6F6198CBE20006A0BDD /* sprite6.png */; };
+		0032B6FD198CBE20006A0BDD /* sprite7.png in Resources */ = {isa = PBXBuildFile; fileRef = 0032B6F7198CBE20006A0BDD /* sprite7.png */; };
+		0032B6FE198CBE20006A0BDD /* sprite8.png in Resources */ = {isa = PBXBuildFile; fileRef = 0032B6F8198CBE20006A0BDD /* sprite8.png */; };
+		0032B704198CE109006A0BDD /* 10.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0032B703198CE109006A0BDD /* 10.wav */; };
+		0032B707198CE2E8006A0BDD /* ProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032B706198CE2E8006A0BDD /* ProgressBar.m */; };
 		0066A14C1975676B0047715D /* Documentation.html in Resources */ = {isa = PBXBuildFile; fileRef = 0066A1471975676B0047715D /* Documentation.html */; };
 		00686C76195CDBBC00674F1C /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 00686C74195CDBBC00674F1C /* spark.png */; };
 		00686C77195CDBBC00674F1C /* explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 00686C75195CDBBC00674F1C /* explosion.sks */; };
@@ -87,6 +96,16 @@
 
 /* Begin PBXFileReference section */
 		000047AF197A25E4006DAE3F /* Client.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Client.h; sourceTree = "<group>"; };
+		0032B6F1198C776C006A0BDD /* TestScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TestScene.sks; sourceTree = "<group>"; };
+		0032B6F3198CBE20006A0BDD /* sprite3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite3.png; sourceTree = "<group>"; };
+		0032B6F4198CBE20006A0BDD /* sprite4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite4.png; sourceTree = "<group>"; };
+		0032B6F5198CBE20006A0BDD /* sprite5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite5.png; sourceTree = "<group>"; };
+		0032B6F6198CBE20006A0BDD /* sprite6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite6.png; sourceTree = "<group>"; };
+		0032B6F7198CBE20006A0BDD /* sprite7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite7.png; sourceTree = "<group>"; };
+		0032B6F8198CBE20006A0BDD /* sprite8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite8.png; sourceTree = "<group>"; };
+		0032B703198CE109006A0BDD /* 10.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 10.wav; sourceTree = "<group>"; };
+		0032B705198CE2E8006A0BDD /* ProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressBar.h; sourceTree = "<group>"; };
+		0032B706198CE2E8006A0BDD /* ProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressBar.m; sourceTree = "<group>"; };
 		0066A1471975676B0047715D /* Documentation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Documentation.html; sourceTree = "<group>"; };
 		00686C74195CDBBC00674F1C /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		00686C75195CDBBC00674F1C /* explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = explosion.sks; sourceTree = "<group>"; };
@@ -252,6 +271,7 @@
 		00AD8EC1196017110017C556 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				0032B703198CE109006A0BDD /* 10.wav */,
 				008663F2195EBF020048D023 /* pushbtn.wav */,
 				008663EE195EBC010048D023 /* lose.wav */,
 				008663EF195EBC010048D023 /* win.wav */,
@@ -283,6 +303,8 @@
 				00ED03A11967B79F002B841E /* FireControl.m */,
 				00905DF919814C1E00388438 /* PlayerHud.h */,
 				00905DFA19814C1E00388438 /* PlayerHud.m */,
+				0032B705198CE2E8006A0BDD /* ProgressBar.h */,
+				0032B706198CE2E8006A0BDD /* ProgressBar.m */,
 			);
 			name = Sprite;
 			sourceTree = "<group>";
@@ -296,6 +318,7 @@
 				00BEEB1619833034009D2E82 /* MatchScene.m */,
 				00BEEB1C1984DA08009D2E82 /* StartScene.h */,
 				00BEEB1D1984DA08009D2E82 /* StartScene.m */,
+				0032B6F1198C776C006A0BDD /* TestScene.sks */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
@@ -383,6 +406,12 @@
 		00C592E3194D9B0600976C6D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0032B6F3198CBE20006A0BDD /* sprite3.png */,
+				0032B6F4198CBE20006A0BDD /* sprite4.png */,
+				0032B6F5198CBE20006A0BDD /* sprite5.png */,
+				0032B6F6198CBE20006A0BDD /* sprite6.png */,
+				0032B6F7198CBE20006A0BDD /* sprite7.png */,
+				0032B6F8198CBE20006A0BDD /* sprite8.png */,
 				00BEEBF61984FEEA009D2E82 /* sprite1.png */,
 				00BEEBF71984FEEA009D2E82 /* sprite2.png */,
 				00BEEBF81984FEEA009D2E82 /* sprite9.png */,
@@ -566,17 +595,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				00BEEBE21984EFD8009D2E82 /* missle.proto in Resources */,
+				0032B6FA198CBE20006A0BDD /* sprite4.png in Resources */,
 				008663EC195EB9F80048D023 /* box.wav in Resources */,
 				00686C79195CE0FF00674F1C /* missile.sks in Resources */,
 				00C592FB194D9B0600976C6D /* Spaceship.png in Resources */,
+				0032B6FC198CBE20006A0BDD /* sprite6.png in Resources */,
+				0032B6F2198C776C006A0BDD /* TestScene.sks in Resources */,
 				00686C76195CDBBC00674F1C /* spark.png in Resources */,
 				00BEEBF31984F8EC009D2E82 /* libprotoc.la in Resources */,
 				00C592FD194D9B0600976C6D /* Images.xcassets in Resources */,
+				0032B6FD198CBE20006A0BDD /* sprite7.png in Resources */,
 				00BEEBFB1984FEEA009D2E82 /* sprite9.png in Resources */,
 				0066A14C1975676B0047715D /* Documentation.html in Resources */,
 				00C592F3194D9B0600976C6D /* Main_iPad.storyboard in Resources */,
 				00686C77195CDBBC00674F1C /* explosion.sks in Resources */,
+				0032B704198CE109006A0BDD /* 10.wav in Resources */,
+				0032B6FB198CBE20006A0BDD /* sprite5.png in Resources */,
 				008663F0195EBC010048D023 /* lose.wav in Resources */,
+				0032B6F9198CBE20006A0BDD /* sprite3.png in Resources */,
 				00BEEBFA1984FEEA009D2E82 /* sprite2.png in Resources */,
 				00C592F0194D9B0600976C6D /* Main_iPhone.storyboard in Resources */,
 				00BEEBF41984F8EC009D2E82 /* libprotobuf-lite.la in Resources */,
@@ -584,6 +620,7 @@
 				008663F3195EBF020048D023 /* pushbtn.wav in Resources */,
 				00BEEBF91984FEEA009D2E82 /* sprite1.png in Resources */,
 				00BEEBF51984F8EC009D2E82 /* libprotobuf.la in Resources */,
+				0032B6FE198CBE20006A0BDD /* sprite8.png in Resources */,
 				00C592E7194D9B0600976C6D /* InfoPlist.strings in Resources */,
 				008663ED195EB9F80048D023 /* nitro.wav in Resources */,
 			);
@@ -619,6 +656,7 @@
 				C4E6309919606C7B005C0687 /* SKComponentManager.m in Sources */,
 				00BEEBE91984F8B1009D2E82 /* missle.pb.cc in Sources */,
 				00C592F6194D9B0600976C6D /* ViewController.m in Sources */,
+				0032B707198CE2E8006A0BDD /* ProgressBar.m in Sources */,
 				00905DF5197FF02F00388438 /* Game.m in Sources */,
 				C46BAF16196C767100320D79 /* AFHTTPRequestOperationManager.m in Sources */,
 				008663F6195EC4F90048D023 /* Terrain.m in Sources */,

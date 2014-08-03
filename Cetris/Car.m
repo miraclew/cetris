@@ -15,31 +15,59 @@
 
 @implementation Car {
     SKLabelNode* _countDown;
+    SKShapeNode* _arrowLine;
     NSTimer* _countDownTimer;
 }
 
-+(instancetype) carWithId:(int64_t) carId IsLeft:(BOOL)isLeft {
-    CGSize size = CGSizeMake(15, 10);
-    Car *car = [Car spriteNodeWithColor:isLeft?[UIColor redColor]:[UIColor greenColor] size:size];
-    car.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:size];
-    car.physicsBody.friction = 1.0f;
-    car.physicsBody.usesPreciseCollisionDetection = YES;
-    car.isSelected = NO;
-    car.isLeft = isLeft;
-    [car setUserInteractionEnabled:YES];
++(instancetype) carWithId:(int64_t) carId IsLeft:(BOOL)isLeft IsMe:(BOOL)isMe {
+    Car *car = [[Car alloc] initWithColor:nil size:CGSizeMake(0, 0) IsLeft:isLeft IsMe:isMe];
     return car;
 }
 
--(instancetype)initWithColor:(UIColor *)color size:(CGSize)size {
-    if (self = [super initWithColor:color size:size]) {
+-(instancetype)initWithColor:(UIColor *)color size:(CGSize)size IsLeft:(BOOL)isLeft IsMe:(BOOL)isMe {
+    CGSize _size = CGSizeMake(15, 10);
+    UIColor* _color = isLeft?[UIColor redColor]:[UIColor greenColor];
+    if (self = [super initWithColor:_color size:_size]) {
         _timeOut = 5;
+        
+        self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_size];
+        self.physicsBody.friction = 0.1f;
+        self.physicsBody.usesPreciseCollisionDetection = YES;
+        self.isSelected = NO;
+        self.isLeft = isLeft;
+        if (isLeft) {
+            _towerRotation = M_PI_4;
+        } else {
+            _towerRotation = 3* M_PI_4;
+        }
+        [self setUserInteractionEnabled:YES];
+        
         _countDown = [SKLabelNode labelNodeWithFontNamed:@"System"];
         _countDown.position = CGPointMake(0, 30);
         _countDown.hidden = YES;
         [self addChild:_countDown];
+        
+        if (isMe) {
+            _arrowLine = [SKShapeNode node];
+            CGMutablePathRef pathRef = CGPathCreateMutable();
+            CGPathMoveToPoint(pathRef, NULL, 0,0);
+            CGPathAddLineToPoint(pathRef, NULL, 20, 0);
+            _arrowLine.strokeColor = [UIColor yellowColor];
+            _arrowLine.lineWidth = 1;
+            _arrowLine.path = pathRef;
+            _arrowLine.zPosition = 1;
+            _arrowLine.zRotation = _towerRotation;
+            
+            [self addChild:_arrowLine];
+        }
     }
     
     return self;
+}
+
+-(void)setTowerRotation:(CGFloat)towerRotation {
+    _towerRotation = towerRotation;
+    _arrowLine.zRotation = towerRotation;
 }
 
 -(void)takeTurn:(BOOL)take {

@@ -46,7 +46,8 @@
         _fireButton.name = @"FireButton";
         _fireButton.zPosition = 2;
         [self addChild:_fireButton];
-        
+       
+        self.zPosition = 200;
         [self drawHandle];
         [self drawArrow];
     }

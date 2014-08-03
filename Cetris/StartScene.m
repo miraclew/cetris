@@ -37,9 +37,11 @@
     if (_game.state == GS_READY || _game.state == GS_OVER) {
         _startNode.text = @"点击开始";
         _ready = YES;
+        [_game matchEnter];
     } else if (_game.state == GS_INIT) {
         _startNode.text = @"连接中...";
     } else {
+        [_game matchEnter];
         _startNode.text = @"Unknown state";
     }
 }
