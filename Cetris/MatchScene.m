@@ -9,8 +9,8 @@
 #import "MatchScene.h"
 #import "PlayerHud.h"
 #import "Terrain.h"
-#import "FireControl.h"
 #import "ProgressBar.h"
+#import "Tank.h"
 
 static const uint32_t PLAYER_CATEGORY = 0x1 << 0;
 static const uint32_t HILL_CATEGORY = 0x1 << 1;
@@ -19,7 +19,7 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
 
 @interface PlayerComponents : NSObject
 @property (nonatomic, strong) PlayerHud* Hud;
-@property (nonatomic, strong) Car* Car;
+@property (nonatomic, strong) Tank* Tank;
 @property (nonatomic, strong) Player* Player;
 @end
 
@@ -32,9 +32,9 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
     NSMutableDictionary* _playerNodes;
     
     SKShapeNode *_missileCurve;
-    FireControl *_fireControl;
     PlayerComponents* _myComponnets;
     ProgressBar* _powerBar;
+    // Buttons
     SKSpriteNode* _moveLeft;
     SKSpriteNode* _moveRight;
     SKSpriteNode* _angleLeft;
@@ -67,20 +67,6 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
         self.backgroundColor = [SKColor grayColor];
         
         self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
-        
-        _fireControl = [FireControl controlWithRadius:120 FireBlock:^(id object) {
-//            NSLog(@"fire blockvvv                                                                                           ");
-            FireControl *fc = (FireControl *) object;
-            CGPoint position = CGPointMake(_myComponnets.Car.position.x, _myComponnets.Car.position.y +15);
-            [self fireMissile:position Velocity:fc.controlVector];
-            [_myComponnets.Car takeTurn:NO];
-        } VectorChangeBlock:^(id object) {
-            
-        }];
-        _fireControl.position = CGPointMake(120, 120);
-        _fireControl.zPosition = 100;
-        
-//        [self addControls];
         
         fireSound = [SKAction playSoundFileNamed:@"box.wav" waitForCompletion:NO];
         explosionSound = [SKAction playSoundFileNamed:@"nitro.wav" waitForCompletion:NO];
@@ -130,15 +116,18 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
     
 }
 
--(Car*)addPlayerNode:(Player*) player {
-    Car* node = [Car carWithId:player.playerId IsLeft:player.isLeft IsMe:player.playerId == _game.playerId];
+-(Tank*)addPlayerNode:(Player*) player {
+    Tank* node = [[Tank alloc] initWithPosition:CGPointMake([self translatePoint:player.position revert:NO].x, self.size.height-100)];
+    node.collisionBitmask = PLAYER_CATEGORY;
     node.name = [NSString stringWithFormat:@"%lld", player.playerId];
-    node.position = CGPointMake([self translatePoint:player.position revert:NO].x, self.size.height-100);
     node.physicsBody.categoryBitMask = PLAYER_CATEGORY;
     node.physicsBody.restitution = 0.0;
-    node.delegate = self;
 
     [self addChild:node];
+    for (SKPhysicsJoint* joint in node.joints) {
+        [self.physicsWorld addJoint:joint];
+    }
+
     return node;
 }
 
@@ -165,7 +154,7 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
 
 -(void)fireMissile:(CGPoint) position Velocity:(CGVector) velocity{
     //NSLog(@"fireMissle pos:%f/%f velocity: %f/%f", position.x, position.y, velocity.dx, velocity.dy);
-    CGFloat yOffset = 15.0;
+    CGFloat yOffset = 80.0;
     SKSpriteNode *bullet = [SKSpriteNode spriteNodeWithColor:[SKColor grayColor] size:CGSizeMake(10, 10)];
     bullet.name = @"Bullet";
     bullet.position = CGPointMake(position.x, position.y +yOffset);
@@ -177,6 +166,7 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
     bullet.physicsBody.contactTestBitMask = HILL_CATEGORY | BLOCK_CATEGORY | PLAYER_CATEGORY;
     [bullet runAction:fireSound];
     CGFloat factor = 1000;
+    bullet.physicsBody.mass = 0.1;
     bullet.physicsBody.velocity = CGVectorMake(velocity.dx * factor, velocity.dy * factor);
 }
 
@@ -208,12 +198,6 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
 }
 
 -(void)gameOver:(CGFloat)points {
-//    SKSpriteNode *winnerNode;
-//    SKSpriteNode *loserNode;
-//    
-//    [loserNode removeFromParent];
-//    [winnerNode runAction:[SKAction moveToX:self.size.width/2 duration:1]];
-    
     SKLabelNode *backMenu = [SKLabelNode labelNodeWithFontNamed:@"System"];
     backMenu.name = @"BackButton";
     backMenu.fontColor = [SKColor whiteColor];
@@ -225,7 +209,8 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
 }
 
 -(void)changeAngle:(CGFloat)angle {
-    _myComponnets.Car.towerRotation += angle;
+    _angle += angle;
+    _myComponnets.Tank.towerRotation = _angle;
     [self runAction:changeAngleSound];
 }
 
@@ -254,7 +239,6 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
             }
             
             p2 = [firstBody.node.name intValue];
-            //            NSLog(@"attack %@", firstBody.node.name);
         }
         
         //
@@ -269,7 +253,8 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
 }
 
 -(BOOL)isMyTurn {
-    return _prevTurnPlayer == _game.playerId;
+//    return _prevTurnPlayer == _game.playerId;
+    return YES;
 }
 
 #pragma mark -
@@ -287,9 +272,9 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
             _move = 1;
         }
     } else if ([node.name isEqualToString:@"AngleLeft"]) {
-        [self changeAngle:0.1];
+        [self changeAngle:1];
     } else if ([node.name isEqualToString:@"AngleRight"]) {
-        [self changeAngle:-0.1];
+        [self changeAngle:-1];
     } else if ([node.name isEqualToString:@"FireButton"]) {
         if([self isMyTurn]) {
             _fireButtonTouched = YES;
@@ -314,12 +299,12 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
     } else if ([node.name isEqualToString:@"FireButton"] && _fireButtonTouched) {
         _fireButtonTouched = NO;
         CGFloat power = _powerBar.percent + 0.1;
-        CGFloat x = cosf(_myComponnets.Car.towerRotation) * power * 1.5;
-        CGFloat y = sinf(_myComponnets.Car.towerRotation) * power * 1.5;
+        CGFloat x = cosf(_myComponnets.Tank.towerRotation) * power * 1.5;
+        CGFloat y = sinf(_myComponnets.Tank.towerRotation) * power * 1.5;
         CGVector velocity = CGVectorMake(x, y);
         
-        [self fireMissile:_myComponnets.Car.position Velocity:velocity];
-        [_game.client fire:[self translatePoint:_myComponnets.Car.position revert:YES] velocity:velocity];
+        [self fireMissile:_myComponnets.Tank.position Velocity:velocity];
+        [_game.client fire:[self translatePoint:_myComponnets.Tank.position revert:YES] velocity:velocity];
     }
 }
 
@@ -349,7 +334,7 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
 -(void)matchInit:(NSArray *)players KeyPoints:(NSArray *)points {
     for (Player* p in players) {
         PlayerComponents * pc = [[PlayerComponents alloc] init];
-        pc.Car = [self addPlayerNode:p];
+        pc.Tank = [self addPlayerNode:p];
         pc.Hud = [self addHudNode:p];
         pc.Player = p;
         [_playerNodes setObject:pc forKey:@(p.playerId)];
@@ -362,10 +347,10 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
     terrain.physicsBody.categoryBitMask = HILL_CATEGORY;
     terrain.name = @"Buttom";
     terrain.zPosition = -1;
+    terrain.physicsBody.friction = 0.8;
     [self addChild:terrain];
     
-//    [self addChild:_fireControl];
-    _angle = _myComponnets.Player.isLeft ? 45 : 135;
+    _angle = _myComponnets.Player.isLeft ? M_PI_4 : M_PI_4*3;
     [self addControls];
 }
 
@@ -375,27 +360,24 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
 
 -(void)matchTurn:(int64_t)playerId {
     if (_prevTurnPlayer != 0) {
-        Car* car = [self getPlayerNode:_prevTurnPlayer].Car;
+        Tank* car = [self getPlayerNode:_prevTurnPlayer].Tank;
         car.zRotation = 0;
         [car takeTurn:NO];
     }
     
     NSLog(@"matchTurn: %lld", playerId);
-    Car* car = [self getPlayerNode:playerId].Car;
+    Tank* car = [self getPlayerNode:playerId].Tank;
     [car takeTurn:YES];
     _prevTurnPlayer = playerId;
-    
-//    _myComponnets.Car.zRotation = 0.0;
 }
 
 -(void)playerMove:(int64_t)playerId position:(CGPoint)position{
-    Car* car = [self getPlayerNode:playerId].Car;
+    Tank* car = [self getPlayerNode:playerId].Tank;
     car.position = [self translatePoint:position revert:NO];
-//    [car runAction:[SKAction moveToX:[self translatePoint:position].x duration:1]];
 }
 
 -(void)playerFire:(int64_t)playerId position:(CGPoint)position velocity:(CGVector)velocity{
-    Car* car = [self getPlayerNode:playerId].Car;
+    Tank* car = [self getPlayerNode:playerId].Tank;
     car.position = [self translatePoint:position revert:NO];
     
     [car takeTurn:NO];
@@ -414,20 +396,14 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
 
 
 -(void)update:(NSTimeInterval)currentTime {
+    if (_myComponnets.Tank.zRotation > M_PI_2 || _myComponnets.Tank.zRotation < 0) {
+        _myComponnets.Tank.zRotation = 0;
+    }
     
-    CGFloat rotation = _myComponnets.Car.zRotation + M_PI_2;
-    CGFloat thrust = 10;
-    CGVector thrustVector = CGVectorMake(thrust*cosf(rotation),
-                                         thrust*sinf(rotation));
     if (_move > 0) {
-        NSLog(@"moveRight: %f/%f", thrustVector.dx, thrustVector.dy);
-        
-        [_myComponnets.Car.physicsBody applyForce:CGVectorMake(20, 0)];
+        [_myComponnets.Tank move:YES];
     } else if(_move < 0) {
-        CGVector thrustVector = CGVectorMake(-thrust*cosf(rotation),
-                                             thrust*sinf(rotation));
-        NSLog(@"moveLeft: %f/%f", thrustVector.dx, thrustVector.dy);
-        [_myComponnets.Car.physicsBody applyForce:CGVectorMake(-20, 0)];
+        [_myComponnets.Tank move:NO];
     } else {
     }
     

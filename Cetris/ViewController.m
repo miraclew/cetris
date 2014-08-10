@@ -10,6 +10,7 @@
 #import "TerrainScene.h"
 #import "TestScene.h"
 #import "StartScene.h"
+#import "TankScene.h"
 
 @implementation ViewController
 
@@ -21,11 +22,17 @@
     SKView * skView = (SKView *)self.view;
     skView.showsFPS = YES;
     skView.showsNodeCount = YES;
-//    skView.showsPhysics = YES;
+    skView.showsPhysics = YES;
     
     self.game = [[Game alloc] init];
     self.game.view = skView;    
     [self.game start];
+//    [self presentTestScene:skView];
+}
+
+-(void)presentTestScene:(SKView *)view {
+    SKScene *scene = [[TankScene alloc] initWithSize:self.view.bounds.size];
+    [view presentScene:scene];
 }
 
 - (BOOL)shouldAutorotate

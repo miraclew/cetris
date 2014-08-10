@@ -17,7 +17,8 @@
 
 #define HEADER_LENGTH 8
 
-#define HOST @"192.168.1.102"
+//#define HOST @"192.168.1.103"
+#define HOST @"127.0.0.1"
 #define HTTP_PORT 8080
 #define TCP_PORT 8081
 

@@ -26,5 +26,4 @@
 
 -(void)takeTurn:(BOOL)take;
 
-
 @end

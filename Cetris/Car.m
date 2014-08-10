@@ -80,9 +80,6 @@
     if (take) {
         _countDown.hidden = NO;
         _countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDown) userInfo:nil repeats:YES];
-//        SKAction* fadeOut = [SKAction fadeOutWithDuration:1];
-//        SKAction* fadeIn = [SKAction fadeInWithDuration:1];
-//        [self runAction:[SKAction repeatActionForever:[SKAction sequence:@[fadeOut, fadeIn]]]];
     }
 }
 

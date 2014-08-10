@@ -22,19 +22,40 @@
     PlayerTeam _turn;
     int64_t _turnPlayerId;
     PlayerTeam _winner;
+    CGFloat _width;
+    CGFloat _heigth;
 }
 
 -(void)start {
     _state = GS_INIT;
-    
-    _startScene = [[StartScene alloc] initWithSize:self.view.bounds.size Game:self];
-    _startScene.scaleMode = SKSceneScaleModeAspectFill;
-    [self.view presentScene:_startScene];
+    NSLog(@"Screen size: %f/%f", self.view.bounds.size.width, self.view.bounds.size.height);
+    [self presentScene:@"StartScene"];
 
     _defaultClient = [[DefaultClient alloc] initWithDelegate:self];
     _client = _defaultClient;
     [_defaultClient connectWith:@"Scron" passWord:@"bot"];
     
+}
+
+-(SKScene*)presentScene:(NSString*)className {
+    CGFloat width,height;
+    if (self.view.bounds.size.width > self.view.bounds.size.height) {
+        width = self.view.bounds.size.width;
+        height = self.view.bounds.size.height;
+    } else {
+        height = self.view.bounds.size.width;
+        width = self.view.bounds.size.height;
+    }
+    
+    _startScene = [[NSClassFromString(className) alloc] initWithSize:CGSizeMake(1024, 768) Game:self];
+    if ((int)width == 1024) {
+        _startScene.scaleMode = SKSceneScaleModeAspectFill;
+    } else {
+        _startScene.xScale = width/1024.0f;
+        _startScene.yScale = height/768.0f;
+    }
+    [self.view presentScene:_startScene];
+    return _startScene;
 }
 
 -(void)matchEnter {
@@ -107,11 +128,7 @@
     _players = players;
     _keyPoints = points;
     
-    _matchScene = [[MatchScene alloc] initWithSize:self.view.bounds.size Game:self];
-    _matchScene.scaleMode = SKSceneScaleModeAspectFill;
-    
-    // Present the scene.
-    [_view presentScene:_matchScene];
+    _matchScene = (MatchScene*) [self presentScene:@"MatchScene"];
     [_matchScene matchInit:players KeyPoints:points];
     _state = GS_GAMING;
 }
