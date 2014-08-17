@@ -11,6 +11,8 @@
 @interface Tank : SKSpriteNode
 
 @property (nonatomic) SKSpriteNode* stick;
+@property (nonatomic) SKSpriteNode* chassis;
+
 @property (nonatomic) SKSpriteNode *leftWheel;
 @property (nonatomic) NSMutableArray* joints;
 @property (nonatomic, assign) CGFloat towerRotation;
@@ -19,4 +21,6 @@
 -(id)initWithPosition:(CGPoint)pos;
 -(void)move:(BOOL)left;
 -(void)takeTurn:(BOOL)take;
+
+-(void)changeTowerRotaion:(CGFloat)rotationDelta;
 @end

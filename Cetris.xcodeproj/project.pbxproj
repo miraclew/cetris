@@ -17,6 +17,7 @@
 		0032B6FE198CBE20006A0BDD /* sprite8.png in Resources */ = {isa = PBXBuildFile; fileRef = 0032B6F8198CBE20006A0BDD /* sprite8.png */; };
 		0032B704198CE109006A0BDD /* 10.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0032B703198CE109006A0BDD /* 10.wav */; };
 		0032B707198CE2E8006A0BDD /* ProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0032B706198CE2E8006A0BDD /* ProgressBar.m */; };
+		0057C31119A095C300B29A2E /* tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 0057C31019A095C300B29A2E /* tile.png */; };
 		0066A14C1975676B0047715D /* Documentation.html in Resources */ = {isa = PBXBuildFile; fileRef = 0066A1471975676B0047715D /* Documentation.html */; };
 		00686C76195CDBBC00674F1C /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 00686C74195CDBBC00674F1C /* spark.png */; };
 		00686C77195CDBBC00674F1C /* explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 00686C75195CDBBC00674F1C /* explosion.sks */; };
@@ -113,6 +114,7 @@
 		0032B703198CE109006A0BDD /* 10.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 10.wav; sourceTree = "<group>"; };
 		0032B705198CE2E8006A0BDD /* ProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressBar.h; sourceTree = "<group>"; };
 		0032B706198CE2E8006A0BDD /* ProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressBar.m; sourceTree = "<group>"; };
+		0057C31019A095C300B29A2E /* tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tile.png; sourceTree = "<group>"; };
 		0066A1471975676B0047715D /* Documentation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Documentation.html; sourceTree = "<group>"; };
 		00686C74195CDBBC00674F1C /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		00686C75195CDBBC00674F1C /* explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = explosion.sks; sourceTree = "<group>"; };
@@ -426,6 +428,7 @@
 			isa = PBXGroup;
 			children = (
 				0080C5981996228F00E94500 /* wheel.png */,
+				0057C31019A095C300B29A2E /* tile.png */,
 				0080C59619961FAE00E94500 /* tank.png */,
 				0032B6F3198CBE20006A0BDD /* sprite3.png */,
 				0032B6F4198CBE20006A0BDD /* sprite4.png */,
@@ -624,6 +627,7 @@
 				0032B6F2198C776C006A0BDD /* TestScene.sks in Resources */,
 				00686C76195CDBBC00674F1C /* spark.png in Resources */,
 				00BEEBF31984F8EC009D2E82 /* libprotoc.la in Resources */,
+				0057C31119A095C300B29A2E /* tile.png in Resources */,
 				0080C5991996228F00E94500 /* wheel.png in Resources */,
 				00C592FD194D9B0600976C6D /* Images.xcassets in Resources */,
 				0032B6FD198CBE20006A0BDD /* sprite7.png in Resources */,

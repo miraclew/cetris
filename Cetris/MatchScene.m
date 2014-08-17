@@ -14,7 +14,7 @@
 
 static const uint32_t PLAYER_CATEGORY = 0x1 << 0;
 static const uint32_t HILL_CATEGORY = 0x1 << 1;
-static const uint32_t BLOCK_CATEGORY = 0x1 << 2;
+static const uint32_t WALL_CATEGORY = 0x1 << 2;
 static const uint32_t BULLET_CATEGORY = 0x1 << 3;
 
 @interface PlayerComponents : NSObject
@@ -67,6 +67,7 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
         self.backgroundColor = [SKColor grayColor];
         
         self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
+        self.physicsBody.categoryBitMask = WALL_CATEGORY;
         
         fireSound = [SKAction playSoundFileNamed:@"box.wav" waitForCompletion:NO];
         explosionSound = [SKAction playSoundFileNamed:@"nitro.wav" waitForCompletion:NO];
@@ -118,7 +119,7 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
 
 -(Tank*)addPlayerNode:(Player*) player {
     Tank* node = [[Tank alloc] initWithPosition:CGPointMake([self translatePoint:player.position revert:NO].x, self.size.height-100)];
-    node.collisionBitmask = PLAYER_CATEGORY;
+    node.chassis.physicsBody.categoryBitMask = PLAYER_CATEGORY;
     node.name = [NSString stringWithFormat:@"%lld", player.playerId];
     node.physicsBody.categoryBitMask = PLAYER_CATEGORY;
     node.physicsBody.restitution = 0.0;
@@ -163,7 +164,8 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
     
     bullet.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(10, 10)];
     bullet.physicsBody.categoryBitMask = BULLET_CATEGORY;
-    bullet.physicsBody.contactTestBitMask = HILL_CATEGORY | BLOCK_CATEGORY | PLAYER_CATEGORY;
+    bullet.physicsBody.contactTestBitMask = HILL_CATEGORY | PLAYER_CATEGORY;
+    bullet.physicsBody.collisionBitMask = HILL_CATEGORY | PLAYER_CATEGORY;
     [bullet runAction:fireSound];
     CGFloat factor = 1000;
     bullet.physicsBody.mass = 0.1;
@@ -209,8 +211,7 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
 }
 
 -(void)changeAngle:(CGFloat)angle {
-    _angle += angle;
-    _myComponnets.Tank.towerRotation = _angle;
+    [_myComponnets.Tank changeTowerRotaion:angle];
     [self runAction:changeAngleSound];
 }
 
@@ -248,6 +249,9 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
         }
         
         [self explodeAtPoint:contact.contactPoint];
+        if ([secondBody.node.name isEqualToString:@"Tank.chassis"]) {
+            NSLog(@"sss");
+        }
         [secondBody.node runAction:[SKAction removeFromParent]];
     }
 }
@@ -272,9 +276,9 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
             _move = 1;
         }
     } else if ([node.name isEqualToString:@"AngleLeft"]) {
-        [self changeAngle:1];
+        [self changeAngle:M_PI/20];
     } else if ([node.name isEqualToString:@"AngleRight"]) {
-        [self changeAngle:-1];
+        [self changeAngle:-M_PI/20];
     } else if ([node.name isEqualToString:@"FireButton"]) {
         if([self isMyTurn]) {
             _fireButtonTouched = YES;
@@ -335,6 +339,7 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
     for (Player* p in players) {
         PlayerComponents * pc = [[PlayerComponents alloc] init];
         pc.Tank = [self addPlayerNode:p];
+        pc.Tank.towerRotation = p.isLeft ? M_PI_4 : M_PI_4*3;
         pc.Hud = [self addHudNode:p];
         pc.Player = p;
         [_playerNodes setObject:pc forKey:@(p.playerId)];
@@ -350,7 +355,6 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
     terrain.physicsBody.friction = 0.8;
     [self addChild:terrain];
     
-    _angle = _myComponnets.Player.isLeft ? M_PI_4 : M_PI_4*3;
     [self addControls];
 }
 
@@ -405,6 +409,12 @@ static const uint32_t BULLET_CATEGORY = 0x1 << 3;
     } else if(_move < 0) {
         [_myComponnets.Tank move:NO];
     } else {
+    }
+    
+    for (id key in _playerNodes) {
+        PlayerComponents *pc = _playerNodes[key];
+        Tank *t = pc.Tank;
+        t.stick.position = CGPointMake(t.position.x, t.position.y+15);
     }
     
     if (_fireButtonTouched) {
